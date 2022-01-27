@@ -1,0 +1,63 @@
+{
+    "id": 7,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "7",
+                "title": "Reaching The Seventh"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "Thumbs Up (07/12/2007)",
+                "</p>",
+                "<p>",
+                "There is a tale with no happy ending,<br>",
+                "With a storyline of many bending,<br>",
+                "And it starts with a boy who had this thumb,<br>",
+                "Which one day in the cold got really numb.",
+                "</p>",
+                "<p>",
+                "His opposable finger grew quite big,<br>",
+                "And certainly as pink as a fat pig,<br>",
+                "It weighed almost as much as a whole ton,<br>",
+                "And it could block his face from the bright sun.",
+                "</p>",
+                "<p>",
+                "His thumb stayed that way until he grew old,<br>",
+                "Because of that everything he had sold,<br>",
+                "He became a poor who sat by the road,<br>",
+                "Waiting for the day his thumb will explode.",
+                "</p>",
+                "<p>",
+                "However instead of that came the twist,<br>",
+                "His thumb became too heavy for his wrist,<br>",
+                "And down on his body it came on top,<br>",
+                "And flat on the ground dead he would just drop.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "The hospital is not a scary place at all. Sure the coughing from patients, the blood on the clothes, pointy needles, agonising screams, strange-looking characters, dangerous-looking tools and suspicious-looking rooms may be worrying, but looking past those, it is not that scary.",
+                "</p>",
+                "<p>",
+                "I sat there patiently, waiting for my turn. Children ran by past me, giggling with joy. Me? I was sick. It was not life-threatening but it was life-changing. It was here from birth and it was here to stay. I accepted it. ",
+                "</p>",
+                "<p>",
+                "Then, my name was called. I walked towards the second room. Children ran around me. I envied them.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

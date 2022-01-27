@@ -1,0 +1,61 @@
+{
+    "id": 21,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "21",
+                "title": "Taking On Twenty-One"
+            },
+            "type": "entry",
+            "position": "left",
+            "text":
+            [
+                 "<p>",
+                "Balance (21/12/2007)",
+                "</p>",
+                "<p>",
+                "My brain cannot think,<br>",
+                "Swirling in the pink,<br>",
+                "I cannot comprehend,<br>",
+                "I try to understand.",
+                "</p>",
+                "<p>",
+                "Things somewhat struck,<br>",
+                "Such as good luck,<br>",
+                "Followed by the bad,<br>",
+                "Makes me really mad.",
+                "</p>",
+                "<p>",
+                "Both sides are same,<br>",
+                "Much like a simple game,<br>",
+                "Both sides are opposing,<br>",
+                "No one is losing.",
+                "</p>",
+                "<p>",
+                "Also, no one will win,<br>",
+                "Every virtue has a sin,<br>",
+                "The big picture will just stare,<br>",
+                "The world is all fair.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Do you believe in balance?<br>",
+                "Everything has its two sides. Everything has its opposites. And by opposites, I mean the absences of. Like light and darkness. The absence of light is simply darkness and vice versa. It is like a coin standing on its circumference, spinning around slowly as it tries to fall on either side. The thing is that it will never fall. It is perpetually there. It is in a perfect symmetry.",
+                "</p>",
+                "<p>",
+                "These two never-ending opposing forces it is what supplying the world with energy. Without it, the world would be dead. It is what drives the good to fight the evil and lures the evil to come out to play. Right now, there is an inner conflict within my soul.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

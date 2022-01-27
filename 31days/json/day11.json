@@ -1,0 +1,60 @@
+{
+    "id": 11,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "11",
+                "title": "Next Is The Eleventh"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "Within Ten (11/12/2007)",
+                "</p>",
+                "<p>",
+                "We all choose our own road,<br>",
+                "The way we go, our own mode,<br>",
+                "It is our choice, where we will end,<br>",
+                "To take the turn or swerve the bend.",
+                "</p>",
+                "<p>",
+                "Every choice we are making now,<br>",
+                "Determines the future and its how,<br>",
+                "Life has laid out a few to pick,<br>",
+                "And we should take it fast and quick.",
+                "</p>",
+                "<p>",
+                "Plan and more paths will appear,<br>",
+                "If not chaos will be severe,<br>",
+                "Select a way without a pause,<br>",
+                "And see what it will cause.",
+                "</p>",
+                "<p>",
+                "I made mine while this I write,<br>",
+                "At this very moment, in the night,<br>",
+                "Something will happen, I am told,<br>",
+                "But only the future will hold.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "I never like making decisions at the last minute. I prefer to analyse and predict the upcoming events before making one. However I have made some on-the-spot decisions lately and it has been turning out pretty good.",
+                "</p>",
+                "<p>",
+                "However, the effect now can differ from the bigger picture. The future holds the outcome of our lives. My decision right now is to write this in a state of sleepiness which is unbearable to withstand. I think what I am writing might be nonsense. But, who knows? This might turn out differently for the people who are reading it.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

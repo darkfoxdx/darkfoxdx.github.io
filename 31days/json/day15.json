@@ -1,0 +1,111 @@
+{
+    "id": 15,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "15",
+                "title": "Yelling For Fifteen"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "He Ran Away (15/12/2007)",
+                "</p>",
+                "<p>",
+                "He is gone, not coming back,<br>",
+                "I saw him leave his little shack,<br>",
+                "Out of the comfort and into the wild,<br>",
+                "Leaving everything as he smiled.",
+                "</p>",
+                "<p>",
+                "He kept on staring up high,<br>",
+                "Before letting out a sigh,<br>",
+                "Leaving behind all he had,<br>",
+                "But he looked as though he was glad,<br>",
+                "With that smirk on his face,<br>",
+                "Leaving all without a trace.",
+                "</p>",
+                "<p>",
+                "To me it was like a theft,<br>",
+                "Just as soon as he left,<br>",
+                "I do not know how he will be,<br>",
+                "Less happy for him to be free,<br>",
+                "I know him well enough,<br>",
+                "This is not at all a bluff,<br>",
+                "He knew his heart could not be won,<br>",
+                "For he goes by the name of John.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "poem",
+            "position": "left",
+            "text":
+            [
+                 "<p>",
+                "With reference to:",
+                "</p>",
+                "<p>",
+                "John (20/06/2006)",
+                "</p>",
+                "<p>",
+                "John, oh, John, forget the past,<br>",
+                "You know it would never last,<br>",
+                "So why do you still recall the day,<br>",
+                "When the words were fresh in the month of May.",
+                "</p>",
+                "<p>",
+                "As a friend, I am advising you,<br>",
+                "A friend who knows as I went through,<br>",
+                "The same events as you did too,<br>",
+                "And I tell you it was all true.",
+                "</p>",
+                "<p>",
+                "A bullet to the broken heart?<br>",
+                "A piece of letter being torn apart?<br>",
+                "I once lived the life of love,<br>",
+                "Now I looked down instead above.",
+                "</p>",
+                "<p>",
+                "Oh, but you, my good pal John,<br>",
+                "Please do not let go, please hold on,<br>",
+                "Just let time carry by,<br>",
+                "‘Cause I know that, cause you am I.<br>",
+                "",
+                "</p>"
+            ],
+            "img": false
+        },
+        {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Well, it’s hard to put it in words; the most cliched line. But it is true. How can you truly express a feeling and place it into an arrangement of letters? It is close to impossible. It is even hard for it to be written when you know it will bring sadness. I cannot bear to tell you face to face. So, I am writing this to you. I am going to leave now. Nothing will change my mind about my departure. I have caused too much trouble too even though you cannot see it. I wish you well for the future because you need it more than me.<br>",
+                "1-2-1, 2-3-1, 3-4-1",
+                "</p>",
+                "<p>",
+                "-John",
+                "</p>"
+            ],
+            "img": false
+        },
+        {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "That letter was found on the table at about six in the morning. I guess he was serious but I am going to find him anyway. My friend decided to tag along. And so we’re on our journey.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

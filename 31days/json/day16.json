@@ -1,0 +1,79 @@
+{
+    "id": 16,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "16",
+                "title": "Only Sixteen"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Weather (16/12/2007)",
+                "</p>",
+                "<p>",
+                "Dark clouds in the sky,<br>",
+                "Simply rolling by,<br>",
+                "Under the yellow sun,<br>",
+                "Where the rays run.",
+                "</p>",
+                "<p>",
+                "Lightning strikes the earth,<br>",
+                "Upon nature's constant birth.",
+                "</p>",
+                "<p>",
+                "Repairable damage,<br>",
+                "Its future's passage,<br>",
+                "Healing the hurt,<br>",
+                "Upon its dirt.",
+                "</p>",
+                "<p>",
+                "Restoration of many lives,<br>",
+                "Like bees fixing their hives.",
+                "</p>"
+            ],
+            "img": true
+        },
+                {
+            "type": "poem",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "Only A Cover For A Friend (16/12/2007)",
+                "</p>",
+                "<p>",
+                "Guy sitting near me,<br>",
+                "Going to sing this poem,<br>",
+                "But he is a fool.",
+                "</p>",
+                "<p>",
+                "He will sing in tune,<br>",
+                "But it will be deafening,<br>",
+                "It will kill us all.",
+                "</p>",
+                "<p>",
+                "High pitched voice of doom,<br>",
+                "Shattering all the glasses.<br>",
+                "Till he cannot speak.",
+                "</p>"
+            ],
+            "img": false
+        },
+        {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "It is the second day in my quest to seek John. We are crashing at a friend’s place. Both of them do not know about this mission because it only involves me. The rest of them were being creative and comparing artistic works. Both of them are more into visual art. As for me, I am next to them with my blue notepad, writing. My accomplice who followed me here is rather annoying and likes to sing what I have written. Overall, it has been pretty fun. However, John was nowhere to be found.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

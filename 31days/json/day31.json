@@ -1,0 +1,77 @@
+{
+    "id": 31,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "31",
+                "title": "Goal Called Thirty-One"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "The Turning Point (31/12/2007)",
+                "</p>",
+                "<p>",
+                "Why do I watch the time go by,<br>",
+                "With nothing but a silent sigh,<br>",
+                "On the day before a new,<br>",
+                "Where the moments are a few,<br>",
+                "As they fly through the open sky.",
+                "</p>",
+                "<p>",
+                "As both hands upon a face meet,<br>",
+                "Raise your glass with drinks of sweet,<br>",
+                "Within the crowd I hear a cheer,<br>",
+                "A mess of sounds which is not clear,<br>",
+                "Giving out an awkward heat.",
+                "</p>",
+                "<p>",
+                "I can feel the bass in my heartbeat,<br>",
+                "I can feel the vibrations beneath my seat,<br>",
+                "The flashing lights from different spots,<br>",
+                "Lasers forming colourful dots,<br>",
+                "It all would have been quite neat.",
+                "</p>",
+                "<p>",
+                "Music streams through and I hear,<br>",
+                "As each one dances with a dear,<br>",
+                "At the stands with a glass in my hand,<br>",
+                "The taste of my drink feeling bland,<br>",
+                "As I welcome the new year.",
+                "</p>",
+                "<p>",
+                "Midnight comes within the range,<br>",
+                "I guess it is time for me to change,<br>",
+                "A resolution to be made,<br>",
+                "And many things to be said,<br>",
+                "Change starts now and old will fade.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "A glass of champagne in my hand. Today is the last day. This is the last entry. The end as they call it. However, everything has to come to a close. And unlike most conclusions, this one is rather refreshing.",
+                "</p>",
+                "<p>",
+                "Things are coming to a full circle. Ironically, the ending is about the beginning. The end of the year is always about turning a new leaf or even starting resolutions. For me, the course of this whole event was like a lesson. Lose something and in the end you will gain something new. ",
+                "</p>",
+                "<p>",
+                "Change. Everything changes. As long as the numbers are moving, nothing is forever. Even this book of which I have written and you are reading will slowly turn to dust.",
+                "</p>",
+                "<p>",
+                "A minute to midnight. I hold a glass of champagne in my hand. The fireworks erupt as both hands hit twelve. I raise my glass in a toast with everyone around me and take a sip. It is the end; it is a new year.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

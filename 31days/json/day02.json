@@ -1,0 +1,67 @@
+{
+    "id": 2,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "2",
+                "title": "Hobbling in the Second"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "Effortless (02/12/2007)",
+                "</p>",
+                "<p>",
+                "Something so simple,<br>",
+                "Some slightly significant,<br>",
+                "Some secondary.",
+                "</p>",
+                "<p>",
+                "Looks little like less,<br>",
+                "Lowly laboured little life,<br>",
+                "Longing lots labour.",
+                "</p>",
+                "<p>",
+                "Enough energy,<br>",
+                "Essential effort enforced,<br>",
+                "Elaborated.",
+                "</p>",
+                "<p>",
+                "Even everything,<br>",
+                "Enormous either elfin,<br>",
+                "Entails exercise.",
+                "</p>",
+                "<p>",
+                "Perceive properly,<br>",
+                "Product postulate power,<br>",
+                "Peril present pain.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "In a blink of an eye, the second day is here. And that one blink takes around eight hours for me. It was truly a blink as my dreams and nightmares were not present.",
+                "</p>",
+                "<p>",
+                "A blink of an eye is all it takes to clarify something. At first sight, the world can be a blur. The eyes cannot interpret in the first glimpse. It takes some time to absorb it. Most of the time, we underestimate the complexity of a certain thing.",
+                "</p>",
+                "<p>",
+                "Until we realise it. Or it is pointed out. Only until we stare long enough at that one thing for an obscenely long time and take a brief moment to ponder upon it we will be able to understand.",
+                "</p>",
+                "<p>",
+                "Ignorance is bliss. Knowledge is power. And curiosity has killed many cats.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

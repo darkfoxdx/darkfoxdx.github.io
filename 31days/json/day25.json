@@ -1,0 +1,66 @@
+{
+    "id": 25,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "25",
+                "title": "Letting Twenty-Five Over"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "The Eclipse (25/12/2007)",
+                "</p>",
+                "<p>",
+                "The sun, she dances behind the full moon,<br>",
+                "In the early of the afternoon,<br>",
+                "As the shadow blankets the whole ball,<br>",
+                "Creating an imaginary wall.",
+                "</p>",
+                "<p>",
+                "The moon, she gains all the attention.<br>",
+                "While the people scream out for protection,<br>",
+                "As though both orbs have joined as one.<br>",
+                "As the moon has stolen the sun.",
+                "</p>",
+                "<p>",
+                "The day, she turns to night without light.<br>",
+                "Curiosity takes a look at the sight,<br>",
+                "Dark circle bound by a bright ring,<br>",
+                "And no one has seen such a thing.",
+                "</p>",
+                "<p>",
+                "The people, they run around in panic,<br>",
+                "The word of doom spreads like toxic,<br>",
+                "Within the crowd, causing chaos to blend,<br>",
+                "As they yell about the upcoming end.",
+                "</p>",
+                "<p>",
+                "The time, it passes by all this while,<br>",
+                "Though there is nothing on the dial,<br>",
+                "After minutes, the sun will emerge,<br>",
+                "The people were never on the verge.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Imagine, if you existed during the very first eclipse, how would you feel? You notice the sky turning dark and it is not because of clouds but rather an object circulating around the world. Slowly, it begins to grow darker. Torches are lit and people huddled together. The shaman is out, chanting a prayer. You begin to wonder what is this strange phenomenon happening and what will happen. A few minutes pass and it is total darkness in the sky. The sundial has stopped. Everyone is panicking. And after about eight minutes, the sun comes back.",
+                "</p>",
+                "<p>",
+                "I wonder how the first Christmas was and how people slowly accepted it. I bet not all of them accepted it the first time. Well, now Christmas is totally different from before, I bet. Either way, Merry Christmas.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "id": 9,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "9",
+                "title": "Yet Another For Nine"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Lost and Found (9/12/2007)",
+                "</p>",
+                "<p>",
+                "Part 1: Place of Meeting",
+                "</p>",
+                "<p>",
+                "Out of the many places,<br>",
+                "There's only one with the faces.",
+                "</p>",
+                "<p>",
+                "Faces once common before,<br>",
+                "Of people we used to adore.",
+                "</p>",
+                "<p>",
+                "We met each other again,<br>",
+                "A friendship will remain.",
+                "</p>",
+                "<p>",
+                "And forget we will not,<br>",
+                "Of that very meeting spot.",
+                "</p>",
+                "<p>",
+                "Part 2: Lost in Crowd",
+                "</p>",
+                "<p>",
+                "People here they gather,<br>",
+                "Yet we don't meet each other.",
+                "</p>",
+                "<p>",
+                "No matter how near we are,<br>",
+                "We are still quite far.",
+                "</p>",
+                "<p>",
+                "I haven't got a clue,<br>",
+                "I am unable to find you.",
+                "</p>",
+                "<p>",
+                "To myself I keep lying,<br>",
+                "That's why I am still trying.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "I stood in line. The line was long. I had been waiting for a while now. The line inched closer and soon there were just two more people away from my turn. Then I saw a familiar face pass by. There was a decision to be made. I decided to wait and get the job done before rushing off. I ran towards the direction of where she went. This place was where we met once more two years ago. I dashed as fast as I could. I managed to spot her. She walked into the crowd. I followed after her. I looked around in the midst of many people. Where had she gone? I took ten minutes to look around before I had to leave.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

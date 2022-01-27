@@ -1,0 +1,88 @@
+{
+    "id": 24,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "24",
+                "title": "Broken Twenty-Four"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Linked Chess (24/12/2007)",
+                "</p>",
+                "<p>",
+                "It might be unexpected,<br>",
+                "But everything is connected.",
+                "</p>",
+                "<p>",
+                "I have thought about it,<br>",
+                "An analogy best fit.",
+                "</p>",
+                "<p>",
+                "Life is like a game of chess,<br>",
+                "With three two pieces, no more no less.",
+                "</p>",
+                "<p>",
+                "Each person is a simple game,<br>",
+                "But no two boards are played the same.",
+                "</p>",
+                "<p>",
+                "There is nothing much to prove,<br>",
+                "As one by one both sides move.",
+                "</p>",
+                "<p>",
+                "A constant battle between two sides,<br>",
+                "Piece by piece, each one slides.",
+                "</p>",
+                "<p>",
+                "But the very thing is this,<br>",
+                "Consequences will not go amiss.",
+                "</p>",
+                "<p>",
+                "As each step will affect,<br>",
+                "Depending on what you select.",
+                "</p>",
+                "<p>",
+                "No positioning is wrong,<br>",
+                "Games can be short or long.",
+                "</p>",
+                "<p>",
+                "There is nothing to be said,<br>",
+                "When the game is being played.",
+                "</p>",
+                "<p>",
+                "Putting in a lot of thought,<br>",
+                "For when the game is fought.",
+                "</p>",
+                "<p>",
+                "And the game ends with a mate,<br>",
+                "And that will be your fate.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Our lives are linked.<br>",
+                "Newton once said that every action has an equal and opposite reaction. If we do something, there are consequences from the opposing force. Unknowingly, it may hit as hard.",
+                "</p>",
+                "<p>",
+                "Chess has two sides as well. One could be the representation of light, the good side and the other is the opposite. Strategically, both will attack each other but the winner will only be determined when the king is caught. That is when your life will be ended and you will be chained down to either side. ",
+                "</p>",
+                "<p>",
+                "White Bishop to f4. Black Pawn to f7. White Queen to e5, check.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

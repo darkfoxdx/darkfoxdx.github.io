@@ -1,0 +1,63 @@
+{
+    "id": 20,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "20",
+                "title": "Erosion On The Twentieth"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Sensing Wrongly (20/12/2007)",
+                "</p>",
+                "<p>",
+                "I cannot say a word,<br>",
+                "For then it would be heard,<br>",
+                "As I am simply mute,<br>",
+                "I can only play the flute.",
+                "</p>",
+                "<p>",
+                "I cannot hear you speak,<br>",
+                "Your voice may be meek,<br>",
+                "But it does not matter,<br>",
+                "My ears never get better.",
+                "</p>",
+                "<p>",
+                "I cannot smell the stench,<br>",
+                "Coming from that trench,<br>",
+                "And that perfume on you,<br>",
+                "You do not have a clue.",
+                "</p>",
+                "<p>",
+                "I cannot taste the food,<br>",
+                "It is ruining the mood,<br>",
+                "Even if it was a mouthful,<br>",
+                "Or if it tasted awful.",
+                "</p>",
+                "<p>",
+                "I cannot feel the pain,<br>",
+                "Or even the cold rain,<br>",
+                "Upon my epidermis,<br>",
+                "This is no bliss.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "I cannot feel a thing; nothing at all. It is as though I am not alive; like I am dead to the world. You would think it is the coolest thing ever. That is where you are dead wrong. You would rather be dead than to have no feelings at all. When you cannot see, you would not mind the sight of ugliness. When you cannot smell, you would not mind the stench of garbage. When you cannot taste, you would not mind the horrible flavours provided. When you cannot hear, you would not mind the screeching sound of fingernails on blackboards. When you cannot feel, you would not mind a mixture of pain, hot, cold and touch. And when you do have all your senses, you wish for none.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

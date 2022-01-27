@@ -1,0 +1,60 @@
+{
+    "id": 6,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "6",
+                "title": "Inside The Sixth"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "Uncontrollable (06/12/2007)",
+                "</p>",
+                "<p>",
+                "There is always something,<br>",
+                "Heard in songs we sing,<br>",
+                "That a certain feeling,<br>",
+                "Will keep on coming.",
+                "</p>",
+                "<p>",
+                "No matter what I say,<br>",
+                "At the end of the day,<br>",
+                "I am still human in a way,<br>",
+                "With all the flaws to stay.",
+                "</p>",
+                "<p>",
+                "I will still be an addict,<br>",
+                "There is nothing to predict,<br>",
+                "Myself I will afflict,<br>",
+                "And I will contradict.",
+                "</p>",
+                "<p>",
+                "I will not let down my guard,<br>",
+                "Even though a certain card,<br>",
+                "Will make it really hard,<br>",
+                "For this little bard.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "It grows inside, that strong sensation I try to fight. It enhances my senses in certain unexplainable ways. I can feel my heart pounding against my chest. My head spinning from the air I breathe. My eyelids droop above my eyes. I am an insomniac, tired yet not sleepy. Blood is pumping quickly through my veins. Lights, I see them clearly from the screen as they glare into my eyes. I can feel my heart pacing inside my head. I can feel my eyes going moist from the light. I feel like I am about to faint on top of my keyboard. My thoughts are not even present, fleeing away from the situation. Am I dead?",
+                "</p>",
+                "<p>",
+                "My feelings arise once more. I am only human after all. I have my flaws.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

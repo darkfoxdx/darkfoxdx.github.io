@@ -1,0 +1,9 @@
+        {
+            "type": "{type}",
+            "position": "{position}",
+            "text":
+            [
+                "{text}"
+            ],
+            "img": "{img_exist}"
+        }

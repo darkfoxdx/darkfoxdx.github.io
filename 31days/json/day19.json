@@ -1,0 +1,57 @@
+{
+    "id": 19,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "19",
+                "title": "One After Nineteen"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "Calling (19/12/2007)",
+                "</p>",
+                "<p>",
+                "The phone, the phone, where is the phone?<br>",
+                "I am so very alone,<br>",
+                "Can you hear that scream?<br>",
+                "Behind the high white beam?",
+                "</p>",
+                "<p>",
+                "Can you hear my voice?<br>",
+                "Between the white noise<br>",
+                "Hello? Hello? What's with the line?<br>",
+                "I am not doing so fine.",
+                "</p>",
+                "<p>",
+                "My fingers are shaking,<br>",
+                "As I am making,<br>",
+                "No, no, I mean pressing,<br>",
+                "I think I am really stressing.",
+                "</p>",
+                "<p>",
+                "My body will not stop jerking,<br>",
+                "And is this even working?<br>",
+                "Hello? Hello? Can you hear?<br>",
+                "’Cause I'm scared, I fear.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "I managed to get a hold of John and he is not coming back. John was a part of me. He was a good friend of mine and one who was not imaginary. I guess it is time to let go of the past. I have tried that before and failed. I just cannot. I think too much about things. Sometimes it does not allow me to move forward. I keep thinking. And then I ponder upon my thoughts. There is no easier way, unfortunately. I wish there was. Because now, I am slowly degenerating.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

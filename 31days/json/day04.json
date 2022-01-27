@@ -1,0 +1,66 @@
+{
+    "id": 4,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "4",
+                "title": "Then The Forth"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Cyber (04/12/2007)",
+                "</p>",
+                "<p>",
+                "Artificial, the way of life,<br>",
+                "Flying cars and a robot wife,<br>",
+                "Work is reduced; increasing fats,<br>",
+                "And end up being worse than rats.",
+                "</p>",
+                "<p>",
+                "Labour is done without a move,<br>",
+                "No one's better; nothing to prove,<br>",
+                "Tee vee the rule of the book,<br>",
+                "People would sit, obey and look.",
+                "</p>",
+                "<p>",
+                "All these creations they will make,<br>",
+                "Will make this life even more fake,<br>",
+                "Than how it is presently, now,<br>",
+                "When they are still using a plough.",
+                "</p>",
+                "<p>",
+                "However we do really need,<br>",
+                "Bodies from which mercury bleed,<br>",
+                "In order to ease any job,<br>",
+                "Of which time will be there to rob.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "The future; a place of tomorrow, where people see possibilities to look forward to. A place where dreams become reality for the optimistic ones. The future, the near-synonym of hope as most choose to believe.",
+                "</p>",
+                "<p>",
+                "These were words of which I typed while I switched between screens on the computer. It does not belong to me however; I have rented this computer for the time being in order to entertain myself with graphics which are ours to control. I am not alone though, I am out with a group of nine as we fictionally shoot each other on the screens using nothing but a mouse and a keyboard.",
+                "</p>",
+                "<p>",
+                "At the same time, I could be sending messages to people, reading the news, ordering food and so much more. Is this how the world will be in the future? Will we just sit down on our chairs, in front of a box to do our daily chores? ",
+                "</p>",
+                "<p>",
+                "A headshot. I guess I should concentrate on the other thing rather than typing my thoughts. Maybe there will be machines in the future which will think for you. Who knows?",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

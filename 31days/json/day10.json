@@ -1,0 +1,100 @@
+{
+    "id": 10,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "10",
+                "title": "Only The Tenth"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Misters (10/12/2007)",
+                "</p>",
+                "<p>",
+                "Mr Green",
+                "</p>",
+                "<p>",
+                "In the shadows it will follow,<br>",
+                "The part of your heart which remains hollow,<br>",
+                "Filling up with a substance of green,<br>",
+                "The second feeling which makes you mean.",
+                "</p>",
+                "<p>",
+                "You might not be the one who's right,<br>",
+                "But simply because of your own spite,<br>",
+                "You jump onto the train of notion,<br>",
+                "Which causes the process to be in motion.",
+                "</p>",
+                "<p>",
+                "And the only thing you'll do to the beast,<br>",
+                "Is give it a wonderful feast,<br>",
+                "As it watches you fall to the floor,<br>",
+                "As over you the shame will pour.",
+                "</p>",
+                "<p>",
+                "Mr Red",
+                "</p>",
+                "<p>",
+                "Charges inside of your very soul,<br>",
+                "Powered up by blackened coal,<br>",
+                "Enraging the thoughts in the head,<br>",
+                "Not to be confused by the lighter red.",
+                "</p>",
+                "<p>",
+                "Blurring visions in your eyes,<br>",
+                "You will spot nothing but lies,<br>",
+                "Seeing only what it wants to,<br>",
+                "Making yourself think it's true.",
+                "</p>",
+                "<p>",
+                "In the end only damage is done,<br>",
+                "And there is an absence of fun,<br>",
+                "Creating satisfaction for a moment,<br>",
+                "But regret will not be dormant.",
+                "</p>",
+                "<p>",
+                "Mr Yellow",
+                "</p>",
+                "<p>",
+                "When nothing is done or said,<br>",
+                "And your courage is dead,<br>",
+                "Nothing will ever occur,<br>",
+                "If that is what you really prefer.",
+                "</p>",
+                "<p>",
+                "All the time you are going to take,<br>",
+                "Your body has started to shiver and shake,<br>",
+                "And when you are finally going to try,<br>",
+                "Everything has begun to fly.",
+                "</p>",
+                "<p>",
+                "You are not completely wrong,<br>",
+                "Yet you think you are not strong,<br>",
+                "You are just a little pup,<br>",
+                "Too easily do you give up.<br>",
+                "",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "I wandered around in the billiard room, examining the craftsmanship of the billiard table when all of a sudden the door barged open. “Professor, Professor, Dr. Boddy is dead,” cried the servant, Mrs White. We all gathered in the middle of the second floor where Dr. Boddy’s body was found. Everyone at the party gathered around. There were six of us, Colonel Mustard, Miss Scarlett, Mr Green, Mrs Peacock, Mrs White and finally I, Professor Plum. We were all separated to various locations to find for clues. I started with the outside of the conservatory. We all had different ideas about who could not have done it, where it could not have been done and what weapon it could not have been.",
+                "</p>",
+                "<p>",
+                "Thirty minutes through and we gave a few suggestions, which were argued against. We crossed out various locations, weapons and people and finally it narrowed down. As I approached the study, Miss Scarlett came in my way. She was looking very suspicious. In the end, she made her way and I entered the study to clarify something. My thoughts were accurate. I faced the floor and accused Mr Green who had used a candlestick to kill Dr. Boddy in the Ballroom. All the proof pointed to him and he was arrested. Our game of Cluedo ended.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

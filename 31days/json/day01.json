@@ -1,0 +1,66 @@
+{
+    "id": 1,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "1",
+                "title": "The First Day"
+            },
+            "type": "entry",
+            "position": "left",
+            "text":
+            [
+                 "<p>",
+                "Outing (01/12/2007)",
+                "</p>",
+                "<p>",
+                "Gave my mind a vacation,<br>",
+                "Gave it some free time,<br>",
+                "Overtime for creation,<br>",
+                "Was nothing more than a crime.",
+                "</p>",
+                "<p>",
+                "As it wandered around,<br>",
+                "Things to my sight were new,<br>",
+                "Inspiration was around,<br>",
+                "And with a different hue.",
+                "</p>",
+                "<p>",
+                "Like the cool fountain,<br>",
+                "Refreshing the link,<br>",
+                "Like the breezy mountain,<br>",
+                "Soothing the sync.",
+                "</p>",
+                "<p>",
+                "When it all comes down,<br>",
+                "In both present and past,<br>",
+                "In which I now drown,<br>",
+                "With enough ideas to last.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "This is the first entry. The beginning as they call it. Everything has to start from somewhere. For me, I start on the first day in December. Today breezed through like the gentle evening winds.",
+                "</p>",
+                "<p>",
+                "I do love beginnings. Most of the time it starts slowly, much like this one. No matter how small it is, everything starts from something. And from that little speck of white, it will snowball into an avalanche.",
+                "</p>",
+                "<p>",
+                "I opened the door and went outside to taste the fresh air. I let my mind wander about. I felt as though I was high, as though the whole world was being seen in a different view. With all the colourful lights around me, it lit up a spark.",
+                "</p>",
+                "<p>",
+                "I opened the door and that was my beginning.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

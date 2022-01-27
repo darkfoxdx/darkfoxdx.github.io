@@ -1,0 +1,21 @@
+{
+    "id": "{id}",
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "{entry_day}",
+                "title": "{entry_title}"
+            },
+            "type": "{type}",
+            "position": "{position}",
+            "text":
+            [
+                "{text}"
+            ],
+            "img": "{img_exist}"
+        },
+        "{more}"
+    ]
+}

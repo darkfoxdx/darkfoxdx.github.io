@@ -1,0 +1,70 @@
+{
+    "id": 17,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "17",
+                "title": "Forgetting Seventeen"
+            },
+            "type": "entry",
+            "position": "left",
+            "text":
+            [
+                 "<p>",
+                "Fear (17/12/2007)",
+                "</p>",
+                "<p>",
+                "Cold; shivers around us,<br>",
+                "That's what the fear does,<br>",
+                "Incomprehensible to the mind,<br>",
+                "Upon the object the eyes find.",
+                "</p>",
+                "<p>",
+                "Sketches, images in air,<br>",
+                "The illusion which gives us a scare,<br>",
+                "Building up inside the head,<br>",
+                "As it is constantly fed.",
+                "</p>",
+                "<p>",
+                "Holding on to the ground,<br>",
+                "Until it is no longer found,<br>",
+                "And your heart will quickly race,<br>",
+                "As you are standing on empty space.",
+                "</p>",
+                "<p>",
+                "After it will remain mild,<br>",
+                "Before it goes wild,<br>",
+                "The truth we’d rather not see,<br>",
+                "Of the person we’d rather not be.",
+                "</p>",
+                "<p>",
+                "Should we even question,<br>",
+                "Our very own notion,<br>",
+                "When it gets to us,<br>",
+                "Like it always does.",
+                "</p>"
+            ],
+            "img": true
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Third day of searching in this place. The host decided to host a barbecue party earlier. Before that, in the morning, I read a graphic novel about the writing of a script for a film about the first millennium and how those people reacted back then. Fear was all around them.",
+                "</p>",
+                "<p>",
+                "Necrophobia or thanatophobia; the fear of death.<br>",
+                "But I do not think it truly exists. Maybe it is the pain before death. Maybe it is the loneliness after death. Maybe it is the torture after death. Maybe it is the incompletion of things one has to do on this world. Maybe it is the thought of leaving one’s loved ones.",
+                "</p>",
+                "<p>",
+                "I always thought death was just lying dead in my coffin in the land of thoughts. It scared me.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

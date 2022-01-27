@@ -1,0 +1,67 @@
+{
+    "id": 3,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "3",
+                "title": "Enter The Third"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Senses (03/12/2007)",
+                "</p>",
+                "<p>",
+                "The eyes the world they see,<br>",
+                "The nose is able to smell,<br>",
+                "The tongue can taste it all,<br>",
+                "That this place is not too well.",
+                "</p>",
+                "<p>",
+                "The skin it feels the pain,<br>",
+                "The pressure, heat and cold,<br>",
+                "It tells you when you're in trouble,<br>",
+                "Or when you're too bold.",
+                "</p>",
+                "<p>",
+                "The ears they hear the evil,<br>",
+                "Also the sound of good,<br>",
+                "But turn down if they want,<br>",
+                "When hear the sound of rude.",
+                "</p>",
+                "<p>",
+                "All senses upon a face,<br>",
+                "Spots the feelings before,<br>",
+                "That way you will know,<br>",
+                "That way you cannot ignore.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "I peek from the corner of my eye and notice a strange sensation. A strong feeling tells me that this is a different day. It tells me that where I am is not somewhere I often go but I have been here before.",
+                "</p>",
+                "<p>",
+                "I see colourful lights, tables, chairs, people, decorations, screens and food.<br>",
+                "I smell food, perfume, cologne and the cold air of a conditioned area.<br>",
+                "I taste food of different combinations of sour, sweet, salty and bitter.<br>",
+                "I hear conversations, music, clinks, shuffling, voices and footsteps.<br>",
+                "I feel the coldness, cloth, glass, water, skin and metal.",
+                "</p>",
+                "<p>",
+                "We rely on these sense to navigate our existence. Apart from all the good, it can also do the same for the bad. Ironically it is good that our sense pick up the bad. If not, we would never know.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

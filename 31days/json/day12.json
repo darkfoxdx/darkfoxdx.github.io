@@ -1,0 +1,109 @@
+{
+    "id": 12,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "12",
+                "title": "Extract The Twelfth"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Getting Ready (12/12/2007)",
+                "</p>",
+                "<p>",
+                "Dress Up",
+                "</p>",
+                "<p>",
+                "Put on a suit, a coat with a tail,<br>",
+                "Or would you wear rusty mail,<br>",
+                "Shoes or sandals on your feet,<br>",
+                "Trying to make yourself look neat.",
+                "</p>",
+                "<p>",
+                "Carry behind you a fancy pack,<br>",
+                "Maybe a white shirt on your back,<br>",
+                "Scarf around your pretty neck,<br>",
+                "Pants on legs? Better check.",
+                "</p>",
+                "<p>",
+                "Better prepare a few jackets,<br>",
+                "Little socks in little packets,<br>",
+                "As soon as myself I dress,<br>",
+                "I will go somewhere, I guess.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Today was the last and the largest gathering of people whom I studied with in the same institution of education. It was also the last day for anyone who wanted to express themselves before it was too late. For me, I went around talking to people whom I would probably seldom or never even see for a long time. I never did infatuate with anyone from school.",
+                "</p>"
+            ],
+            "img": true
+        },
+        {
+            "type": "poem",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "The Waiting",
+                "</p>",
+                "<p>",
+                "Can you feel the pain?<br>",
+                "Of waiting in vain,<br>",
+                "For the train,<br>",
+                "In the rain.",
+                "</p>",
+                "<p>",
+                "That sensation I know,<br>",
+                "But when will I go,<br>",
+                "The train is slow,<br>",
+                "And there is snow.",
+                "</p>",
+                "<p>",
+                "I believe I am bold,<br>",
+                "Outside in cold,<br>",
+                "As I still hold,<br>",
+                "A ticket with mould.",
+                "</p>",
+                "<p>",
+                "Long have I been set,<br>",
+                "Though I am slightly wet,<br>",
+                "With a little sweat,<br>",
+                "And tired I bet.",
+                "</p>",
+                "<p>",
+                "But the train is not here,<br>",
+                "More waiting, I fear,<br>",
+                "Wait for me dear,<br>",
+                "Maybe next year.",
+                "</p>"
+            ],
+            "img": false
+        },
+        {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "The room feels empty. Such an absurd statement seeing that it is empty. I have a can of beer in my hand. I am not at home. A couple of friends and I rented this hotel room for a night because of the event which occurred prior. I decided to take a quick rest and have a moment to myself before the rest return. ",
+                "</p>",
+                "<p>",
+                "Clock strikes midnight. There is a knock at the door. My alone time is up. The after-party is about to start.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

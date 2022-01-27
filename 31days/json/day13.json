@@ -1,0 +1,55 @@
+{
+    "id": 13,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "13",
+                "title": "Disaster On The Thirteenth"
+            },
+            "type": "entry",
+            "position": "left",
+            "text":
+            [
+                 "<p>",
+                "Tempted (13/12/2007)",
+                "</p>",
+                "<p>",
+                "A power so strong it draws you in,<br>",
+                "You may not laugh, but maybe grin,<br>",
+                "It may just make you drink some gin,<br>",
+                "And then your whole world may just spin.",
+                "</p>",
+                "<p>",
+                "It is too strong, the lives it takes,<br>",
+                "Beckoning you in, the evil it makes,<br>",
+                "Like little sneaky slithering snakes,<br>",
+                "Creating danger and higher stakes.",
+                "</p>",
+                "<p>",
+                "Though you still do attempt it,<br>",
+                "Knowing there is the evil bit,<br>",
+                "And upon it you will just sit,<br>",
+                "Never are you able to just quit.<br>",
+                "",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "I woke up in agonising pain. Last night was a blur... The first thing I did when I thought I had amnesia was remember my name. My name was clear to me. Wait... I remembered something. I could smell alcohol. Senses triggered memories and they did well. Ouch. Something was throbbing in my head, pounding hard on my cranium. My eyes opened and I found myself staring into a dustbin filled with wrappers and cans. The stench was horrible. My stomach felt bloated. I checked the time. It was only two in the morning.",
+                "</p>",
+                "<p>",
+                "That was my morning. My afternoon was not so great either as I was practically awake the whole morning. So I took a nap after consuming some charcoal pills. It is night now and I am feeling much better. I had fun though before the aches.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

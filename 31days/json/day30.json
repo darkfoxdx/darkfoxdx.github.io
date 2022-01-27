@@ -1,0 +1,63 @@
+{
+    "id": 30,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "30",
+                "title": "Noting Thirty"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "The Writing Job (30/12/2007)",
+                "</p>",
+                "<p>",
+                "These poems of which I write,<br>",
+                "My inspiration, my work of art,<br>",
+                "They may not be that bright,<br>",
+                "Joined together with a single part.",
+                "</p>",
+                "<p>",
+                "I choose the way the story goes,<br>",
+                "Follow it if you really must,<br>",
+                "But do not believe in the prose,<br>",
+                "Because you cannot really trust.",
+                "</p>",
+                "<p>",
+                "I will tell you a little hidden,<br>",
+                "One which I try not to share,<br>",
+                "Truly it is considered forbidden,<br>",
+                "So you should handle it with care.",
+                "</p>",
+                "<p>",
+                "With this secret you are going to rob,<br>",
+                "Keep this one thing in your mind,<br>",
+                "The thing is what I call a writing job,<br>",
+                "Something which you will soon find.",
+                "</p>",
+                "<p>",
+                "Open your ears and carefully hear,<br>",
+                "So this thing will not be amiss,<br>",
+                "Here it goes and try not to fear,<br>",
+                "There is an ambiguity in this.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "The only secret a poet has to hide is the meaning of his poems. If you choose to view the poem through your own perception, then it is your choice. A poem can be seen from all angles, some of which a poet does not know. But the only thing a poet wishes is for you to keep an open mind and see in at least two points of view. Only with two points are you able to read between the fine lines. Four points and you make a square. Eight points and you can think outside the box.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

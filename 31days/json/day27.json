@@ -1,0 +1,42 @@
+{
+    "id": 27,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "27",
+                "title": "Going Twenty-Seven"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Proverb II (27/12/2007)",
+                "</p>",
+                "<p>",
+                "Curiosity killed the cat,<br>",
+                "Do not believe that,<br>",
+                "Because I did it,<br>",
+                "With one hit.",
+                "</p>"
+            ],
+            "img": true
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "I sit down, just thinking about all the secrets of the world. Curiosity draws me in again as well as certain inspirations. I begin to ponder about certain issues. Probably even start thinking about the meaning of life… Nope, that is just not me. I just think a lot about outcomes and try to figure out people. People are intriguing and contradictory. They try to be different; everyone tries to be different, and would that not make them the same? I guess I am simply curious.",
+                "</p>",
+                "<p>",
+                "Curiosity did not kill the cat. I did.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

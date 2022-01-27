@@ -1,0 +1,54 @@
+{
+    "id": 18,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "18",
+                "title": "Picking Eighteen"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Time Waiting Not (18/12/2007)",
+                "</p>",
+                "<p>",
+                "Time waits for no man,<br>",
+                "Therefore we plan,<br>",
+                "But sloths we are,<br>",
+                "To think that far.",
+                "</p>",
+                "<p>",
+                "Time waits for no man,<br>",
+                "Never wait we can,<br>",
+                "As anger we obtain,<br>",
+                "Patience becomes a pain.",
+                "</p>",
+                "<p>",
+                "Time waits for no man,<br>",
+                "Though we are such a fan,<br>",
+                "We always want more,<br>",
+                "Coming through our door.",
+                "</p>"
+            ],
+            "img": true
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Today is the last day. My accomplice and I have already departed from our host. We were late for our bus actually. Hilarious story. We got dropped off at the wrong place and after twenty minutes of searching, we found out we were in the wrong place and had to rush to the other side.",
+                "</p>",
+                "<p>",
+                "Time is a funny thing. It can go on for hours and feel like minutes. It can go for a few minutes and feel like hours. They called it ‘lived time’, the psychological perception of time. Right now, it seemed as though it went too fast",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "id": 22,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "22",
+                "title": "Rushing Through Twenty-Two"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Board of Keys (22/12/2007)",
+                "</p>",
+                "<p>",
+                "As I sit at my table,<br>",
+                "In front of the screen,<br>",
+                "And I am just able,<br>",
+                "Though I am not keen.",
+                "</p>",
+                "<p>",
+                "I stare at the picture,<br>",
+                "Forming a certain art,<br>",
+                "With a certain mixture,<br>",
+                "At every single part.",
+                "</p>",
+                "<p>",
+                "Hands go across the keys,<br>",
+                "I can feel the plastic,<br>",
+                "On my palm the breeze,<br>",
+                "Slightly fantastic.",
+                "</p>",
+                "<p>",
+                "I can hear the clicks,<br>",
+                "Upon the written board,<br>",
+                "With a lot of picks,<br>",
+                "Filled with wires in cord.",
+                "</p>",
+                "<p>",
+                "And then I would choose,<br>",
+                "Without much to see,<br>",
+                "Though I really refuse,<br>",
+                "The letters C, O, M, P...",
+                "</p>",
+                "<p>",
+                "And then I stop...",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Ever been drawn to a climax and suddenly you are left hanging off a cliff? Annoying, is it not? In the midst of something, you eagerly read, watch or listen, and out of nowhere there comes the abrupt end. Then curiosity raises its head and many questions are asked which we may never know. Though sometimes it is just the way it is and it is supposed to be like that. The best ending is the one which has not really ended. Ironic, is it not? In the same topic, there is something else which really annoys me. You know what I really hate?",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "id": 29,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "29",
+                "title": "Incoming The Twenty-Nine"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "Poetic Memory (29/12/2007)",
+                "</p>",
+                "<p>",
+                "Let's get back to the start,<br>",
+                "Before we had to part,<br>",
+                "Before the creation of my art,<br>",
+                "Before the beating of my heart.",
+                "</p>",
+                "<p>",
+                "With analogy and metaphors,<br>",
+                "I have opened up many doors,<br>",
+                "Kissed upon the many floors,<br>",
+                "Dug inside the many cores.",
+                "</p>",
+                "<p>",
+                "Oxymorons inserted inside,<br>",
+                "Visibility in the place of hide,<br>",
+                "Dress upon the groom of bride,<br>",
+                "Humility hidden within a pride.",
+                "</p>",
+                "<p>",
+                "To create a poem so discrete,<br>",
+                "As though it is incomplete,<br>",
+                "With lines which themselves repeat,<br>",
+                "Not even as hard as concrete.",
+                "</p>",
+                "<p>",
+                "I tried to do it direct,<br>",
+                "I tried to bring up the subject,<br>",
+                "I tried to make it perfect,<br>",
+                "But now I can only reflect.",
+                "</p>",
+                "<p>",
+                "My pencil in between my fingers,<br>",
+                "Much like a choir of singers,<br>",
+                "Upon the lined paper it lingers,<br>",
+                "Much like a pair of stingers.",
+                "</p>"
+            ],
+            "img": true
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Ever written poetry? It is a beautiful art. The flow of your pencil in between the lines upon a paper. The wave of inspiration materializing in ink. ",
+                "</p>",
+                "<p>",
+                "They say all art has a meaning hidden within. Probably but not necessarily because of the time, it is staring at you, right under your nose. They say you can tell a person by his poetry. I disagree. Poetry does not have to be personal.",
+                "</p>",
+                "<p>",
+                "They say a lot of things. I say as the time passes on, my poems mature with me and there are fresh ideas around. Though, I have to remember the first. The starting is the most important.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

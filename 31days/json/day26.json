@@ -1,0 +1,56 @@
+{
+    "id": 26,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "26",
+                "title": "Opening To Twenty-Six"
+            },
+            "type": "entry",
+            "position": "right",
+            "text":
+            [
+                 "<p>",
+                "Random I (26/12/2007)",
+                "</p>",
+                "<p>",
+                "Written like a book,<br>",
+                "But don't judge it by its look,<br>",
+                "Crooked like a hook.",
+                "</p>",
+                "<p>",
+                "Few seconds to go,<br>",
+                "This is moving really slow,<br>",
+                "I wish I could know.",
+                "</p>",
+                "<p>",
+                "Speaking with a voice,<br>",
+                "Even if it was my choice,<br>",
+                "Making a soft noise.",
+                "</p>",
+                "<p>",
+                "Giving it a close,<br>",
+                "This really very strange prose,<br>",
+                "So before it grows.",
+                "</p>"
+            ],
+            "img": true
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Some say randomness is a psychological disorder. I just say it is simply imagination’s way of telling you to stop keeping him inside and let him run wild. It is the ability to say one word, linking it to a word which is linked to another word and it goes on until a word which has no direct meaning is formed. The order in chaos.",
+                "</p>",
+                "<p>",
+                "If I were to say pool, I could say computer. That is because pool is like billiards and it has an eight ball which shows you an outlook which is also a program for the computer. I do wonder if it is possible to find something not linked. I guess not though. Bananas contain lots of potassium.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

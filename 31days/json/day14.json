@@ -1,0 +1,81 @@
+{
+    "id": 14,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "14",
+                "title": "A Fourteen"
+            },
+            "type": "entry",
+            "position": "center",
+            "text":
+            [
+                 "<p>",
+                "Seven Sins (14/12/2007)",
+                "</p>",
+                "<p>",
+                "Like fairy dust,<br>",
+                "Going with a gust,<br>",
+                "Not really a must,<br>",
+                "Love without trust.",
+                "</p>",
+                "<p>",
+                "There is no harmony,<br>",
+                "Eating without company,<br>",
+                "Such a felony,<br>",
+                "Tasted muttony.",
+                "</p>",
+                "<p>",
+                "Starts with a seed,<br>",
+                "Then it will breed,<br>",
+                "And it will feed,<br>",
+                "Upon any need.",
+                "</p>",
+                "<p>",
+                "To be loath,<br>",
+                "Showing no growth,<br>",
+                "To take an oath,<br>",
+                "Doing no both.",
+                "</p>",
+                "<p>",
+                "There is no laugh,<br>",
+                "You lose your path,<br>",
+                "Stop in the half,<br>",
+                "In a bloodbath.",
+                "</p>",
+                "<p>",
+                "Like poison ivy,<br>",
+                "Green and leavy,<br>",
+                "Heart so heavy,<br>",
+                "Secretly in privy.",
+                "</p>",
+                "<p>",
+                "Without guide,<br>",
+                "Walking with stride,<br>",
+                "In your ride,<br>",
+                "As you glide.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Something is not truly a living being until it commits these. There is nothing in this world which has the capability of thinking, unlike a baby, which has not committed that which we call sins.",
+                "</p>",
+                "<p>",
+                "I guess in order to eliminate these sins; we have to get rid of everything which I say would make a pretty boring place after. Is it not easier to live with what we have than try to obsessively to correct every mistake? Contributing a little can help to create balance.",
+                "</p>",
+                "<p>",
+                "Nothing is perfect in both perceptions of evil and good. We are human. We have our flaws.",
+                "</p>"
+            ],
+            "img": false
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "id": 8,
+    "components": 
+    [
+        {
+            "entry": 
+            {
+                "day": "8",
+                "title": "There Goes The Eighth"
+            },
+            "type": "entry",
+            "position": "left",
+            "text":
+            [
+                 "<p>",
+                "Rhyming Words (08/12/2007)",
+                "</p>",
+                "<p>",
+                "My face hidden beyond the word,<br>",
+                "Buried so deep, I cannot be heard,<br>",
+                "I yell between the letters I read,<br>",
+                "So loud until I begin to bleed.",
+                "</p>",
+                "<p>",
+                "Where am I? Between a book?<br>",
+                "I glance around to take a look,<br>",
+                "Lost I am I begin to wonder,<br>",
+                "Where am I piled up under?",
+                "</p>",
+                "<p>",
+                "Up and down I start to pace,<br>",
+                "Cramped up in this small space,<br>",
+                "Struggling around, trying to move,<br>",
+                "I have not got anything to prove.",
+                "</p>",
+                "<p>",
+                "Forever am I going to be lost?<br>",
+                "And is this going to cost?<br>",
+                "My money, my life and also my time,<br>",
+                "Trapped beneath my very own rhyme.",
+                "</p>"
+            ],
+            "img": false
+        },
+                {
+            "type": "blog",
+            "position": "justify",
+            "text":
+            [
+                 "<p>",
+                "Trapped; to be caught in something<br>",
+                "(To be trapped in something)<br>",
+                "Dedicated; to be committed to something<br>",
+                "(To be trapped in something by choice)<br>",
+                "Obsessed; to be compulsively concerned with something<br>",
+                "(To be trapped in something by compulsions)",
+                "</p>",
+                "<p>",
+                "There is a fine line between dedication and obsession. One just sounds better than the other; however one can turn into the other.",
+                "</p>",
+                "<p>",
+                "I show very little dedication in my work and even less in my obsession. I am, however, trapped in my own inspirations, my own ideas which swim around in my head. I do not control them, they control me. Wild imaginations, constant dreams and stalking muses.",
+                "</p>"
+            ],
+            "img": true
+        }
+    ]
+}
