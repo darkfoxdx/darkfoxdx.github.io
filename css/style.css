@@ -1,0 +1,278 @@
+body {
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+}
+
+nav {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+#justify {
+    margin: 0 auto;
+    text-align: justify;
+}
+
+#article{
+    margin: 0 18%;
+}
+
+#article-image{
+    margin: 20px 0;
+}
+
+#references{
+    margin: 20px 0;
+}
+
+#center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#space {
+    padding: 20px;
+}
+
+.page-wrapper {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.page-title{
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+}
+
+.page-content {
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px dotted black;
+}
+
+.page-footer {
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px;
+    font-size: small;
+}
+
+.content-section-title {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+}
+
+.content-section {
+    border-bottom: 1px solid #ccc;
+}
+
+
+#index-nav {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.fade {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.fade:hover {
+    opacity: 0.5;
+}
+
+.nav-icon {
+    display: inline-block;
+    margin: 10px;
+}
+
+.nav-icon a {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+.nav-icon img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+
+/* Index */
+
+#index-share-link {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 0 10px 0;
+}
+
+
+/* Sharer */
+#sharer img		
+{ 	
+    width: 35px !important;
+    padding: 6px;
+    border:  0;
+    box-shadow: none !important;
+    display: inline;
+    vertical-align: middle;
+}
+
+#sharer, #sharer a		
+{
+    background: none;
+    font-family: Indie Flower;
+    font-size: 	20px;
+}
+
+.sharecount:after, .sharecount:before 
+{
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+
+}
+
+.sharecount:after {
+    border-color: rgba(224, 221, 221, 0);
+    border-right-color: #f5f5f5;
+    border-width: 5px;
+    top: 50%;
+    margin-top: -5px;
+}
+
+.sharecount:before {
+    border-color: rgba(85, 94, 88, 0);
+    border-right-color: #e0dddd;
+    border-width: 6px;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.sharecount {
+    font: 11px Arial, Helvetica, sans-serif;
+    padding: 5px;
+    -khtml-border-radius: 6px;
+    -o-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    position: relative;
+    border: 1px solid #e0dddd;
+    color: #555e58;
+    background: #f5f5f5;
+    }
+.sharecount:after {
+    border-right-color: #f5f5f5;
+
+}
+
+/* Resume */
+.resume-title {
+    display: inline;
+    color: navy;
+}
+
+.resume-content li {
+    list-style: none;
+}
+
+.resume-content {
+
+}
+
+.resume-section {
+
+}
+
+.resume-holder {
+    display: none;
+}
+
+.resume-text {
+    color: navy;
+}
+
+.resume-code {
+    display: inline;
+    font-family: Courier, sans-serif;
+    font-size: 0.75em;
+    color: #555555;
+}
+
+.tab-one {
+    margin-left: 36px;
+}
+
+.tab-two {
+    margin-left: 72px;
+}
+
+.tab-three {
+    margin-left: 108px;
+}
+
+/* Old Website.php */
+
+.page-content #oldwebsite-iframe {
+    height: 2000px;
+    width: 100%;
+}
+
+/* Fantasy.php */
+#fantasy-form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Blackguard Gym.php */
+
+#gym-form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#gym-queue, #gym-fame, #gym-intro {
+    text-align: center;
+}
+
+#gym-intro-text {
+    width: 60%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#gym-note-text {
+    width: 60%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.player-empty {
+    text-align: center;
+}
+
+.player-table {
+    margin: 0 auto;
+}
+
+.player-ign, .player-name, .player-ign{
+    width: 100px;
+}
