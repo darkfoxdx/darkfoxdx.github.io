@@ -1,0 +1,234 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<!--Header-->
+<head>
+    
+<!--Meta-->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" 
+      content="Project Eugene - personal website which I will store everything I have done in my life and start other project through this website. 
+      This website is still currently under development and I have no idea what I should write in the description. 
+      I am just writing as much as possible to fill up as much space so that it looks much nice." />
+<meta name="og:image" 
+      content="https://www.projecteugene.com/media/img/darkfox-profile-square-300.png" />
+<link rel="image_src" href="media/img/darkfox-profile-square-300.png" />
+
+<title>
+Project Eugene - CS148 Project Report</title>
+<!--Metadata goes here-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<!--Insert CSS-->
+<link rel='stylesheet' type='text/css' href='/css/style.css'>
+<!--Insert JS-->
+<script src='/js/main.js'></script>
+</head>
+<body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46795578-1', 'projecteugene.com');
+  ga('send', 'pageview');
+
+</script>
+<div class='page-wrapper'>
+    <div class='page-title'>
+        <h1> CS148 Project Report</h1>
+    </div>
+    <nav>
+<a href='/index'>Index</a>
+</nav>    <div class='page-content'>
+        <div id="center">
+            <img id="article-image" src="media/cs148/cs148_figure1.png" height="360px" width="640px"/>
+        </div>
+        <div id="center">
+            <h2 id="space">Underwater Simulation<br> Caustics Pattern, Shadows and interactions on Rigidbody Objects</h2>
+        </div>
+        <p id="center">
+            Eugene Weng Seng Low (elws) <br>
+            Jieun Veronica Kim (jieunk) <br>
+            Sasinn Ounpiyodom (Mickey)
+        </p>
+        <br>
+        <br>
+        <div id="article">
+            <h3>Introduction</h3>
+            <p id="justify">
+                For our final project, we proposed to create an underwater scene. We have created a scene submerged underwater. The focal points are on the reflective light patterns - underwater caustics, visible on the ‘sea-floor’. Our scene can be divided into three major components: caustic light patterns seen underwater, the distortion of these patterns as it interacts with rigid body models in the scene and its shadows, and the air bubbles rising to the top of the scene to emphasize the underwater scenery. 
+            </p>
+            <br>
+            <p id="justify">
+                The surface of the floor and the models in the sceneview will have a layer of caustic pattern made by the light being shone through the surface of the water. Our resulting image is a scene containing an obj file models that allows the user to see the shift in light and shadows in the caustic rendering as well as some animation through air bubbles as it rises to the surface, resulting in an underwater scene image.
+            </p>
+            <h3>Research</h3>
+            <p id="justify">
+                Our main research comes from GPU Gems Chapter 2 written by Juan Guardado (NVIDIA) and Daniel Sánchez-Crespo (Universitat Pompeu Fabra/Novarama Technology) which can be obtained from [1] and also Water mathematics by Habib from [2] Both articles both share the same concept of creating shaders for water and generating caustics.
+            </p>
+            <h3>Ideas and Methods</h3>
+            <h4>Raytracing</h4>
+            <p id="justify">
+                Our implementation of raytracing is done in two parts: first, the idea of raytracing is applied to the fragment position, so that the rays are sent via fragment position as its origin instead of the source light. 
+                <br><br>
+                Secondly, we want to find the intensity of the light on that fragment position. The fragment position is located beneath the ocean surface which defines the two split layers. We first trace the fragment position vertically towards the ocean surface. From there we find intersection, and refract the ray accordingly and trace it back towards the light source. We used about 3x3x3 casting of light from the fragment getting more samples per point.
+            </p>
+            <div id="center">
+                <img id="article-image" src="media/cs148/cs148_figure2.png"/>
+            </div>
+            <p id="justify">
+                As the figure above, refraction is a huge part of mathematics of caustics. Here, we introduce the next method.
+            </p>
+            
+            <h4>Refraction</h4>
+            <p id="justify">
+                For refraction of the surface, we use the vector form of Snell’s law. Since rays we implement through the raytracing method are vectors, we had to use the vector form using normals and rays to calculate refraction. This equation allows us to calculate the refractions of our rays according to the normals defined on our ocean surface.
+            </p>
+            <div id="center">
+                <img id="article-image" src="media/cs148/cs148_figure3.png"/>
+            </div>
+            <h4>Light map</h4>
+            <p id="justify">
+                Instead of using a point as the light, we used a circular light map. A texture is fed into the shader and positioned above the ocean to simulate the sun. The intensity of the light is obtained from the value of where it hit, 0 for no intensity and 1 for high intensity. 
+            </p>
+            <div id="center">
+                <img id="article-image" src="media/cs148/cs148_figure4.png"/>
+            </div>
+            <h4>Sine (literal) waves</h4>
+            <p id="justify">
+                Choosing our texture we had to take into considerations of the surfaces we are trying to simulate. The ocean surface is not flat, it has dynamic waves. There are many ways we can go about to simulate the waves, but the method we choose is highlighted below. For our example we use a combination of sine wave functions.
+            </p>
+            <div id="center">
+                <img id="article-image" src="media/cs148/cs148_figure5.png"/>
+                <img id="article-image" src="media/cs148/cs148_figure6.png"/>
+            </div>
+            <p id="justify">
+                To make our program as versatile as possible, as well as develop with efficiently, we decided to use a texture map. By using a normal map and a bump map of the waves, we have enough information to generate the waves. This allowed us to be as creative as possible and use various kinds of textures to test on, even some crazy ones.
+            </p>
+            <div id="center">
+                <img id="article-image" src="media/cs148/cs148_figure7.png" width="150px" height="150px"/>
+                <img id="article-image" src="media/cs148/cs148_figure8.png" width="150px" height="150px"/>
+            </div>
+            <p id="justify">
+                We, however, trying it on a real ocean normal and bump map but we eventually found out that this method does not work on real randomized waves.
+            </p>
+            <div id="center">
+                <img id="article-image" src="media/cs148/cs148_figure9.png" width="150px" height="150px"/>
+                <img id="article-image" src="media/cs148/cs148_figure10.png" width="150px" height="150px"/>
+            </div>            
+            <p id="justify">
+                With the three techniques above. We manage to project water caustic onto a flat plane without needing to render the ocean volume, surface or even the light.                
+            </p>            
+            <h4>Shadows</h4>
+            <p id="justify">
+                We used basic shadow mapping and apply it to the objects on the scene. The shadows are only applied to the rigid objects and only apply the shaders to them, ignoring the plane which represent the ocean floor and bubbles.                
+            </p>
+            <h4>Bubbles</h4>
+            <p id="justify">
+                We did not have time to use particles to generate our bubbles as per original proposal. But to create interactivity as well as animation in our scene, we choose a simpler method of translating a spherical object.To create animation, we translate it using a sinewave with the current time of the frame, allowing it to float up towards to the top of the scene.                
+            </p>            
+            <h3>Results</h3>
+            <h4>Screenshot</h4>
+            <div id="center">
+                <img id="article-image" src="media/cs148/cs148_figure11.png" width="640px" height="360px"/>
+            </div>
+            <h4>Demo Video</h4>
+            <div id="center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/S1QnrZqp42k" frameborder="0" allowfullscreen></iframe>
+            </div>                
+            <p>
+                Source Code: <a href="https://github.com/darkfoxdx/cs148_final_project">https://github.com/darkfoxdx/cs148_final_project</a>
+            </p>
+            <h3>Tools</h3>
+            <ul>
+                <li>OpenGL in C++</li>
+                <li>Libraries</li>
+                    <ul>
+                    <li>GLFW, GLEW, GLM</li>
+                    <li>ASSIMP for models</li>
+                    <li>SOIL for textures</li>
+                    <li>Header files taken from learnopengl.com</li>
+                    </ul>                
+                <li>Maya for models</li>
+                <li>Blender for sine wave textures</li>
+            </ul>
+            <h3>Issues</h3>
+            <p id="justify">
+                There are many issues with the current result of our rendering.
+            </p>
+            <h4>Realism</h4>
+            <p id="justify">
+                Our project right now, produces the patterns of caustics but it is not realistic nor is it aesthetically pleasing to view. We have implemented all we proposed but the aesthetics can be improved on. Through experimentation, to get the right sine wave for the ocean or maybe position our lighting correctly we will be able to reach a more realistic caustics pattern as well as render a more mature scene. The effect we want to achieve is similar to the underwater scene on the front page.                
+            <br><br>
+                Secondly, for improvement, our shadow right now is hard shadows. We haven’t had the time to implement percentage-closer filtering to get soft shadows, and other various techniques to make our shadows more realistic. 
+            </p>                        
+            <h4>Physical Nature</h4>
+            <p id="justify">
+                Our caustics and the technique we are using are not physically accurate. Waves on real oceans aren’t sinusoidal but require a large body fluid simulation. They are more rough and dynamic as well as randomized. In order to achieve proper caustics like the one in real life, photon mapping is needed. The idea is instead of bouncing one light ray, we bounce millions of light rays. This would prove problematic for real-time rendering and therefore we did not use this method.
+            </p>            
+            <h3>Challenges</h3>
+            <h4>OpenGL</h4>
+            <p id="justify">
+                We had to really learn OpenGL and it was really tough since all of us are new to it. We did not know how to properly implement the library and render to texture. 
+            </p>            
+            <h4>Debugging</h4>
+            <p id="justify">
+                We spent a good amount of time not realizing that the textures we initially used based on real oceans did not work. In order for our raytracing method to work, we required a defined surface that has distinct features to be recognized through normals and height map. The issue was that it is very hard to debug images because it doesn’t output an error. It just shows nothing or something not quite right and we are not sure which part of the program went wrong.
+            </p>            
+            <h3>Next Steps</h3>
+            <p id="justify">
+                We could experiment with sine wave functions to generate waves to see if it would improve our caustics. We like the idea of using texture for oceans but maybe it is not the right way. We need to explore different techniques to make our caustics better.
+                <br><br>
+                Our next steps is probably to implement more mathematics into our work. We could look more into make the caustics more physically accurate and applying more techniques to make the shadows more realistic.    
+                <br><br>
+                We also could look into how to do photon mapping and make it such that we could render it real-time. Optimizing a million different rays of light to render every second is not an easy task.    
+            </p>            
+            <h3>Work Division</h3>
+            <h4>Eugene Low</h4>
+            <p id="justify">
+                I wrote and integrated most of the main engine from various sources and libraries. Most of it I took from learnopengl.com as a foundation, with a lot of modifications. I also mostly worked on the caustics and implemented the shadows. I created the plane and solid model converted using Maya.                
+            </p>            
+            <h4>Veronica</h4>
+            <p id="justify">
+                I wrote raytracing, experimenting with light intensity displaying on the ocean floor. I also started out with the mathematics, implementing the Snell’s equation for refractions and a circular light. Another contribution was to render and load in the spherical model to animate the translation (bubble flow) per frame time.                
+            </p>            
+            <h4>Sasinn Ounpiyodom (Mickey)</h4>
+            <p id="justify">
+                I created a few extra height maps and normal maps using Blender to test out the refraction. I have also read the implementation of the shadows tutorials. I also did some debugging on the implementation of the caustics shader, the shadows shader and the bubbles movement.                
+            </p>            
+            <h3>References</h3>
+            <div id="references">
+                [1] "GPU Gems - Chapter 2. Rendering Water Caustics", Http.developer.nvidia.com, 2016. 
+                <a href="http://http.developer.nvidia.com/GPUGems/gpugems_ch02.html">http://http.developer.nvidia.com/GPUGems/gpugems_ch02.html</a>
+            </div>
+            <div id="references">
+                [2]"Water mathematics", Habib's Water Shaders, 2008. 
+                <a href="https://habibs.wordpress.com/water-mathematics/">https://habibs.wordpress.com/water-mathematics/</a>
+            </div>
+            <div id="references">            
+                [2] "OpenGL-rendering of Underwater Caustics", Opengl.org, 2016. 
+                <a href="https://www.opengl.org/archives/resources/code/samples/mjktips/caustics/">https://www.opengl.org/archives/resources/code/samples/mjktips/caustics/</a>
+            </div>
+            <div id="references">            
+                [4] "Tutorial 16 : Shadow mapping", Opengl-tutorial.org, 2016. 
+                <a href="http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/">http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/</a>
+            </div>
+            <div id="references">            
+                [5] "Doc:2.4/Tutorials/Textures/Maps/Creating a Heightmap from a Plane - BlenderWiki", Wiki.blender.org, 2016. 
+                <a href="https://wiki.blender.org/index.php/Doc:2.4/Tutorials/Textures/Maps/Creating_a_Heightmap_from_a_Plane">https://wiki.blender.org/index.php/Doc:2.4/Tutorials/Textures/Maps/Creating_a_Heightmap_from_a_Plane</a>
+            </div>
+            <div id="references">            
+                [6] "Render Target Lookup - Epic Wiki", Wiki.unrealengine.com, 2016. 
+                <a href="https://wiki.unrealengine.com/Render_Target_Lookup">https://wiki.unrealengine.com/Render_Target_Lookup</a>    
+            </div>                
+        </div>
+        
+
+    </div>
+</div>
+</body>
+</html>
