@@ -1,5 +1,5 @@
-const loadsite = async () => {
-    const response = await fetch('https://en.wikipedia.org/w/api.php?action=parse&format=json&page=India&prop=text&disableeditsection=1&redirects=1&formatversion=2&useskin=modern&origin=*', {
+const loadsite = async (page) => {
+    const response = await fetch('https://en.wikipedia.org/w/api.php?action=parse&format=json&page='+page+'&prop=text&disablelimitreport=1&disableeditsection=1&disablestylededuplication=1&redirects=1&formatversion=2&useskin=modern&origin=*', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -9,19 +9,52 @@ const loadsite = async () => {
     // do something with myJson
     console.log(result);
     var html = result.parse.text;
-    html = remove(html, "Notes");
-    html = remove(html, "References");
-    html = remove(html, "Bibliography");
-    html = remove(html, "External links");
-    document.getElementById('content').innerHTML = html;
+    document.getElementById('content').innerHTML = clean(html);
   }
 
-loadsite();
-console.log("test");
-
-function remove(html, s) {
-    var part1 = /<h2>[\s\S].*?/
-    var part2 = /[\s\S]*?<\/h2>[\s\S]*?((?=<h2>)|$)/g
-    var pattern = new RegExp(part1.source + s + part2.source);
-    return html.replace(pattern, "");
+function removeSection(html, s) {
+    var section1 = /<h2>.*?id=\"/
+    var section2 = /\"[\s\S]*?<\/h2>[\s\S]*?((?=<h2>)|$)/g
+    var sectionPattern = new RegExp(section1.source + s + section2.source);
+    var result = html.replace(sectionPattern, "");
+    var toc1 = /<li.*?#/
+    var toc2 = /.*?<\/li>/g
+    var tocPattern = new RegExp(toc1.source + s + toc2.source);
+    result = result.replace(tocPattern, "");
+    return result;
 }
+
+function removeCitations(html) {
+  var pattern = /<sup.*?class=\"(reference|noprint Inline-Template)\".*?<\/sup>/g
+  return html.replace(pattern, "");
+}
+
+function removeExternalLinks(html) {
+  var pattern = /<a rel.*?class=\"external text\".*?<\/a>/g
+  return html.replace(pattern, "");
+}
+
+function removeWikiLinks(html) {
+  var pattern = /href=\"\/wiki\/\S+\"\s/g
+  return html.replace(pattern, "");
+}
+
+
+function clean(html) {
+  html = removeSection(html, "Notes");
+  html = removeSection(html, "References");
+  html = removeSection(html, "Bibliography");
+  html = removeSection(html, "External_links");
+  html = removeSection(html, "Further_reading");
+  html = removeCitations(html);
+  html = removeExternalLinks(html);
+  html = removeWikiLinks(html);
+  return html;
+}
+
+document.addEventListener('click', function(e) {
+  loadsite(e.target.title);
+}, false);
+
+loadsite("Tiger Woods");
+// <a title="Professional golfer">professional golfer</a>
