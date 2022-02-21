@@ -1,3 +1,15 @@
+body {
+    height: calc(100% - 32px);
+    overflow: hidden;
+}
+
 #content {
+    height: calc(100% - 32px);
+    overflow: auto;
     padding: 16px;
+}
+
+#navigation {
+    padding: 16px;
+    background-color: gainsboro;
 }

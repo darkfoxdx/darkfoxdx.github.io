@@ -1,15 +1,28 @@
-const loadsite = async (page) => {
+var navArray = [];
+
+const loadsite = async (page, back = false) => {
+
     const response = await fetch('https://en.wikipedia.org/w/api.php?action=parse&format=json&page='+page+'&prop=text&disablelimitreport=1&disableeditsection=1&disablestylededuplication=1&redirects=1&formatversion=2&useskin=modern&origin=*', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }
     });
-    const result = await response.json(); //extract JSON from the http response
-    // do something with myJson
+    const result = await response.json(); 
+    if (!back) {
+      history.pushState(page, page);
+    }
+    navArray.push(page); 
+    document.getElementById('navigation').innerHTML = navArray.join(">");
+
+
     console.log(result);
     var html = result.parse.text;
     document.getElementById('content').innerHTML = clean(html);
+
+    if (page == "Kopi tiam") {
+      alert("Victory!");
+    }
   }
 
 function removeSection(html, s) {
@@ -74,4 +87,9 @@ document.addEventListener('click', function(e) {
   }
 }, false);
 
-loadsite("Tiger Woods");
+window.onpopstate = function(e) {
+  clearPage();
+  loadsite(e.state, true);
+}
+
+loadsite("Electronic dance music");
