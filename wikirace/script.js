@@ -30,7 +30,7 @@ function removeCitations(html) {
 }
 
 function removeExternalLinks(html) {
-  var pattern = /<a rel.*?class=\"external text\".*?<\/a>/g
+  var pattern = /<a(\s|\srel=\"\S+\"\s)class=\"external text\"\shref=\".*?\">.*?<\/a>/g
   return html.replace(pattern, "");
 }
 
@@ -40,7 +40,11 @@ function removeWikiLinks(html) {
 }
 
 function removeWikiMetaLinks(html) {
-  return html.replace(/<a.*?(Help|Special|Wikipedia):.*?>(.*?)<\/a>/, "$2");
+  return html.replace(/<a title=\"(Help|Special|Wikipedia):\S+\">(.*?)<\/a>/g, "$2");
+}
+
+function removeImageLinks(html) {
+  return html.replace(/<a class=\"image\">(.*?)<\/a>/g, "$1");
 }
 
 //<a title="Help:Disambiguation">disambiguation</a>
@@ -55,6 +59,7 @@ function clean(html) {
   html = removeExternalLinks(html);
   html = removeWikiLinks(html);
   html = removeWikiMetaLinks(html);
+  html = removeImageLinks(html);
   return html;
 }
 
