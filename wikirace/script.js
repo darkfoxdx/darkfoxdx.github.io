@@ -52,9 +52,15 @@ function clean(html) {
   return html;
 }
 
+function clearPage() {
+  document.getElementById('content').innerHTML = "";
+}
+
 document.addEventListener('click', function(e) {
-  loadsite(e.target.title);
+  if (e.target.tagName == 'A' && e.target.title != null) {
+    clearPage();
+    loadsite(e.target.title);
+  }
 }, false);
 
 loadsite("Tiger Woods");
-// <a title="Professional golfer">professional golfer</a>
