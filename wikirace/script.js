@@ -8,8 +8,20 @@ const loadsite = async () => {
     const result = await response.json(); //extract JSON from the http response
     // do something with myJson
     console.log(result);
-    document.getElementById('content').innerHTML = result.parse.text;
+    var html = result.parse.text;
+    html = remove(html, "Notes");
+    html = remove(html, "References");
+    html = remove(html, "Bibliography");
+    html = remove(html, "External links");
+    document.getElementById('content').innerHTML = html;
   }
 
 loadsite();
 console.log("test");
+
+function remove(html, s) {
+    var part1 = /<h2>[\s\S].*?/
+    var part2 = /[\s\S]*?<\/h2>[\s\S]*?((?=<h2>)|$)/g
+    var pattern = new RegExp(part1.source + s + part2.source);
+    return html.replace(pattern, "");
+}
