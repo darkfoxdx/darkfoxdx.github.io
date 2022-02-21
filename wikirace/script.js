@@ -39,6 +39,11 @@ function removeWikiLinks(html) {
   return html.replace(pattern, "");
 }
 
+function removeWikiMetaLinks(html) {
+  return html.replace(/<a.*?(Help|Special|Wikipedia):.*?>(.*?)<\/a>/, "$2");
+}
+
+//<a title="Help:Disambiguation">disambiguation</a>
 
 function clean(html) {
   html = removeSection(html, "Notes");
@@ -49,6 +54,7 @@ function clean(html) {
   html = removeCitations(html);
   html = removeExternalLinks(html);
   html = removeWikiLinks(html);
+  html = removeWikiMetaLinks(html);
   return html;
 }
 
