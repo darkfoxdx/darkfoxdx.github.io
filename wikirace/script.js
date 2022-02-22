@@ -20,6 +20,8 @@ const loadsite = async (page, back = false) => {
     var html = result.parse.text;
     document.getElementById('content').innerHTML = clean(html);
 
+    topFunction();
+
     var margin = document.getElementById('navigation').clientHeight  + 'px';
     document.getElementById('content').style.marginTop = margin;
     document.getElementById('content').style.marginBottom = margin;
@@ -60,14 +62,17 @@ function removeWikiLinks(html) {
 }
 
 function removeWikiMetaLinks(html) {
-  return html.replace(/<a title=\"(Help|Special|Wikipedia|Talk):\S+\">(.*?)<\/a>/g, "$2");
+  return html.replace(/<a title=\"(Help|Special|Wikipedia|Talk|Portal|Category):[\S\s]+?\">(.*?)<\/a>/g, "$2");
 }
 
 function removeImageLinks(html) {
   return html.replace(/<a class=\"image\">(.*?)<\/a>/g, "$1");
 }
 
-//<a title="Help:Disambiguation">disambiguation</a>
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
 function clean(html) {
   html = removeNewlines(html);
