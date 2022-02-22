@@ -13,7 +13,7 @@ const loadsite = async (page, back = false) => {
       history.pushState(page, page);
     }
     navArray.push(page); 
-    document.getElementById('navigation').innerHTML = "Target: The Lord of the Rings: The Rings of Power<\br>" + navArray.join(">");
+    document.getElementById('navigation').innerHTML = "Target: The Lord of the Rings: The Rings of Power<br>" + navArray.join(">");
 
 
     console.log(result);
