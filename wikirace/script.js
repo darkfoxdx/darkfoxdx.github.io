@@ -20,7 +20,7 @@ const loadsite = async (page, back = false) => {
     var html = result.parse.text;
     document.getElementById('content').innerHTML = clean(html);
 
-    if (page == "Kopi tiam") {
+    if (page == "The Lord of the Rings: The Rings of Power") {
       alert("Victory!");
     }
   }
@@ -92,4 +92,4 @@ window.onpopstate = function(e) {
   loadsite(e.state, true);
 }
 
-loadsite("Electronic dance music");
+loadsite("COVID-19");
