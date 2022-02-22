@@ -20,26 +20,33 @@ const loadsite = async (page, back = false) => {
     var html = result.parse.text;
     document.getElementById('content').innerHTML = clean(html);
 
+    var margin = document.getElementById('navigation').clientHeight  + 'px';
+    document.getElementById('content').style.marginTop = margin;
+    document.getElementById('content').style.marginBottom = margin;
+
     if (page == "Kopi tiam") {
       alert("Victory!");
     }
   }
 
+function removeNewlines(html) {
+  return html.replace(/(\r\n|\n|\r)/gm, "");
+}
+
 function removeSection(html, s) {
-    var section1 = /<h2>.*?id=\"/
+    var section1 = /<h2><span[^<>]*?id=\"/
     var section2 = /\"[\s\S]*?<\/h2>[\s\S]*?((?=<h2>)|$)/g
     var sectionPattern = new RegExp(section1.source + s + section2.source);
-    var result = html.replace(sectionPattern, "");
-    var toc1 = /<li.*?#/
-    var toc2 = /.*?<\/li>/g
+    html = html.replace(sectionPattern, "");
+    var toc1 = /<li[^<]*?><a href=\"#/
+    var toc2 = /\">(?!<a).*?<\/a><\/li>/g
     var tocPattern = new RegExp(toc1.source + s + toc2.source);
-    result = result.replace(tocPattern, "");
-    return result;
+    html = html.replace(tocPattern, "");
+    return html;
 }
 
 function removeCitations(html) {
-  var pattern = /<sup.*?class=\"(reference|noprint Inline-Template)\".*?<\/sup>/g
-  return html.replace(pattern, "");
+  return html.replace(/<sup[^<>]*?>\[?<[^<]*?.+?[^>]*?>\]?<\/sup>/g, "");
 }
 
 function removeExternalLinks(html) {
@@ -53,7 +60,7 @@ function removeWikiLinks(html) {
 }
 
 function removeWikiMetaLinks(html) {
-  return html.replace(/<a title=\"(Help|Special|Wikipedia):\S+\">(.*?)<\/a>/g, "$2");
+  return html.replace(/<a title=\"(Help|Special|Wikipedia|Talk):\S+\">(.*?)<\/a>/g, "$2");
 }
 
 function removeImageLinks(html) {
@@ -63,6 +70,7 @@ function removeImageLinks(html) {
 //<a title="Help:Disambiguation">disambiguation</a>
 
 function clean(html) {
+  html = removeNewlines(html);
   html = removeSection(html, "Notes");
   html = removeSection(html, "References");
   html = removeSection(html, "Bibliography");
@@ -81,15 +89,17 @@ function clearPage() {
 }
 
 document.addEventListener('click', function(e) {
-  if (e.target.tagName == 'A' && e.target.title != null) {
+  if (e.target.tagName == 'A' && e.target.title) {
     clearPage();
     loadsite(e.target.title);
   }
 }, false);
 
 window.onpopstate = function(e) {
-  clearPage();
-  loadsite(e.state, true);
+  if (e.state) {
+    clearPage();
+    loadsite(e.state, true);
+  }
 }
 
-loadsite("Electronic dance music");
+loadsite("Formula of Love: O+T=＜3");
