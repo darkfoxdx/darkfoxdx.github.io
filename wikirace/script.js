@@ -13,7 +13,7 @@ const loadsite = async (page, back = false) => {
       history.pushState(page, page);
     }
     navArray.push(page); 
-    document.getElementById('navigation').innerHTML = navArray.join(">");
+    document.getElementById('navigation').innerHTML = "Target: The Lord of the Rings: The Rings of Power<br>" + navArray.join(">");
 
 
     console.log(result);
@@ -24,7 +24,7 @@ const loadsite = async (page, back = false) => {
     document.getElementById('content').style.marginTop = margin;
     document.getElementById('content').style.marginBottom = margin;
 
-    if (page == "Kopi tiam") {
+    if (page == "The Lord of the Rings: The Rings of Power") {
       alert("Victory!");
     }
   }
@@ -102,4 +102,4 @@ window.onpopstate = function(e) {
   }
 }
 
-loadsite("Formula of Love: O+T=＜3");
+loadsite("COVID-19");
