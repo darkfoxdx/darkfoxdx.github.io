@@ -82,6 +82,7 @@ function clean(html) {
   html = removeNewlines(html);
   html = removeSection(html, "Notes");
   html = removeSection(html, "Footnotes");
+  html = removeSection(html, "Citations");
   html = removeSection(html, "References");
   html = removeSection(html, "Bibliography");
   html = removeSection(html, "External_links");
