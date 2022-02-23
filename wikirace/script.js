@@ -1,6 +1,8 @@
+//https://en.m.wikipedia.org/w/index.php?title=Special%3AWhatLinksHere&target=Sargis+Abrahamyan&namespace=
+
 var navArray = [];
 
-var target = "Sargis Abrahamyan";
+var target = "The Cat Creeps (1930 film)";
 
 const loadsite = async (page, back = false) => {
 
@@ -64,7 +66,7 @@ function removeWikiLinks(html) {
 }
 
 function removeWikiMetaLinks(html) {
-  return html.replace(/<a title=\"(Help|Special|Wikipedia|Talk|Portal|Category):[\S\s]+?\">(.*?)<\/a>/g, "$2");
+  return html.replace(/<a title=\"(Help|Special|Wikipedia|Talk|Portal|Category|Template):[\S\s]+?\">(.*?)<\/a>/g, "$2");
 }
 
 function removeImageLinks(html) {
@@ -79,6 +81,7 @@ function topFunction() {
 function clean(html) {
   html = removeNewlines(html);
   html = removeSection(html, "Notes");
+  html = removeSection(html, "Footnotes");
   html = removeSection(html, "References");
   html = removeSection(html, "Bibliography");
   html = removeSection(html, "External_links");
