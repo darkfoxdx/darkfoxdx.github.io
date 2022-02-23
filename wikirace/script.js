@@ -1,5 +1,7 @@
 var navArray = [];
 
+var target = "Sargis Abrahamyan";
+
 const loadsite = async (page, back = false) => {
 
     const response = await fetch('https://en.wikipedia.org/w/api.php?action=parse&format=json&page='+page+'&prop=text&disablelimitreport=1&disableeditsection=1&disablestylededuplication=1&redirects=1&formatversion=2&useskin=modern&origin=*', {
@@ -13,7 +15,7 @@ const loadsite = async (page, back = false) => {
       history.pushState(page, page);
     }
     navArray.push(page); 
-    document.getElementById('navigation').innerHTML = "Target: The Lord of the Rings: The Rings of Power<br>" + navArray.join(">");
+    document.getElementById('navigation').innerHTML = "Target: " + target + "<br>" + navArray.join(">");
 
 
     console.log(result);
@@ -26,7 +28,7 @@ const loadsite = async (page, back = false) => {
     document.getElementById('content').style.marginTop = margin;
     document.getElementById('content').style.marginBottom = margin;
 
-    if (page == "The Lord of the Rings: The Rings of Power") {
+    if (page == target) {
       alert("Victory!");
     }
   }
@@ -107,4 +109,4 @@ window.onpopstate = function(e) {
   }
 }
 
-loadsite("COVID-19");
+loadsite("The Gentle Art of Making Enemies (Gotham)");
