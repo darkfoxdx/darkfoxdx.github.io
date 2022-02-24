@@ -3,7 +3,7 @@
 var navArray = [];
 
 var start = "Zuzowy";
-var target = "Youngwood,_Pennsylvania";
+var target = "Youngwood, Pennsylvania";
 
 const loadsite = async (page, back = false) => {
 
