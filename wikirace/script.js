@@ -2,7 +2,8 @@
 
 var navArray = [];
 
-var target = "The Cat Creeps (1930 film)";
+var start = "Zuzowy";
+var target = "Youngwood,_Pennsylvania";
 
 const loadsite = async (page, back = false) => {
 
@@ -113,4 +114,4 @@ window.onpopstate = function(e) {
   }
 }
 
-loadsite("The Gentle Art of Making Enemies (Gotham)");
+loadsite(start);
