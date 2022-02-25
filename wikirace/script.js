@@ -2,8 +2,8 @@
 
 var navArray = [];
 
-var start = "Zuzowy";
-var target = "Youngwood, Pennsylvania";
+var start = "Elden Ring";
+var target = "Telegony (theory)";
 
 const loadsite = async (page, back = false) => {
 
