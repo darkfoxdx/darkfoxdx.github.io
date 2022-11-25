@@ -1,0 +1,3 @@
+[submodule "ee/FullscreenImageSlider"]
+	path = ee/FullscreenImageSlider
+	url = https://github.com/darkfoxdx/FullscreenImageSlider.git
