@@ -6,6 +6,27 @@ body {
     height: 100vh;
   }
   
+  .title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .title a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .title a:hover {
+    text-decoration: underline;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
   .pokedex-card {
     background-color: #ffffff;
     border-radius: 10px;
@@ -64,3 +85,9 @@ body {
     margin-bottom: 20px;
   }
   
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  }

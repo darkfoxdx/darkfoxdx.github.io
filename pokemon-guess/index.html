@@ -7,13 +7,15 @@
 </head>
 <body>
   <div class="pokedex-card">
+    <div class="title" onclick="revealPokemonLink()">Click to Reveal Name</div>
+    
     <div id="content"></div>
   
     <form>
       <label for="pokemonInput">Enter a Pokémon name:</label>
       <input type="text" id="pokemonInput" placeholder="Enter Pokémon name">
       <br>
-      <button id="check" onclick="checkPokemonName()">Check</button>
+      <button id="check" onclick="checkPokemonName(event)">Check</button>
     </form>
   
     <button id="refresh" onclick="clearParametersAndRefresh()">Refresh</button>

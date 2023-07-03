@@ -1,6 +1,21 @@
   
 var globalLinks;
 
+function revealPokemonLink() {
+  var title = document.querySelector('.title');
+  var link = document.createElement('a');
+
+  var randomIndex = readQueryParameter();
+  var pokemonName = globalLinks[randomIndex];
+  var pokemonNameParsed = pokemonName.replace(/\s*\(Pok\u00e9mon\)/, '');
+
+  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace('', '_');
+  link.textContent = pokemonNameParsed;
+
+  title.textContent = ''; // Clear the censored title
+  title.appendChild(link);
+}
+
 function getPokemonLinks() {
   var url = "https://bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&pageid=65356&prop=links";
 
@@ -65,18 +80,24 @@ function getPokemonLinks() {
       });
   }
 
-  function checkPokemonName() {
-    var pokemonInput = document.getElementById("pokemonInput").value.trim();
-    var randomIndex = readQueryParameter();
-    var pokemonName = globalLinks[randomIndex].replace(/\s*\(Pok\u00e9mon\)/, '');
+  function checkPokemonName(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-    if (pokemonInput.toLowerCase() === pokemonName.toLowerCase()) {
-      alert("Match! Pokémon name is correct.");
+    var pokemonInput = document.getElementById('pokemonInput');
+    var enteredName = pokemonInput.value.trim().toLowerCase();
+    var randomIndex = readQueryParameter();
+    var pokemonName = globalLinks[randomIndex].replace(/\s*\(Pok\u00e9mon\)/, '').toLowerCase();
+
+    if (enteredName === pokemonName) {
+      pokemonInput.style.backgroundColor = 'lightgreen';
     } else {
-      alert("No match! Pokémon name is incorrect.");
+      pokemonInput.style.animation = 'shake 0.5s';
+      pokemonInput.addEventListener('animationend', function () {
+        pokemonInput.style.animation = '';
+      });
     }
   }
-
+  
 // Fetch the API data and update the HTML page
 function fetchData(pokemonLinks, randomPokemon) {
     var url = "https://bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&page="+randomPokemon+"&prop=text&section=1";
