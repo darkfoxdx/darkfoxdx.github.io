@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Data Display</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="pokedex-card">
+    <div id="content"></div>
+  
+    <form>
+      <label for="pokemonInput">Enter a Pokémon name:</label>
+      <input type="text" id="pokemonInput" placeholder="Enter Pokémon name">
+      <br>
+      <button id="check" onclick="checkPokemonName()">Check</button>
+    </form>
+  
+    <button id="refresh" onclick="clearParametersAndRefresh()">Refresh</button>
+  </div>
+</body>
+</html>
