@@ -17,12 +17,10 @@ function revealPokemonLink() {
 }
 
 function getPokemonLinks() {
-  var url = "https://bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&pageid=65356&prop=links";
+  var url = "https://m.bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&pageid=65356&prop=links";
 
-  return fetch(url,{
-    headers: {
-      'Access-Control-Allow-Origin': 'https://www.projecteugene.com/'
-    }
+  return fetch(url, {
+    mode: 'cors'
   })
     .then(response => response.json())
     .then(data => {
@@ -104,13 +102,9 @@ function getPokemonLinks() {
   
 // Fetch the API data and update the HTML page
 function fetchData(pokemonLinks, randomPokemon) {
-    var url = "https://bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&page="+randomPokemon+"&prop=text&section=1";
+    var url = "https://m.bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&page="+randomPokemon+"&prop=text&section=1";
     
-    fetch(url,{
-      headers: {
-        'Access-Control-Allow-Origin': 'https://www.projecteugene.com/'
-      }
-    })
+    fetch(url)
       .then(response => response.json())
       .then(data => {
         var htmlContent = data.parse.text["*"];
@@ -197,6 +191,10 @@ function clearParametersAndRefresh() {
     setTimeout(function () {
       toast.classList.add("hidden");
     }, 3000); // Hide after 3 seconds
+  }
+
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
 
   // Call the fetchData function when the page loads
