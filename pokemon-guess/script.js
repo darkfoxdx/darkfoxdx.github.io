@@ -170,6 +170,26 @@ function clearParametersAndRefresh() {
     window.location.href = updatedURL;
   }
   
+  function copyLinkToClipboard() {
+    var link = window.location.href;
+
+    navigator.clipboard.writeText(link)
+      .then(function () {
+        showNotification("Link copied to clipboard!");
+      })
+      .catch(function (error) {
+        console.error("Failed to copy link: ", error);
+      });
+  }
+
+  function showNotification(message) {
+    var toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.remove("hidden");
+    setTimeout(function () {
+      toast.classList.add("hidden");
+    }, 3000); // Hide after 3 seconds
+  }
 
   // Call the fetchData function when the page loads
   window.addEventListener("load", function () {
