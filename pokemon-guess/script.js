@@ -9,7 +9,7 @@ function revealPokemonLink() {
   var pokemonName = globalLinks[randomIndex];
   var pokemonNameParsed = pokemonName.replace(/\s*\(Pok\u00e9mon\)/, '');
 
-  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace('', '_');
+  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace(' ', '_');
   link.textContent = pokemonNameParsed;
 
   title.textContent = ''; // Clear the censored title
