@@ -63,7 +63,7 @@ function getPokemonLinks() {
             var randomIndex = getRandomPokemonLink(globalLinks);
     
             var encryptedIndex = btoa(randomIndex);
-            window.location.href = window.location.pathname+"?p="+ encryptedIndex;
+            window.location.href = window.location.href + "?p=" + encryptedIndex;
 
         } else {
             // Retrieve a random Pokémon link
