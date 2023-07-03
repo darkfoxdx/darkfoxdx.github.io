@@ -17,7 +17,7 @@ function revealPokemonLink() {
 }
 
 function getPokemonLinks() {
-  var url = "https://bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&pageid=65356&prop=links";
+  var url = "https://bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=https%3A%2F%2Fwww.projecteugene.com%2Fpokemon-guess%2F&pageid=65356&prop=links";
 
   return fetch(url)
     .then(response => response.json())
@@ -100,7 +100,7 @@ function getPokemonLinks() {
   
 // Fetch the API data and update the HTML page
 function fetchData(pokemonLinks, randomPokemon) {
-    var url = "https://bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&page="+randomPokemon+"&prop=text&section=1";
+    var url = "https://bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=https%3A%2F%2Fwww.projecteugene.com%2Fpokemon-guess%2F&page="+randomPokemon+"&prop=text&section=1";
     
     fetch(url)
       .then(response => response.json())
