@@ -1,4 +1,3 @@
-  
 var globalLinks;
 
 function revealPokemonLink() {
@@ -7,9 +6,8 @@ function revealPokemonLink() {
 
   var randomIndex = readQueryParameter();
   var pokemonName = globalLinks[randomIndex];
-  var pokemonNameParsed = pokemonName.replace(/\s*\(Pok\u00e9mon\)/, '');
 
-  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace(/ /g, "_");
+  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace(/ /g, "_")+'(Pok\u00e9mon)';
   link.textContent = pokemonNameParsed;
   link.style.color = 'blue';
   
@@ -41,7 +39,7 @@ function getPokemonLinks() {
       for (var i = 0; i < links.length; i++) {
         var link = links[i]["*"];
         if (link.includes("(Pok\u00e9mon)")) {
-          pokemonLinks.push(link);
+          pokemonLinks.push(link.replace(/\s*\(Pok\u00e9mon\)/, ''));
         }
       }
       console.log(pokemonLinks);
@@ -105,7 +103,7 @@ function getPokemonLinks() {
     var pokemonInput = document.getElementById('pokemonInput');
     var enteredName = pokemonInput.value.trim().toLowerCase();
     var randomIndex = readQueryParameter();
-    var pokemonName = globalLinks[randomIndex].replace(/\s*\(Pok\u00e9mon\)/, '').toLowerCase();
+    var pokemonName = globalLinks[randomIndex].toLowerCase();
 
     if (enteredName === pokemonName) {
       pokemonInput.style.backgroundColor = 'lightgreen';
@@ -117,7 +115,6 @@ function getPokemonLinks() {
       });
     }
   }
-  
 
 function regExpEscape(literal_string) {
     return literal_string.replace(/[-[\]{}()*+!<=:?.\/\\^$|#\s,]/g, '\\$&');
@@ -125,7 +122,7 @@ function regExpEscape(literal_string) {
 
 // Fetch the API data and update the HTML page
 function fetchData(pokemonLinks, randomPokemon) {
-    var url = "https://m.bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&page="+randomPokemon+"&prop=text&section=1";
+    var url = "https://m.bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&page="+randomPokemon+" (Pok\u00e9mon)&prop=text&section=1";
     
     fetch(url)
       .then(response => response.json())
@@ -153,7 +150,7 @@ function fetchData(pokemonLinks, randomPokemon) {
         // Replace the words in withoutBiology with "X" if they are in the pokemonLinks array
         var finalContent = withoutBiology;
         for (var i = 0; i < pokemonLinks.length; i++) {
-            var pokemonName = pokemonLinks[i].replace(/\s*\(Pok\u00e9mon\)/, '');
+            var pokemonName = pokemonLinks[i];
             var regex;
             if (pokemonName.endsWith('.')) {
               regex = new RegExp('\\b'+regExpEscape(pokemonName), "g")
@@ -225,6 +222,69 @@ function clearParametersAndRefresh() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
 
+  function getHintRandomNumber(seed) {
+    var x = Math.sin(seed++) * 10000;
+    return Math.floor((x - Math.floor(x)) * (1015 - 1) + 1);
+  }
+  
+  function generateHintRandomNumbers(seed, count) {
+    var randomNumbers = [];
+    for (var i = 0; i < count; i++) {
+      seed = getRandomNumber(seed);
+      randomNumbers.push(seed);
+    }
+    return randomNumbers;
+  }
+
+  function autocompletePokemon(event) {
+    var input = event.target;
+    var inputValue = input.value.toLowerCase();
+    var matches = [];
+  
+    if (inputValue.length > 0) {
+      matches = globalLinks.filter(function (pokemonName) {
+        return pokemonName.toLowerCase().startsWith(inputValue);
+      });
+    }
+  
+    var autocompleteList = document.getElementById("autocompleteList");
+  
+    if (matches.length > 0) {
+      var autocompleteItems = matches.map(function (match) {
+        return "<div onclick=\"selectPokemon('" + match + "')\" onmousedown=\"preventBlur(event)\">" + match + "</div>";
+      });
+  
+      autocompleteList.innerHTML = autocompleteItems.join("");
+      autocompleteList.style.display = "block";
+    } else {
+      autocompleteList.innerHTML = "";
+      autocompleteList.style.display = "none";
+    }
+  }
+  
+  function selectPokemon(pokemonName) {
+    var input = document.getElementById("pokemonInput");
+    input.value = pokemonName;
+    document.getElementById("autocompleteList").style.display = "none";
+  }
+
+  function preventBlur(event) {
+    event.preventDefault();
+  }
+
+
+  
+function showAutocompleteList() {
+  var input = document.getElementById("pokemonInput");
+  if (input.value !== '') {
+    document.getElementById("autocompleteList").style.display = "block";
+  }
+}
+
+function hideAutocompleteList() {
+  document.getElementById("autocompleteList").style.display = "none";
+}
+  
   // Call the fetchData function when the page loads
   window.addEventListener("load", function () {
     // Retrieve the encrypted random index from the "p" query parameter

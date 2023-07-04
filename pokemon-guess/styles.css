@@ -58,6 +58,29 @@ label {
 
 form {
   margin-bottom: 10px;
+  position: relative;
+}
+
+#autocompleteList {
+  position: absolute;
+  width: 180px;
+  max-height: 100px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  z-index: 1;
+  display: none;
+  bottom: 75%; /* Position the autocomplete list below the form */
+}
+
+#autocompleteList div {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#autocompleteList div:hover {
+  background-color: #f5f5f5;
 }
 
 input[type="text"] {
@@ -112,3 +135,4 @@ button {
   20%, 40%, 60%, 80% { transform: translateX(10px); }
   100% { transform: translateX(0); }
 }
+
