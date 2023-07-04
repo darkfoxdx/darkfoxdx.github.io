@@ -194,6 +194,7 @@ function clearParametersAndRefresh() {
     var pokemonInput = document.getElementById('pokemonInput');
     pokemonInput.style.backgroundColor = '';
     pokemonInput.value = ''
+    clearHintToggle();
     loadIndexOrRandomPokemon(null);
   }
   
@@ -245,6 +246,11 @@ function clearParametersAndRefresh() {
       pokemonHints.push(globalLinks[hints[i]]);
     }
     return pokemonHints;
+  }
+
+  function clearHintToggle() {
+    var hintButton = document.getElementById('input-hint');
+    hintButton.classList.remove('on');
   }
 
   function toggleHint() {
