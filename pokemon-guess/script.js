@@ -53,29 +53,35 @@ function getPokemonLinks() {
     return randomIndex;
   }
 
+  function loadIndexOrRandomPokemon(randomIndexInput) {
+    var randomIndex;
+
+    if (randomIndexInput === null || randomIndexInput === '') {
+        // Call the getRandomPokemonLink function while passing in the links array
+        randomIndex = getRandomPokemonLink(globalLinks);
+
+        var encryptedIndex = btoa(randomIndex);
+        window.history.replaceState(null, null, "?p=" + encryptedIndex);
+    } else {
+        randomIndex = randomIndexInput;
+    }
+
+    // Retrieve a random Pokémon link
+    var randomPokemonLink = globalLinks[randomIndex];
+
+    // You can perform further operations with the randomPokemonLink here
+    fetchData(globalLinks, randomPokemonLink);
+
+  }
 
   function main(randomIndexInput) {
     getPokemonLinks()
       .then(pokemonLinks => {
         // Save the pokemonLinks array into a local variable
         globalLinks = pokemonLinks;
-        console.log("Random Index Input:", randomIndexInput);
-        if (randomIndexInput === null || randomIndexInput === '') {
-            // Call the getRandomPokemonLink function while passing in the links array
-            var randomIndex = getRandomPokemonLink(globalLinks);
-    
-            var encryptedIndex = btoa(randomIndex);
-            window.location.href = window.location.href + "?p=" + encryptedIndex;
-
-        } else {
-            // Retrieve a random Pokémon link
-            var randomPokemonLink = globalLinks[randomIndexInput];
-
-            console.log("Random Pokémon Link:", randomPokemonLink);
-            // You can perform further operations with the randomPokemonLink here
-            fetchData(globalLinks, randomPokemonLink);
-        }
-
+      })
+      .then(function() {
+        loadIndexOrRandomPokemon(randomIndexInput);
       })
       .catch(error => {
         console.log(error);
@@ -108,7 +114,6 @@ function fetchData(pokemonLinks, randomPokemon) {
       .then(response => response.json())
       .then(data => {
         var htmlContent = data.parse.text["*"];
-        console.log("Content:", htmlContent);
         // Remove div elements with class "thumbcaption"
         var withoutDivs = htmlContent.replace(/<div class=\"thumbcaption\"><div class=\"magnify\">.*?<\/div><\/div>/g, '');
 
@@ -118,8 +123,12 @@ function fetchData(pokemonLinks, randomPokemon) {
         // Remove div with class="mw-references-wrap"
         var withoutReferences = withoutH3Content.replace(/<div class="mw-references-wrap">.*?<\/div>/gs, '');
 
+        console.log(withoutReferences);
+        
+        var withoutNotes = withoutReferences.replace(/<sup[\s\S]*?class="reference">[\s\S]*?<\/sup>/g, '');
+
         // Remove HTML tags using regular expressions
-        var cleanContent = withoutReferences.replace(/<.*?>/g, '');
+        var cleanContent = withoutNotes.replace(/<.*?>/g, '');
   
         // Remove "Biology[edit]" section and the space after it
         var withoutBiology = cleanContent.replace(/Biology\[edit\]\s+/g, '');
@@ -162,14 +171,7 @@ function fetchData(pokemonLinks, randomPokemon) {
   }
 
 function clearParametersAndRefresh() {
-    // Get the current URL
-    var currentURL = window.location.href;
-  
-    // Remove the query parameters from the URL
-    var updatedURL = currentURL.split('?')[0];
-  
-    // Reload the page with the updated URL
-    window.location.href = updatedURL;
+    loadIndexOrRandomPokemon(null);
   }
   
   function copyLinkToClipboard() {
