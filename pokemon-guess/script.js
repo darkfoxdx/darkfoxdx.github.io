@@ -19,9 +19,7 @@ function revealPokemonLink() {
 function getPokemonLinks() {
   var url = "https://m.bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&pageid=65356&prop=links";
 
-  return fetch(url, {
-    mode: 'cors'
-  })
+  return fetch(url)
     .then(response => response.json())
     .then(data => {
       var links = data.parse.links;
@@ -125,8 +123,6 @@ function fetchData(pokemonLinks, randomPokemon) {
 
         // Remove div with class="mw-references-wrap"
         var withoutReferences = withoutH3Content.replace(/<div class="mw-references-wrap">.*?<\/div>/gs, '');
-
-        console.log(withoutReferences);
         
         var withoutNotes = withoutReferences.replace(/<sup[\s\S]*?class="reference">[\s\S]*?<\/sup>/g, '');
 
