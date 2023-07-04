@@ -99,6 +99,7 @@ function getPokemonLinks() {
     if (enteredName === pokemonName) {
       pokemonInput.style.backgroundColor = 'lightgreen';
     } else {
+      pokemonInput.style.backgroundColor = '#ffcccc';
       pokemonInput.style.animation = 'shake 0.5s';
       pokemonInput.addEventListener('animationend', function () {
         pokemonInput.style.animation = '';
@@ -117,8 +118,10 @@ function fetchData(pokemonLinks, randomPokemon) {
         // Remove div elements with class "thumbcaption"
         var withoutDivs = htmlContent.replace(/<div class=\"thumbcaption\"><div class=\"magnify\">.*?<\/div><\/div>/g, '');
 
+        var preceedingDivs = withoutDivs.replace(/.*?<span class="mw-headline" id="Biology">Biology<\/span><\/h2>/s, '');
+
         // Remove content after the <h3> tag
-        var withoutH3Content = withoutDivs.replace(/<h3>[\s\S]*/i, '');
+        var withoutH3Content = preceedingDivs.replace(/<h3>[\s\S]*/i, '');
 
         // Remove div with class="mw-references-wrap"
         var withoutReferences = withoutH3Content.replace(/<div class="mw-references-wrap">.*?<\/div>/gs, '');

@@ -1,107 +1,114 @@
 body {
-    background-color: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-  
-  .title {
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  
-  .title a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .title a:hover {
-    text-decoration: underline;
-  }
-  
-  .hidden {
-    display: none;
-  }
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 98vh;
+}
 
-  .pokedex-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    text-align: center; /* horizontal */
-    max-width: 400px;
-    margin-top: 20px;
-    margin-right: 20px; /* Add margin-right here */
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  form {
-    margin-bottom: 20px;
-  }
-  
-  input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-  }
-  
-  button {
-    display: inline-block;
-    padding: 10px 20px;
+.title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
 
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  #check:hover {
-    background-color: #45a049;
-  }
-  
-  #check {
-    background-color: #4caf50;
-  }
+.title a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  #refresh {
-    background-color: #ff3d00;
+.title a:hover {
+  text-decoration: underline;
+}
 
-  }
-  
-  #refresh:hover {
-    background-color: #e65100;
-  }
+.hidden {
+  display: none;
+}
 
-  #share {
-    background-color: #007bff;
-  }
-  
-  #share:hover {
-    background-color: #0056b3;
-  }
-  
-  #toast {
-    margin-top: 10px;
-  }
+.pokedex-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  height: 85vh;
+  width: 60vh;
+  overflow: hidden;
 
-  #content {
-    margin-bottom: 20px;
-  }
-  
-  @keyframes shake {
-    0% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-    20%, 40%, 60%, 80% { transform: translateX(10px); }
-    100% { transform: translateX(0); }
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#content {
+  overflow-y: auto; /* Add this property to make it scrollable */
+  height: 100%;
+  text-align: justify;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#check:hover {
+  background-color: #45a049;
+}
+
+#check {
+  background-color: #4caf50;
+}
+
+#refresh {
+  background-color: #ff3d00;
+}
+
+#refresh:hover {
+  background-color: #e65100;
+}
+
+#share {
+  background-color: #007bff;
+}
+
+#share:hover {
+  background-color: #0056b3;
+}
+
+#toast {
+  margin-top: 10px;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}

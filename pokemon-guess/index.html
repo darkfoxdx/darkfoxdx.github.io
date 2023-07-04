@@ -13,19 +13,20 @@
     
     <div id="content"></div>
   
-    <form>
-      <label for="pokemonInput">Enter a Pokémon name:</label>
-      <input type="text" id="pokemonInput" placeholder="Enter Pokémon name">
-      <br>
-      <button id="check" onclick="checkPokemonName(event)">Check</button>
-    </form>
-  
-    <button id="refresh" onclick="clearParametersAndRefresh()">Refresh</button>
+    <div id="bottom">
+      <form>
+        <label for="pokemonInput">Guess the Pokémon!:</label>
+        <input type="text" id="pokemonInput" placeholder="Enter Pokémon name">
+        <br>
+        <button id="check" onclick="checkPokemonName(event)">Check</button>
+      </form>
+    
+      <button id="refresh" onclick="clearParametersAndRefresh()">Refresh</button>
 
-    <button id="share" onclick="copyLinkToClipboard()">Share</button>
+      <button id="share" onclick="copyLinkToClipboard()">Share</button>
 
-    <div id="toast" class="hidden">Link copied to clipboard!</div>
-
+      <div id="toast" class="hidden">Link copied to clipboard!</div>
+    </div>
   </div>
 </body>
 </html>
