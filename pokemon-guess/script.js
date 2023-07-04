@@ -17,6 +17,18 @@ function revealPokemonLink() {
   title.appendChild(link);
 }
 
+function unrevealPokemonLink() {
+  var title = document.querySelector('.title');
+  var link = document.createElement('a');
+
+  link.href = '';
+  link.textContent = '';
+  link.style.color = 'blue';
+  
+  title.textContent = 'Click to Reveal Name'; // Unclear the censored title
+  title.appendChild(link);
+}
+
 function getPokemonLinks() {
   var url = "https://m.bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&pageid=65356&prop=links";
 
@@ -171,6 +183,7 @@ function fetchData(pokemonLinks, randomPokemon) {
   }
 
 function clearParametersAndRefresh() {
+    unrevealPokemonLink();
     var pokemonInput = document.getElementById('pokemonInput');
     pokemonInput.style.backgroundColor = '';
     pokemonInput.value = ''
