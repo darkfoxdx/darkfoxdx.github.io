@@ -9,7 +9,7 @@ function revealPokemonLink() {
   var pokemonName = globalLinks[randomIndex];
   var pokemonNameParsed = pokemonName.replace(/\s*\(Pok\u00e9mon\)/, '');
 
-  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace(' ', '_');
+  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace(/ /g, "_");
   link.textContent = pokemonNameParsed;
   link.style.color = 'blue';
   
@@ -44,7 +44,7 @@ function getPokemonLinks() {
           pokemonLinks.push(link);
         }
       }
-
+      console.log(pokemonLinks);
       return pokemonLinks;
     })
     .catch(error => {
@@ -118,6 +118,11 @@ function getPokemonLinks() {
     }
   }
   
+
+function regExpEscape(literal_string) {
+    return literal_string.replace(/[-[\]{}()*+!<=:?.\/\\^$|#\s,]/g, '\\$&');
+}
+
 // Fetch the API data and update the HTML page
 function fetchData(pokemonLinks, randomPokemon) {
     var url = "https://m.bulbapedia.bulbagarden.net/w/api.php?action=parse&format=json&origin=*&page="+randomPokemon+"&prop=text&section=1";
@@ -149,7 +154,12 @@ function fetchData(pokemonLinks, randomPokemon) {
         var finalContent = withoutBiology;
         for (var i = 0; i < pokemonLinks.length; i++) {
             var pokemonName = pokemonLinks[i].replace(/\s*\(Pok\u00e9mon\)/, '');
-            var regex = new RegExp("\\b" + pokemonName + "\\b", "gi");
+            var regex;
+            if (pokemonName.endsWith('.')) {
+              regex = new RegExp('\\b'+regExpEscape(pokemonName), "g")
+            } else {
+              regex = new RegExp('\\b'+regExpEscape(pokemonName)+'\\b', "g")
+            }
             finalContent = finalContent.replace(regex, "\u25FC".repeat(pokemonName.length));
         }
 
