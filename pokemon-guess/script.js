@@ -170,6 +170,9 @@ function fetchData(pokemonLinks, randomPokemon) {
   }
 
 function clearParametersAndRefresh() {
+    var pokemonInput = document.getElementById('pokemonInput');
+    pokemonInput.style.backgroundColor = '';
+    pokemonInput.value = ''
     loadIndexOrRandomPokemon(null);
   }
   
