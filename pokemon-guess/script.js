@@ -11,7 +11,8 @@ function revealPokemonLink() {
 
   link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace(' ', '_');
   link.textContent = pokemonNameParsed;
-
+  link.style.color = 'blue';
+  
   title.textContent = ''; // Clear the censored title
   title.appendChild(link);
 }
