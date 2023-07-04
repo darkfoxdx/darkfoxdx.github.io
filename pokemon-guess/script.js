@@ -230,21 +230,55 @@ function clearParametersAndRefresh() {
   function generateHintRandomNumbers(seed, count) {
     var randomNumbers = [];
     for (var i = 0; i < count; i++) {
-      seed = getRandomNumber(seed);
+      seed = getHintRandomNumber(seed);
       randomNumbers.push(seed);
     }
     return randomNumbers;
   }
 
-  function autocompletePokemon(event) {
-    var input = event.target;
-    var inputValue = input.value.toLowerCase();
-    var matches = [];
+  function generateHint() {
+    var hintCount = 3
+    var randomIndex = readQueryParameter();
+    var hints = generateHintRandomNumbers(randomIndex, hintCount);
+    var pokemonHints = [globalLinks[randomIndex]];
+    for (var i = 0; i < hintCount; i++) {
+      pokemonHints.push(globalLinks[hints[i]]);
+    }
+    return pokemonHints;
+  }
+
+  function toggleHint() {
+    var hintButton = document.getElementById('input-hint');
+    var inputText = document.getElementById("pokemonInput");
   
-    if (inputValue.length > 0) {
-      matches = globalLinks.filter(function (pokemonName) {
-        return pokemonName.toLowerCase().startsWith(inputValue);
-      });
+    if (hintButton.classList.contains('on')) {
+      hintButton.classList.remove('on');
+    } else {
+      hintButton.classList.add('on');
+    }
+    generateAutocompletePokemon(inputText.value);
+  }
+
+  function isHintOn() {
+    var hintButton = document.getElementById('input-hint');
+    return hintButton.classList.contains('on');
+  }
+
+  function autocompletePokemon(event) {
+    generateAutocompletePokemon(event.target.value.toLowerCase())
+  }
+
+  function generateAutocompletePokemon(inputValue) {
+    var matches = [];
+
+    if (isHintOn()) {
+      matches = generateHint();
+    } else {    
+      if (inputValue.length > 0) {
+        matches = globalLinks.filter(function (pokemonName) {
+          return pokemonName.toLowerCase().startsWith(inputValue);
+        });
+      }
     }
   
     var autocompleteList = document.getElementById("autocompleteList");

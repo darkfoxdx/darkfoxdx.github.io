@@ -30,6 +30,7 @@
         <div id="autocompleteList"></div>
         <input type="text" id="pokemonInput" placeholder="Enter Pokémon name" oninput="autocompletePokemon(event)"
               autocomplete="off" onfocus="showAutocompleteList()" onblur="hideAutocompleteList()">
+        <div id="input-hint" onclick="toggleHint()">HINT</div>
         <br>
         <button id="check" onclick="checkPokemonName(event)">Check</button>
       </form>
