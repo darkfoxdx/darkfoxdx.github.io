@@ -107,6 +107,7 @@ function getPokemonLinks() {
 
     if (enteredName === pokemonName) {
       pokemonInput.style.backgroundColor = 'lightgreen';
+      revealPokemonLink();
     } else {
       pokemonInput.style.backgroundColor = '#ffcccc';
       pokemonInput.style.animation = 'shake 0.5s';
