@@ -7,8 +7,8 @@ function revealPokemonLink() {
   var randomIndex = readQueryParameter();
   var pokemonName = globalLinks[randomIndex];
 
-  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace(/ /g, "_")+'(Pok\u00e9mon)';
-  link.textContent = pokemonNameParsed;
+  link.href = 'https://bulbapedia.bulbagarden.net/wiki/'+pokemonName.replace(/ /g, "_")+'_(Pok\u00e9mon)';
+  link.textContent = pokemonName;
   link.style.color = 'blue';
   
   title.textContent = ''; // Clear the censored title
