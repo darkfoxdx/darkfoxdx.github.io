@@ -224,7 +224,8 @@ function clearParametersAndRefresh() {
   }
 
   function getHintRandomNumber(seed) {
-    var x = Math.sin(seed++) * 10000;
+    var random = new Math.seedrandom(seed*seed/7);
+    var x = random();
     return Math.floor((x - Math.floor(x)) * (1015 - 1) + 1);
   }
   
@@ -237,15 +238,22 @@ function clearParametersAndRefresh() {
     return randomNumbers;
   }
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
   function generateHint() {
-    var hintCount = 3
+    var hintCount = 3;
     var randomIndex = readQueryParameter();
     var hints = generateHintRandomNumbers(randomIndex, hintCount);
     var pokemonHints = [globalLinks[randomIndex]];
     for (var i = 0; i < hintCount; i++) {
       pokemonHints.push(globalLinks[hints[i]]);
     }
-    return pokemonHints;
+    return shuffleArray(pokemonHints);
   }
 
   function clearHintToggle() {
@@ -312,8 +320,6 @@ function clearParametersAndRefresh() {
     event.preventDefault();
   }
 
-
-  
 function showAutocompleteList() {
   var input = document.getElementById("pokemonInput");
   if (input.value !== '') {
@@ -329,7 +335,7 @@ function hideAutocompleteList() {
   window.addEventListener("load", function () {
     // Retrieve the encrypted random index from the "p" query parameter
     var randomIndex = readQueryParameter();
-  
+
     // Call the main function with the encrypted random index
     main(randomIndex);
   });
