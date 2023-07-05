@@ -253,7 +253,8 @@ function clearParametersAndRefresh() {
     for (var i = 0; i < hintCount; i++) {
       pokemonHints.push(globalLinks[hints[i]]);
     }
-    return shuffleArray(pokemonHints);
+    shuffleArray(pokemonHints);
+    return pokemonHints;
   }
 
   function clearHintToggle() {
