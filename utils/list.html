@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join List To One Line</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+        }
+        .text-boxes {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+        #delimiterInput {
+            width: 30%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        #leftTextarea, #rightTextarea {
+            width: 48%;
+            height: 500px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="delimiterInput" placeholder="Delimiter" />
+        <div class="text-boxes">
+            <textarea id="leftTextarea" placeholder="Enter text here"></textarea>
+            <textarea id="rightTextarea" placeholder="Converted text will appear here" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        const leftTextarea = document.getElementById('leftTextarea');
+        const rightTextarea = document.getElementById('rightTextarea');
+        const delimiterInput = document.getElementById('delimiterInput');
+
+        function splitAndJoin() {
+            const delimiter = delimiterInput.value;
+            const text = leftTextarea.value.split(/\r?\n/).filter(n => n);
+
+            // Join the split text with line breaks and update the right textarea
+            rightTextarea.value = text.join(delimiter);
+        }
+
+        leftTextarea.addEventListener('input', () => {
+            splitAndJoin()
+        });
+
+        delimiterInput.addEventListener('input', () => {
+            splitAndJoin()
+        });
+    </script>
+</body>
+</html>
