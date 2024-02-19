@@ -22726,7 +22726,7 @@ aeD(){var s=0,r=A.U(t.rv),q,p,o,n
 var $async$aeD=A.V(function(a,b){if(a===1)return A.R(b,r)
 while(true)switch(s){case 0:o=t.N
 s=3
-return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/dishes.shtml"),A.P(["Access-Control-Allow-Origin","projecteugene.com","Access-Control-Allow-Methods","GET"],o,o)),$async$aeD)
+return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/dishes.shtml"),A.P(["Access-Control-Allow-Origin","https://projecteugene.com","Access-Control-Allow-Methods","GET"],o,o)),$async$aeD)
 case 3:n=b
 if(n.b===200){p=A.ap1(A.anM(n.e).c.a.i(0,"charset")).dn(0,n.w)
 q=new A.jE(A.aib(2,p),A.aib(3,p),A.aib(4,p))
@@ -22740,7 +22740,7 @@ aeC(){var s=0,r=A.U(t.Kl),q,p,o
 var $async$aeC=A.V(function(a,b){if(a===1)return A.R(b,r)
 while(true)switch(s){case 0:p=t.N
 s=3
-return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/ingredients.shtml"),A.P(["Access-Control-Allow-Origin","projecteugene.com","Access-Control-Allow-Methods","GET"],p,p)),$async$aeC)
+return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/ingredients.shtml"),A.P(["Access-Control-Allow-Origin","https://projecteugene.com","Access-Control-Allow-Methods","GET"],p,p)),$async$aeC)
 case 3:o=b
 if(o.b===200){q=A.aCN(A.ap1(A.anM(o.e).c.a.i(0,"charset")).dn(0,o.w))
 s=1
