@@ -22428,7 +22428,7 @@ a9:function a9(a,b,c){this.a=a
 this.b=b
 this.$ti=c},
 ae1:function ae1(a){this.a=a},
-apc(a){return A.adE(new A.ae7(a,null),t.Wd)},
+apc(a,b){return A.adE(new A.ae7(a,b),t.Wd)},
 adE(a,b){return A.aAY(a,b,b)},
 aAY(a,b,c){var s=0,r=A.U(c),q,p=2,o,n=[],m,l
 var $async$adE=A.V(function(d,e){if(d===1){o=e
@@ -22724,8 +22724,9 @@ ab6:function ab6(a,b){this.a=a
 this.b=b},
 aeD(){var s=0,r=A.U(t.rv),q,p,o,n
 var $async$aeD=A.V(function(a,b){if(a===1)return A.R(b,r)
-while(true)switch(s){case 0:s=3
-return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/dishes.shtml")),$async$aeD)
+while(true)switch(s){case 0:o=t.N
+s=3
+return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/dishes.shtml"),A.P(["Access-Control-Allow-Origin","projecteugene.com","Access-Control-Allow-Methods","GET"],o,o)),$async$aeD)
 case 3:n=b
 if(n.b===200){p=A.ap1(A.anM(n.e).c.a.i(0,"charset")).dn(0,n.w)
 q=new A.jE(A.aib(2,p),A.aib(3,p),A.aib(4,p))
@@ -22735,12 +22736,13 @@ q=new A.jE(A.a([],o),A.a([],o),A.a([],o))
 s=1
 break}case 1:return A.S(q,r)}})
 return A.T($async$aeD,r)},
-aeC(){var s=0,r=A.U(t.Kl),q,p
+aeC(){var s=0,r=A.U(t.Kl),q,p,o
 var $async$aeC=A.V(function(a,b){if(a===1)return A.R(b,r)
-while(true)switch(s){case 0:s=3
-return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/ingredients.shtml")),$async$aeC)
-case 3:p=b
-if(p.b===200){q=A.aCN(A.ap1(A.anM(p.e).c.a.i(0,"charset")).dn(0,p.w))
+while(true)switch(s){case 0:p=t.N
+s=3
+return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/ingredients.shtml"),A.P(["Access-Control-Allow-Origin","projecteugene.com","Access-Control-Allow-Methods","GET"],p,p)),$async$aeC)
+case 3:o=b
+if(o.b===200){q=A.aCN(A.ap1(A.anM(o.e).c.a.i(0,"charset")).dn(0,o.w))
 s=1
 break}else{q=A.a([],t.ef)
 s=1
@@ -73260,6 +73262,7 @@ uk(a,b,c){return this.a3C(a,b,c)},
 a3C(a,b,c){var s=0,r=A.U(t.Wd),q,p=this,o,n
 var $async$uk=A.V(function(d,e){if(d===1)return A.R(e,r)
 while(true)switch(s){case 0:o=A.awL(a,b)
+o.r.L(0,c)
 n=A
 s=3
 return A.a0(p.fp(0,o),$async$uk)
