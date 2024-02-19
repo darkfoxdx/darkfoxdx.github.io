@@ -22725,7 +22725,7 @@ this.b=b},
 aeD(){var s=0,r=A.U(t.rv),q,p,o,n
 var $async$aeD=A.V(function(a,b){if(a===1)return A.R(b,r)
 while(true)switch(s){case 0:s=3
-return A.a0(A.apc(A.fE("https://api.allorigins.win/get?charset=ISO-8859-1&url=https://www.serebii.net/pokemonsleep/dishes.shtml")),$async$aeD)
+return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/dishes.shtml")),$async$aeD)
 case 3:n=b
 if(n.b===200){p=A.ap1(A.anM(n.e).c.a.i(0,"charset")).dn(0,n.w)
 q=new A.jE(A.aib(2,p),A.aib(3,p),A.aib(4,p))
@@ -22738,7 +22738,7 @@ return A.T($async$aeD,r)},
 aeC(){var s=0,r=A.U(t.Kl),q,p
 var $async$aeC=A.V(function(a,b){if(a===1)return A.R(b,r)
 while(true)switch(s){case 0:s=3
-return A.a0(A.apc(A.fE("https://api.allorigins.win/get?charset=ISO-8859-1&url=https://www.serebii.net/pokemonsleep/ingredients.shtml")),$async$aeC)
+return A.a0(A.apc(A.fE("https://eugenelow.com/raw.php?url=https://www.serebii.net/pokemonsleep/ingredients.shtml")),$async$aeC)
 case 3:p=b
 if(p.b===200){q=A.aCN(A.ap1(A.anM(p.e).c.a.i(0,"charset")).dn(0,p.w))
 s=1
