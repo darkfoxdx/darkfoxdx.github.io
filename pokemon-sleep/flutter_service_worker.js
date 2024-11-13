@@ -8,7 +8,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "7a7fdd71e33a478814ca1f034ad50d36
 "assets/AssetManifest.json": "34843bec4e2e43c2272829ae4dd32d2a",
 "assets/assets/icon.png": "b090291bb90e1c0121a7bd3d92f5c6e9",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
-"assets/fonts/MaterialIcons-Regular.otf": "3c612413b14dbb70429f585932c8e317",
+"assets/fonts/MaterialIcons-Regular.otf": "13991ff313c641d8080ac9502b93c6c5",
 "assets/images/beanburgercurry.png": "21ed85b54cce31206efd320d0ae0fcba",
 "assets/images/beanhamsalad.png": "d9be6cd8aa1b80bc66dca128ac9d8acd",
 "assets/images/beansausage.png": "d11c83153687979377ecd001e1ca9d24",
@@ -106,9 +106,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "7a7fdd71e33a478814ca1f034ad50d36
 "icons/Icon-512.png": "b090291bb90e1c0121a7bd3d92f5c6e9",
 "icons/Icon-maskable-192.png": "539b8e0aa8a6fc1f262270fa7598c00d",
 "icons/Icon-maskable-512.png": "b090291bb90e1c0121a7bd3d92f5c6e9",
-"index.html": "b11d8ec76d786d664c59db1961b5da02",
-"/": "b11d8ec76d786d664c59db1961b5da02",
-"main.dart.js": "a0342023e5c7ba6b4ad673cfcf9477f4",
+"index.html": "a5704e3b66b2f70ad403e5156c9ed5db",
+"/": "a5704e3b66b2f70ad403e5156c9ed5db",
+"main.dart.js": "5af3b519f8a185544afc341d2869ba31",
 "manifest.json": "9bd4e94c716039299898b0983a4b64cf",
 "version.json": "f7f9f2918205b5834f3d42a1b1d8630c"};
 // The application shell files that are downloaded before a service worker can
