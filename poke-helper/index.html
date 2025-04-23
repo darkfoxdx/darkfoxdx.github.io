@@ -77,8 +77,12 @@
       user: null,
       authToken: null,
       cards: [],
-      searchQuery: ''
+      searchQuery: '',
+      viewUserId: null
     };
+    state.viewUserId = getIdFromHash();
+
+    console.log(state.viewUserId);
     
     // API Base URL
     const API_BASE_URL = 'https://eugenelow.com/poke_tcg_pocket';
@@ -96,6 +100,20 @@
     const resetFilters = document.getElementById('resetFilters');
     const statusMessage = document.getElementById('statusMessage');
     
+    function getIdFromHash() {
+      const hash = window.location.hash;
+      
+      // Check if hash exists and follows pattern #/{id}
+      if (hash && hash.includes('/')) {
+        const segments = hash.substring(1).split('/');
+        if (segments.length > 1) {
+          return segments[1];
+        }
+      }
+      
+      return null; // Return null if ID not found
+    }
+
     // Check if user is already logged in (from session storage)
     function checkExistingAuth() {
       const storedToken = sessionStorage.getItem('authToken');
