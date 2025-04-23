@@ -127,7 +127,7 @@
           createOrFetchUser(storedToken);
         } catch (error) {
           console.error('Error parsing stored user data:', error);
-          clearAuthData();
+          logout();
         }
       } else {
         // Move Google Sign-In button to login message area
