@@ -194,7 +194,7 @@
   }
   
   .card-controls-row {
-    display: flex;
+    display: grid;
     justify-content: space-between;
     margin-top: 1rem;
   }
