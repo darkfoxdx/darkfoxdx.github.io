@@ -251,10 +251,10 @@
       }
     }
     
-    // Update card want/favourite
+    // Update card want/favorite
     async function updateCardWant(cardId, isAdd) {
       try {
-        const action = isAdd ? 'favourite' : 'unfavourite';
+        const action = isAdd ? 'favorite' : 'unfavorite';
         const url = `${API_BASE_URL}/user/card/${cardId}/${action}`;
         
         await axios.post(url, {}, {
