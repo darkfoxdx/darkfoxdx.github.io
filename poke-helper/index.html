@@ -82,8 +82,7 @@
     };
     state.viewUserId = getIdFromHash();
 
-    console.log(state.viewUserId);
-    console.log(window.location.hash);
+    console.log('ID: ' + state.viewUserId);
 
     // API Base URL
     const API_BASE_URL = 'https://eugenelow.com/poke_tcg_pocket';
@@ -105,11 +104,10 @@
       const hash = window.location.hash;
       
       // Check if hash exists and follows pattern #/{id}
-      if (hash && hash.includes('/')) {
-        const segments = hash.substring(1).split('/');
-        if (segments.length > 1) {
-          return segments[1];
-        }
+      if (hash) {
+        const match = hash.match(/\d+/);
+        const id = match ? parseInt(match[0], 10) : null;
+        return id
       }
       
       return null; // Return null if ID not found
