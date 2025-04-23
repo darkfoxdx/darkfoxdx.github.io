@@ -1,41 +1,778 @@
-<html>
-  <body>
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <div id="g_id_onload"
-        data-client_id="609187534221-ec3iub1l5dsb7hrp52gvpt45v2lpp9j4.apps.googleusercontent.com"
-        data-callback="handleCredentialResponse"
-        data-auto_prompt="false">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon TCG Pocket Collection Tracker</title>
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+  <style>
+    :root {
+      --primary-color: #e53935;
+      --secondary-color: #f44336;
+      --accent-color: #ffcdd2;
+      --light-bg: #f9f9f9;
+      --dark-text: #333;
+      --light-text: #fff;
+      --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      --border-radius: 10px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+      line-height: 1.6;
+    }
+    
+    header {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .app-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .app-title img {
+      height: 32px;
+    }
+    
+    .auth-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .user-info {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .user-info img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+    
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--light-text);
+      border: 1px solid var(--light-text);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .filters {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .filter-title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .filter-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.7rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    
+    .filter-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px var(--accent-color);
+    }
+    
+    .filter-button {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    
+    .filter-button:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    
+    .card-image-container {
+      position: relative;
+      padding-top: 100%;
+      background-color: #f0f0f0;
+    }
+    
+    .card-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 0.5rem;
+    }
+    
+    .card-details {
+      padding: 1.2rem;
+    }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+    
+    .card-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    
+    .card-id {
+      font-size: 0.85rem;
+      color: #777;
+      background-color: #f0f0f0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+    
+    .card-controls-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    
+    .card-control {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+    }
+    
+    .control-label {
+      font-size: 0.85rem;
+      color: #777;
+      margin-right: 0.5rem;
+    }
+    
+    .control-btn {
+      width: 28px;
+      height: 28px;
+      background-color: #f0f0f0;
+      color: var(--dark-text);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    
+    .control-btn:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .control-btn.add {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .control-btn.add:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    .control-btn.remove {
+      background-color: #f0f0f0;
+      color: var(--dark-text);
+    }
+    
+    .control-btn.remove:hover {
+      background-color: #e0e0e0;
+    }
+    
+    .quantity-display {
+      width: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    .login-message {
+      text-align: center;
+      margin: 4rem 0;
+      padding: 2rem;
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+    }
+    
+    .login-message h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .login-message p {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+    }
+    
+    .loading {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 3rem 0;
+      color: #555;
+    }
+    
+    .loader {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border: 3px solid rgba(0,0,0,0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .status-message {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 1rem;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .status-message.error {
+      background-color: #f44336;
+    }
+    
+    .status-message.show {
+      opacity: 1;
+    }
+    
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      color: #777;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      .filter-group {
+        flex-direction: column;
+      }
+      
+      .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="app-title">
+      <img src="/api/placeholder/32/32" alt="Pokéball">
+      Pokémon TCG Pocket Collection
     </div>
-    <div class="g_id_signin"
-        data-type="standard"
-        data-size="large"
-        data-theme="outline"
-        data-text="sign_in_with"
-        data-shape="rectangular"
-        data-logo_alignment="left">
+    <div class="auth-section">
+      <div id="g_id_onload"
+          data-client_id="609187534221-ec3iub1l5dsb7hrp52gvpt45v2lpp9j4.apps.googleusercontent.com"
+          data-callback="handleCredentialResponse"
+          data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+          data-type="standard"
+          data-size="large"
+          data-theme="outline"
+          data-text="sign_in_with"
+          data-shape="rectangular"
+          data-logo_alignment="left">
+      </div>
+      <div class="user-info" id="userInfo">
+        <img id="userPicture" src="" alt="User profile">
+        <span id="userName"></span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+      </div>
     </div>
+  </header>
+  
+  <main>
+    <div id="authenticatedContent" style="display:none;">
+      <div class="filters">
+        <h3 class="filter-title">Search & Filter</h3>
+        <div class="filter-group">
+          <input type="text" class="filter-input" id="searchInput" placeholder="Search by name, ID...">
+          <button class="filter-button" id="searchButton">Search</button>
+          <button class="filter-button" id="resetFilters" style="background-color: #777;">Reset</button>
+        </div>
+      </div>
+      
+      <div id="loadingIndicator" class="loading">
+        <div class="loader"></div>
+        Loading your collection...
+      </div>
+      
+      <div class="cards-container" id="cardsContainer">
+        <!-- Cards will be inserted here by JavaScript -->
+      </div>
+    </div>
+    
+    <div id="loginMessage" class="login-message">
+      <h2>Welcome to Pokémon TCG Pocket Collection</h2>
+      <p>Track your card collection, manage what you have and what you need. Sign in with Google to get started.</p>
+      <!-- Google Sign-In button will appear here -->
+    </div>
+  </main>
+  
+  <footer>
+    <p>Pokémon TCG Pocket Collection Tracker &copy; 2025</p>
+  </footer>
+  
+  <div id="statusMessage" class="status-message"></div>
 
-    <script>
-      function handleCredentialResponse(response) {
-         const responsePayload = decodeJwtResponse(response.credential);
-         console.log("Token: " + response.credential);
-         console.log("ID: " + responsePayload.sub);
-         console.log('Full Name: ' + responsePayload.name);
-         console.log('Given Name: ' + responsePayload.given_name);
-         console.log('Family Name: ' + responsePayload.family_name);
-         console.log("Image URL: " + responsePayload.picture);
-         console.log("Email: " + responsePayload.email);
-      }
+  <script>
+    // Global state
+    const state = {
+      user: null,
+      authToken: null,
+      cards: [],
+      searchQuery: ''
+    };
     
-      function decodeJwtResponse(token) {
-        let base64Url = token.split('.')[1];
-        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
+    // API Base URL
+    const API_BASE_URL = 'https://eugenelow.com/poke_tcg_pocket';
     
-        return JSON.parse(jsonPayload);
+    // DOM Elements
+    const authenticatedContent = document.getElementById('authenticatedContent');
+    const loginMessage = document.getElementById('loginMessage');
+    const userInfo = document.getElementById('userInfo');
+    const userName = document.getElementById('userName');
+    const userPicture = document.getElementById('userPicture');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const cardsContainer = document.getElementById('cardsContainer');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const resetFilters = document.getElementById('resetFilters');
+    const statusMessage = document.getElementById('statusMessage');
+    
+    // Check if user is already logged in (from session storage)
+    function checkExistingAuth() {
+      const storedToken = sessionStorage.getItem('authToken');
+      const storedUser = sessionStorage.getItem('userData');
+      
+      if (storedToken && storedUser) {
+        try {
+          const userData = JSON.parse(storedUser);
+          state.authToken = storedToken;
+          state.user = userData;
+          updateUIForAuthenticatedUser(userData);
+          createOrFetchUser(storedToken);
+        } catch (error) {
+          console.error('Error parsing stored user data:', error);
+          clearAuthData();
+        }
+      } else {
+        // Move Google Sign-In button to login message area
+        const googleSignIn = document.querySelector('.g_id_signin');
+        if (googleSignIn) {
+          loginMessage.appendChild(googleSignIn);
+        }
       }
-    </script>
-  <body>
+    }
+    
+    // Handle Google Sign-in
+    window.handleCredentialResponse = function(response) {
+      const responsePayload = decodeJwtResponse(response.credential);
+      
+      // Save auth data
+      state.authToken = response.credential;
+      state.user = {
+        id: responsePayload.sub,
+        fullName: responsePayload.name,
+        givenName: responsePayload.given_name,
+        familyName: responsePayload.family_name,
+        picture: responsePayload.picture,
+        email: responsePayload.email
+      };
+      
+      // Store auth data in session storage
+      sessionStorage.setItem('authToken', response.credential);
+      sessionStorage.setItem('userData', JSON.stringify(state.user));
+      
+      // Update UI
+      updateUIForAuthenticatedUser(state.user);
+      
+      // Create or fetch user
+      createOrFetchUser(response.credential);
+    };
+    
+    function decodeJwtResponse(token) {
+      let base64Url = token.split('.')[1];
+      let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      
+      return JSON.parse(jsonPayload);
+    }
+    
+    function updateUIForAuthenticatedUser(userData) {
+      // Hide login message, show content
+      loginMessage.style.display = 'none';
+      authenticatedContent.style.display = 'block';
+      
+      // Show user info
+      userInfo.style.display = 'flex';
+      const signInButton = document.querySelector('.g_id_signin');
+      if (signInButton) {
+        signInButton.style.display = 'none';
+      }
+      
+      // Set user details
+      userName.textContent = userData.givenName;
+      userPicture.src = userData.picture;
+    }
+    
+    // Create or fetch user via API
+    async function createOrFetchUser(token) {
+      try {
+        showLoading(true);
+        
+        const response = await axios.post(`${API_BASE_URL}/user`, {}, {
+          headers: {
+            'X-Google-Token': token
+          }
+        });
+        
+        console.log('User created/fetched:', response.data);
+        
+        // Load cards
+        loadCards();
+      } catch (error) {
+        console.error('Error creating/fetching user:', error);
+        showStatusMessage('Error authenticating user. Please try again.', true);
+        showLoading(false);
+      }
+    }
+    
+    // Load cards from API
+    async function loadCards() {
+      try {
+        showLoading(true);
+        cardsContainer.innerHTML = '';
+        
+        // Build the URL with query params if search is provided
+        let url = `${API_BASE_URL}/user/cards`;
+        if (state.searchQuery) {
+          url += `?keyword=${encodeURIComponent(state.searchQuery)}`;
+        }
+        
+        const response = await axios.get(url, {
+          headers: {
+            'X-Google-Token': state.authToken
+          }
+        });
+        
+        state.cards = response.data;
+        renderCards();
+        
+        showLoading(false);
+      } catch (error) {
+        console.error('Error loading cards:', error);
+        showStatusMessage('Error loading cards. Please try again.', true);
+        showLoading(false);
+      }
+    }
+    
+    // Update card quantity
+    async function updateCardAmount(cardId, isAdd) {
+      try {
+        const action = isAdd ? 'add' : 'remove';
+        const url = `${API_BASE_URL}/user/card/${cardId}/${action}`;
+        
+        await axios.post(url, {}, {
+          headers: {
+            'X-Google-Token': state.authToken
+          }
+        });
+        
+        // Update the card in the UI
+        const quantityDisplay = document.getElementById(`amount-${cardId}`);
+        if (quantityDisplay) {
+          let currentAmount = parseInt(quantityDisplay.textContent);
+          currentAmount = isAdd ? currentAmount + 1 : Math.max(0, currentAmount - 1);
+          quantityDisplay.textContent = currentAmount;
+        }
+        
+        showStatusMessage(`Card ${isAdd ? 'added to' : 'removed from'} your collection`);
+      } catch (error) {
+        console.error(`Error ${isAdd ? 'adding' : 'removing'} card:`, error);
+        showStatusMessage(`Error updating card quantity. Please try again.`, true);
+      }
+    }
+    
+    // Update card want/favourite
+    async function updateCardWant(cardId, isAdd) {
+      try {
+        const action = isAdd ? 'favourite' : 'unfavourite';
+        const url = `${API_BASE_URL}/user/card/${cardId}/${action}`;
+        
+        await axios.post(url, {}, {
+          headers: {
+            'X-Google-Token': state.authToken
+          }
+        });
+        
+        // Update the card in the UI
+        const wantDisplay = document.getElementById(`want-${cardId}`);
+        if (wantDisplay) {
+          let currentWant = parseInt(wantDisplay.textContent);
+          currentWant = isAdd ? currentWant + 1 : Math.max(0, currentWant - 1);
+          wantDisplay.textContent = currentWant;
+        }
+        
+        showStatusMessage(`Card ${isAdd ? 'added to' : 'removed from'} your wishlist`);
+      } catch (error) {
+        console.error(`Error updating wishlist:`, error);
+        showStatusMessage(`Error updating wishlist. Please try again.`, true);
+      }
+    }
+    
+    // Create HTML for a single card
+    function createCardElement(card) {
+      // If amount or want is null, default to 0
+      const amount = card.amount !== null ? card.amount : 0;
+      const want = card.want !== null ? card.want : 0;
+      
+      const cardElement = document.createElement('div');
+      cardElement.className = 'card';
+      cardElement.innerHTML = `
+        <div class="card-image-container">
+          <img src="${card.image}" alt="${card.name}" class="card-image">
+        </div>
+        <div class="card-details">
+          <div class="card-header">
+            <div class="card-name">${card.name}</div>
+            <div class="card-id">${card.unique_id}</div>
+          </div>
+          
+          <div class="card-controls-row">
+            <div class="card-control">
+              <span class="control-label">Amount:</span>
+              <button class="control-btn remove" onclick="updateCardAmount('${card.unique_id}', false)">-</button>
+              <span class="quantity-display" id="amount-${card.unique_id}">${amount}</span>
+              <button class="control-btn add" onclick="updateCardAmount('${card.unique_id}', true)">+</button>
+            </div>
+            
+            <div class="card-control">
+              <span class="control-label">Wanted:</span>
+              <button class="control-btn remove" onclick="updateCardWant('${card.unique_id}', false)">-</button>
+              <span class="quantity-display" id="want-${card.unique_id}">${want}</span>
+              <button class="control-btn add" onclick="updateCardWant('${card.unique_id}', true)">+</button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      return cardElement;
+    }
+    
+    // Render cards to the DOM
+    function renderCards() {
+      cardsContainer.innerHTML = '';
+      
+      if (state.cards.length === 0) {
+        cardsContainer.innerHTML = '<div class="no-results">No cards found matching your search.</div>';
+        return;
+      }
+      
+      state.cards.forEach(card => {
+        const cardElement = createCardElement(card);
+        cardsContainer.appendChild(cardElement);
+      });
+    }
+    
+    // Show/hide loading indicator
+    function showLoading(isLoading) {
+      loadingIndicator.style.display = isLoading ? 'block' : 'none';
+    }
+    
+    // Show status message
+    function showStatusMessage(message, isError = false) {
+      statusMessage.textContent = message;
+      statusMessage.className = isError ? 'status-message error' : 'status-message';
+      statusMessage.classList.add('show');
+      
+      setTimeout(() => {
+        statusMessage.classList.remove('show');
+      }, 3000);
+    }
+    
+    // Logout function
+    function logout() {
+      // Clear auth data
+      clearAuthData();
+      
+      // Reset UI
+      loginMessage.style.display = 'block';
+      authenticatedContent.style.display = 'none';
+      userInfo.style.display = 'none';
+      
+      // Move Google Sign-In button back to login message area
+      const googleSignIn = document.querySelector('.g_id_signin');
+      if (googleSignIn) {
+        googleSignIn.style.display = 'block';
+        loginMessage.appendChild(googleSignIn);
+      }
+      
+      cardsContainer.innerHTML = '';
+      
+      // Google Sign-Out
+      try {
+        google.accounts.id.disableAutoSelect();
+      } catch (error) {
+        console.error('Error during Google sign-out:', error);
+      }
+    }
+    
+    function clearAuthData() {
+      state.user = null;
+      state.authToken = null;
+      state.cards = [];
+      state.searchQuery = '';
+      sessionStorage.removeItem('authToken');
+      sessionStorage.removeItem('userData');
+    }
+    
+    // Handle search
+    function handleSearch() {
+      state.searchQuery = searchInput.value.trim();
+      loadCards();
+    }
+    
+    // Event Listeners
+    window.addEventListener('DOMContentLoaded', () => {
+      checkExistingAuth();
+      
+      logoutBtn.addEventListener('click', logout);
+      
+      searchButton.addEventListener('click', handleSearch);
+      
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          handleSearch();
+        }
+      });
+      
+      resetFilters.addEventListener('click', () => {
+        searchInput.value = '';
+        state.searchQuery = '';
+        loadCards();
+      });
+      
+      // Make update functions available globally
+      window.updateCardAmount = updateCardAmount;
+      window.updateCardWant = updateCardWant;
+    });
+  </script>
+</body>
 </html>
