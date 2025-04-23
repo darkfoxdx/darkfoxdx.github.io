@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    // Redirect to the cards app while preserving the path
+    const path = window.location.pathname;
+    if (path.startsWith('/poke-helper/')) {
+      window.location.replace('/poke-helper/');
+    } else {
+      window.location.replace('/');
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
