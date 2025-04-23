@@ -389,7 +389,7 @@
       <div class="user-info" id="userInfo">
         <img id="userPicture" src="" alt="User profile">
         <span id="userName"></span>
-        <button class="logout-btn" id="logoutBtn">Logout</button>
+        <button class="logout-btn" id="logoutBtn" onclick="logout()">Logout</button>
       </div>
     </div>
   </header>
@@ -446,7 +446,6 @@
     const userInfo = document.getElementById('userInfo');
     const userName = document.getElementById('userName');
     const userPicture = document.getElementById('userPicture');
-    const logoutBtn = document.getElementById('logoutBtn');
     const cardsContainer = document.getElementById('cardsContainer');
     const loadingIndicator = document.getElementById('loadingIndicator');
     const searchInput = document.getElementById('searchInput');
@@ -752,9 +751,7 @@
     // Event Listeners
     window.addEventListener('DOMContentLoaded', () => {
       checkExistingAuth();
-      
-      logoutBtn.addEventListener('click', logout);
-      
+            
       searchButton.addEventListener('click', handleSearch);
       
       searchInput.addEventListener('keypress', (e) => {
