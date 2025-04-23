@@ -212,8 +212,8 @@
             'X-Google-Token': state.authToken
           }
         });
-        log.console("loadCards Data");
-        log.console(response.data);
+        console.log("loadCards Data");
+        console.log(response.data);
         state.cards = response.data;
         renderCards();
         
