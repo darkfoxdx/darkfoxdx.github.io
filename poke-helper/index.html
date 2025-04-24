@@ -163,12 +163,6 @@
           console.error('Error parsing stored user data:', error);
           clearAuthData();
         }
-      } else {
-        // Move Google Sign-In button to login message area
-        const googleSignIn = document.querySelector('.g_id_signin');
-        if (googleSignIn) {
-          loginMessage.appendChild(googleSignIn);
-        }
       }
     }
     
