@@ -505,6 +505,11 @@
     function renderCards(cards, authorized, updatable) {
       cardsContainer.innerHTML = '';
       
+      if (cards.length === 0 && !updatable) {
+        cardsContainer.innerHTML = '<div class="col-span-full text-center py-12 bg-white rounded-lg shadow-md text-gray-500">This user has no cards or favorites yet.</div>';
+        return;
+      }
+
       if (cards.length === 0) {
         cardsContainer.innerHTML = '<div class="col-span-full text-center py-12 bg-white rounded-lg shadow-md text-gray-500">No cards found matching your search.</div>';
         return;
