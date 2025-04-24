@@ -142,21 +142,25 @@
     function checkExistingAuth() {
       const storedToken = sessionStorage.getItem('authToken');
       const storedUser = sessionStorage.getItem('userData');
-      
-      if (state.viewUserId) {
-          loadCardsById();
-      } else if (storedToken && storedUser) {
+
+      // Update logged in UI
+      if (storedToken && storedUser) {
         try {
           const userData = JSON.parse(storedUser);
           state.authToken = storedToken;
           state.user = userData;
           updateUIForAuthenticatedUser(userData);
-          createOrFetchUser(storedToken);
         } catch (error) {
           console.error('Error parsing stored user data:', error);
           clearAuthData();
-          loadCards();
         }
+      }
+
+      // Load cards
+      if (state.viewUserId) {
+        loadCardsById();
+      } else if (storedToken && storedUser) {
+        createOrFetchUser(state.authToken);
       } else {
         loadCards();
       }
