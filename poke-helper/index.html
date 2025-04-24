@@ -97,6 +97,8 @@
       authToken: null,
       cards: [],
       searchQuery: '',
+      rarity: null,
+      packs: null,
       viewUserId: null
     };
     state.viewUserId = getIdFromHash();
@@ -243,6 +245,7 @@
         let url = `${API_BASE_URL}/user/cards`;
         if (state.searchQuery) {
           url += `?keyword=${encodeURIComponent(state.searchQuery)}`;
+          url += `?rarity=${encodeURIComponent(state.rarity)}`;
         }
         
         const response = await axios.get(url, {
@@ -426,6 +429,13 @@
     // Handle search
     function handleSearch() {
       state.searchQuery = searchInput.value.trim();
+            // Get selected rarity values
+      state.rarity = Array.from(document.getElementById("rarityFilter").selectedOptions)
+        .map(option => option.value);
+
+      // Get selected pack values
+      state.packs = Array.from(document.getElementById("packFilter").selectedOptions)
+        .map(option => option.value);
       loadCards();
     }
     
