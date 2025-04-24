@@ -470,11 +470,10 @@
           }
         });
 
-        state.cards = response.data.data.cards;
         const name = response.data.data.user_name;
         const isAuthorized = true;
         const isUpdatable = false;
-        renderCards(state.cards, isAuthorized, isUpdatable);
+        renderCards(data.data.user_name.cards, isAuthorized, isUpdatable);
         updateOtherName(name);
         
         showLoading(false);
