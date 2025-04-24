@@ -473,7 +473,7 @@
         const name = response.data.data.user_name;
         const isAuthorized = true;
         const isUpdatable = false;
-        renderCards(response.data.user_name.cards, isAuthorized, isUpdatable);
+        renderCards(response.data.data.cards, isAuthorized, isUpdatable);
         updateOtherName(name);
         
         showLoading(false);
