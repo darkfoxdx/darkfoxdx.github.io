@@ -51,6 +51,7 @@
   
   <main class="max-w-7xl mx-auto my-8 px-4">
     <div>
+      <h2 id="nameField" class="text-lg font-medium text-primary mb-4"></h2>
       <div class="bg-white p-6 rounded-lg shadow-md mb-8">
         <h3 class="text-lg font-medium text-primary mb-4">Search & Filter</h3>
         <div class="flex flex-col md:flex-row gap-4 mb-4">
@@ -321,13 +322,19 @@
         const isAuthorized = state.authToken ? true : false;
         const isUpdatable = true;
         renderCards(state.cards, isAuthorized, isUpdatable);
-        
+        updateOtherName(null);
+
         showLoading(false);
       } catch (error) {
         console.error('Error loading cards:', error);
         showStatusMessage('Error loading cards. Please try again.', true);
         showLoading(false);
       }
+    }
+
+    function updateOtherName(name) {
+      const nameField = document.getElementById('nameField');
+      nameField.innerText = `${name}'s card list`;
     }
 
     async function loadCardsById() {
@@ -351,10 +358,12 @@
           }
         });
 
-        state.cards = response.data.data;
+        state.cards = response.data.data.cards;
+        const name = response.data.data.user_name;
         const isAuthorized = true;
         const isUpdatable = false;
         renderCards(state.cards, isAuthorized, isUpdatable);
+        updateOtherName(name);
         
         showLoading(false);
       } catch (error) {
