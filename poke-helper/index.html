@@ -270,7 +270,7 @@
         });
 
         const rarityList = response.data.data;
-        console.log(rarityList);
+
         renderRarity(rarityList);
         
         showLoading(false);
@@ -401,8 +401,8 @@
       const rarityContainer = document.getElementById('rarityContainer');
       rarityContainer.innerHTML = '';
       
-      rarityList.forEach(card => {
-        const rarityElement = createFilters(rarityList);
+      rarityList.forEach(rarity => {
+        const rarityElement = createFilters(rarity);
         rarityContainer.appendChild(rarityElement);
       });
     }
