@@ -72,12 +72,9 @@
           <!-- Pack Filter Dropdown -->
           <details class="relative">
             <summary class="cursor-pointer px-4 py-2 border rounded-lg shadow bg-white w-40 text-center">
-              Packs
+              Sets
             </summary>
-            <div class="absolute mt-1 z-10 w-40 bg-white border rounded-lg shadow p-2 space-y-1">
-              <label class="flex items-center gap-2"><input type="checkbox" value="Pack A"> Pack A</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value="Pack B"> Pack B</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value="Pack C"> Pack C</label>
+            <div id="setContainer" class="absolute mt-1 z-10 w-40 bg-white border rounded-lg shadow p-2 space-y-1">
             </div>
           </details>
         </div>
@@ -244,6 +241,7 @@
         console.log('User created/fetched:', response.data);
         
         loadRarity();
+        loadSet();
         // Load cards
         loadCards();
       } catch (error) {
@@ -271,7 +269,34 @@
 
         const rarityList = response.data.data;
 
-        renderRarity(rarityList);
+        renderFilters(rarityList, rarityContainer);
+        
+        showLoading(false);
+      } catch (error) {
+        console.error('Error loading rarity:', error);
+        showStatusMessage('Error loading rarity. Please try again.', true);
+        showLoading(false);
+      }
+    }
+
+        // Load cards from API
+    async function loadSet() {
+      try {
+        showLoading(true);
+        const setContainer = document.getElementById('setContainer');
+        setContainer.innerHTML = '';
+        
+        let url = `${API_BASE_URL}/cards/setDetail`;
+
+        const response = await axios.get(url, {
+          headers: {
+            'X-Google-Token': state.authToken
+          }
+        });
+
+        const setList = response.data.data;
+
+        renderFilters(setList, setContainer);
         
         showLoading(false);
       } catch (error) {
@@ -397,15 +422,13 @@
       
       return filterElement;
     }
-
     // Render cards to the DOM
-    function renderRarity(rarityList) {
-      const rarityContainer = document.getElementById('rarityContainer');
-      rarityContainer.innerHTML = '';
+    function renderFilters(list, container) {
+      container.innerHTML = '';
       
-      rarityList.forEach(rarity => {
-        const rarityElement = createFilters(rarity);
-        rarityContainer.appendChild(rarityElement);
+      list.forEach(item => {
+        const element = createFilters(item);
+        container.appendChild(element);
       });
     }
     
