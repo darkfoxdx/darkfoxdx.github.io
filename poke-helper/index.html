@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src="https://accounts.google.com/gsi/client" async></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <header>
@@ -46,29 +47,36 @@
           <button class="filter-button" id="searchButton">Search</button>
           <button class="filter-button" id="resetFilters" style="background-color: #777;">Reset</button>
         </div>
-        <div class="filter-extra">
-          <!-- Rarity Filter -->
-          <fieldset id="rarityFilter">
-            <legend>Rarity</legend>
-            <label><input type="checkbox" value="◊"> ◊</label>
-            <label><input type="checkbox" value="◊◊"> ◊◊</label>
-            <label><input type="checkbox" value="◊◊◊"> ◊◊◊</label>
-            <label><input type="checkbox" value="◊◊◊◊"> ◊◊◊◊</label>
-            <label><input type="checkbox" value="☆"> ☆</label>
-            <label><input type="checkbox" value="☆☆"> ☆☆</label>
-            <label><input type="checkbox" value="☆☆☆"> ☆☆☆</label>
-            <label><input type="checkbox" value=" "> No rarity</label>
-          </fieldset>
-
-          <!-- Pack Filter -->
-          <fieldset id="packFilter">
-            <legend>Pack</legend>
-            <label><input type="checkbox" value="Pack A"> Pack A</label>
-            <label><input type="checkbox" value="Pack B"> Pack B</label>
-            <label><input type="checkbox" value="Pack C"> Pack C</label>
-          </fieldset>
-        </div>
-      </div>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <!-- Rarity Filter Dropdown -->
+          <details class="relative">
+            <summary class="cursor-pointer px-4 py-2 border rounded-lg shadow bg-white w-40 text-center">
+              Rarity
+            </summary>
+            <div class="absolute mt-1 z-10 w-40 bg-white border rounded-lg shadow p-2 space-y-1">
+              <label class="flex items-center gap-2"><input type="checkbox" value="◊"> ◊</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value="◊◊"> ◊◊</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value="◊◊◊"> ◊◊◊</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value="◊◊◊◊"> ◊◊◊◊</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value="☆"> ☆</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value="☆☆"> ☆☆</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value="☆☆☆"> ☆☆☆</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value=" "> No rarity</label>
+            </div>
+          </details>
+        
+          <!-- Pack Filter Dropdown -->
+          <details class="relative">
+            <summary class="cursor-pointer px-4 py-2 border rounded-lg shadow bg-white w-40 text-center">
+              Packs
+            </summary>
+            <div class="absolute mt-1 z-10 w-40 bg-white border rounded-lg shadow p-2 space-y-1">
+              <label class="flex items-center gap-2"><input type="checkbox" value="Pack A"> Pack A</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value="Pack B"> Pack B</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value="Pack C"> Pack C</label>
+            </div>
+          </details>
+        </div>        
       
       <div id="loadingIndicator" class="loading">
         <div class="loader"></div>
