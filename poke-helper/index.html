@@ -539,7 +539,7 @@
       state.user = null;
       state.authToken = null;
       state.cards = [];
-      state.searchQuery = '';
+      resetFilters();
       sessionStorage.removeItem('authToken');
       sessionStorage.removeItem('userData');
     }
@@ -558,6 +558,14 @@
 
       loadCards();
     }
+
+    function resetFilters() {
+      searchInput.value = '';
+      state.searchQuery = '';
+      state.set = undefined;
+      state.rarity = undefined;
+      document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
+    }
     
     // Event Listeners
     window.addEventListener('DOMContentLoaded', () => {
@@ -572,8 +580,7 @@
       });
       
       resetFilters.addEventListener('click', () => {
-        searchInput.value = '';
-        state.searchQuery = '';
+        resetFilters();
         loadCards();
       });
       
