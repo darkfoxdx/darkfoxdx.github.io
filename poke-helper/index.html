@@ -65,15 +65,7 @@
             <summary class="cursor-pointer px-4 py-2 border rounded-lg shadow bg-white w-40 text-center">
               Rarity
             </summary>
-            <div class="absolute mt-1 z-10 w-40 bg-white border rounded-lg shadow p-2 space-y-1">
-              <label class="flex items-center gap-2"><input type="checkbox" value="◊"> ◊</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value="◊◊"> ◊◊</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value="◊◊◊"> ◊◊◊</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value="◊◊◊◊"> ◊◊◊◊</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value="☆"> ☆</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value="☆☆"> ☆☆</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value="☆☆☆"> ☆☆☆</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value=" "> No rarity</label>
+            <div id="rarityContainer" class="absolute mt-1 z-10 w-40 bg-white border rounded-lg shadow p-2 space-y-1">
             </div>
           </details>
         
@@ -251,6 +243,7 @@
         
         console.log('User created/fetched:', response.data);
         
+        loadRarity();
         // Load cards
         loadCards();
       } catch (error) {
@@ -261,6 +254,32 @@
       }
     }
     
+    // Load cards from API
+    async function loadRarity() {
+      try {
+        showLoading(true);
+        const rarityContainer = document.getElementById('rarityContainer');
+        rarityContainer.innerHTML = '';
+        
+        let url = `${API_BASE_URL}/cards/rarity`;
+
+        const response = await axios.get(url, {
+          headers: {
+            'X-Google-Token': state.authToken
+          }
+        });
+
+        const rarityList = response.data.data;
+        renderRarity(rarityList);
+        
+        showLoading(false);
+      } catch (error) {
+        console.error('Error loading rarity:', error);
+        showStatusMessage('Error loading rarity. Please try again.', true);
+        showLoading(false);
+      }
+    }
+
     // Load cards from API
     async function loadCards() {
       try {
@@ -362,6 +381,32 @@
       }
     }
     
+
+    // Create HTML for a single card
+    function createFilters(filter) {
+      const value = filter === "" ? " " : filter;
+
+      const filterElement = document.createElement('label');
+      filterElement.className = 'flex items-center gap-2';
+      cardElement.innerHTML = `
+          <input type="checkbox" value="${filter}"> ${filter}
+      `;
+      
+      return filterElement;
+    }
+
+    // Render cards to the DOM
+    function renderRarity(rarityList) {
+      const rarityContainer = document.getElementById('rarityContainer');
+      rarityContainer.innerHTML = '';
+      
+      rarityList.forEach(card => {
+        const rarityElement = createFilters(rarityList);
+        rarityContainer.appendChild(rarityElement);
+      });
+    }
+    
+
     // Create HTML for a single card
     function createCardElement(card) {
       // If amount or want is null, default to 0
