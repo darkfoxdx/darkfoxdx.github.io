@@ -44,6 +44,12 @@
       <div id="userInfo" class="hidden items-center gap-2">
         <img id="userPicture" src="" alt="User profile" class="w-8 h-8 rounded-full">
         <span id="userName" class="text-sm"></span>
+        <button id="shareBtn" class="bg-amber-500 hover:bg-amber-600 text-white px-3 py-2 rounded text-sm font-bold flex items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+          Share
+        </button>
         <button id="logoutBtn" onclick="logout()" class="bg-white/20 text-white border border-white px-3 py-2 rounded hover:bg-white/30 transition duration-300 text-sm font-bold">Logout</button>
       </div>
     </div>
@@ -98,10 +104,43 @@
   
   <div id="statusMessage" class="fixed top-5 right-5 p-4 bg-green-500 text-white rounded shadow-lg z-50 opacity-0 transition-opacity duration-300"></div>
 
+  <div id="shareModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-semibold text-gray-900">Share Your Collection</h3>
+        <button id="closeShareModal" class="text-gray-500 hover:text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      
+      <p class="text-gray-600 mb-4">Share this link with friends so they can view your Pokémon TCG collection:</p>
+      
+      <div class="flex">
+        <input id="shareLink" type="text" readonly class="flex-1 border border-gray-300 rounded-l-md p-2 bg-gray-50 text-sm" value="">
+        <button id="copyLinkBtn" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-r-md">
+          Copy
+        </button>
+      </div>
+      
+      <div id="copyConfirmation" class="mt-2 text-green-500 text-sm hidden">
+        Link copied to clipboard!
+      </div>
+      
+      <div class="mt-6 text-center">
+        <button id="closeShareModalBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Global state
     const state = {
       user: null,
+      id: null,
       authToken: null,
       cards: [],
       searchQuery: '',
@@ -126,6 +165,52 @@
     const resetFilters = document.getElementById('resetFilters');
     const statusMessage = document.getElementById('statusMessage');
     
+    // Add this function to generate the shareable link
+    function generateShareableLink() {
+      if (!state.user || !state.user.id) {
+        showStatusMessage('You must be logged in to share your collection', true);
+        return;
+      }
+      
+      // Create the shareable link with the user ID
+      return `${API_BASE_URL}/#/${state.user.id}`;
+    }
+
+    // Add this function to show the share modal
+    function showShareModal() {
+      if (!state.user) {
+        showStatusMessage('You must be logged in to share your collection', true);
+        return;
+      }
+      
+      // Generate and set the shareable link
+      const link = generateShareableLink();
+      shareLink.value = link;
+      
+      // Show the modal
+      shareModal.classList.remove('hidden');
+    }
+    
+    // Add this function to close the share modal
+    function closeModal() {
+      shareModal.classList.add('hidden');
+      copyConfirmation.classList.add('hidden');
+    }
+    
+    // Add this function to copy the link to clipboard
+    function copyToClipboard() {
+      shareLink.select();
+      document.execCommand('copy');
+      
+      // Show confirmation
+      copyConfirmation.classList.remove('hidden');
+      
+      // Hide confirmation after 3 seconds
+      setTimeout(() => {
+        copyConfirmation.classList.add('hidden');
+      }, 3000);
+    }
+
     function getIdFromHash() {
       const hash = window.location.hash;
       
@@ -231,6 +316,7 @@
         
         console.log('User created/fetched:', response.data);
         
+        state.id = response.data.data.user_id;
         loadRarity();
         loadSet();
         // Load cards
@@ -612,6 +698,11 @@
     // Event Listeners
     window.addEventListener('DOMContentLoaded', () => {
       checkExistingAuth();
+
+      shareBtn.addEventListener('click', showShareModal);
+      closeShareModal.addEventListener('click', closeModal);
+      closeShareModalBtn.addEventListener('click', closeModal);
+      copyLinkBtn.addEventListener('click', copyToClipboard);
             
       searchButton.addEventListener('click', handleSearch);
       
