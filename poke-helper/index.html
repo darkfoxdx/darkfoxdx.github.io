@@ -586,6 +586,13 @@
       document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
     }
     
+    window.addEventListener('hashchange', () => {
+      state.viewUserId = getIdFromHash();
+      console.log(`ID: ${state.viewUserId}`);
+
+      checkExistingAuth();
+    });
+
     // Event Listeners
     window.addEventListener('DOMContentLoaded', () => {
       checkExistingAuth();
