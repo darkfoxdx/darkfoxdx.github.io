@@ -278,9 +278,6 @@
         })
         .flatMap(([key, value]) => {
           // If the value is an array, build multiple key=value pairs
-          if (Array.isArray(value)) {
-            return value.map(v => `${encodeURIComponent(key)}=${encodeURIComponent(v)}`);
-          }
           return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
         })
         .join('&');
@@ -459,7 +456,7 @@
       // Get selected pack values
       state.packs = Array.from(document.querySelectorAll('#packFilter input:checked'))
         .map(cb => cb.value);
-        
+
       loadCards();
     }
     
