@@ -154,7 +154,10 @@
         } catch (error) {
           console.error('Error parsing stored user data:', error);
           clearAuthData();
+          loadCards();
         }
+      } else {
+        loadCards();
       }
     }
     
@@ -416,10 +419,11 @@
     
 
     // Create HTML for a single card
-    function createCardElement(card) {
+    function createCardElement(card, authenticated) {
       // If amount or want is null, default to 0
       const amount = card.amount !== null ? card.amount : 0;
       const want = card.want !== null ? card.want : 0;
+      const hidden = authenticated === true ? "" : "hidden";
       
       const cardElement = document.createElement('div');
       cardElement.className = 'bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition duration-300';
@@ -433,7 +437,7 @@
             <div class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">${card.unique_id}</div>
           </div>
           
-          <div class="grid gap-2 mt-4">
+          <div class="grid gap-2 mt-4 ${hidden}">
             <div class="flex items-center gap-1">
               <span class="text-sm text-gray-500 mr-2">Amount:</span>
               <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" onclick="updateCardAmount('${card.unique_id}', false)">-</button>
