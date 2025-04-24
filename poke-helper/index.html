@@ -167,7 +167,7 @@
     
     // Add this function to generate the shareable link
     function generateShareableLink() {
-      if (!state.user || !state.user.id) {
+      if (!state.id) {
         showStatusMessage('You must be logged in to share your collection', true);
         return;
       }
@@ -178,7 +178,7 @@
 
     // Add this function to show the share modal
     function showShareModal() {
-      if (!state.user) {
+      if (!state.id) {
         showStatusMessage('You must be logged in to share your collection', true);
         return;
       }
@@ -316,7 +316,7 @@
         
         console.log('User created/fetched:', response.data);
         
-        state.id = response.data.data.user_id;
+        state.id = response.data.data.id;
         loadRarity();
         loadSet();
         // Load cards
