@@ -50,7 +50,7 @@
   </header>
   
   <main class="max-w-7xl mx-auto my-8 px-4">
-    <div id="authenticatedContent" class="hidden">
+    <div>
       <div class="bg-white p-6 rounded-lg shadow-md mb-8">
         <h3 class="text-lg font-medium text-primary mb-4">Search & Filter</h3>
         <div class="flex flex-col md:flex-row gap-4 mb-4">
@@ -89,12 +89,6 @@
         <!-- Cards will be inserted here by JavaScript -->
       </div>
     </div>
-    
-    <div id="loginMessage" class="text-center my-16 p-8 bg-white rounded-lg shadow-md">
-      <h2 class="text-2xl text-primary mb-4">Welcome to Pokémon TCG Pocket Collection</h2>
-      <p class="mb-6 text-gray-600">Track your card collection, manage what you have and what you need. Sign in with Google to get started.</p>
-      <!-- Google Sign-In button will appear here -->
-    </div>
   </main>
   
   <footer class="text-center py-6 mt-12 text-gray-500 text-sm border-t border-gray-200">
@@ -122,8 +116,6 @@
     const API_BASE_URL = 'https://eugenelow.com/poke_tcg_pocket';
     
     // DOM Elements
-    const authenticatedContent = document.getElementById('authenticatedContent');
-    const loginMessage = document.getElementById('loginMessage');
     const userInfo = document.getElementById('userInfo');
     const userName = document.getElementById('userName');
     const userPicture = document.getElementById('userPicture');
@@ -203,10 +195,6 @@
     }
     
     function updateUIForAuthenticatedUser(userData) {
-      // Hide login message, show content
-      loginMessage.style.display = 'none';
-      authenticatedContent.style.display = 'block';
-      
       // Show user info
       userInfo.classList.remove('hidden');
       userInfo.classList.add('flex');
@@ -507,17 +495,8 @@
       clearAuthData();
       
       // Reset UI
-      loginMessage.style.display = 'block';
-      authenticatedContent.style.display = 'none';
       userInfo.classList.remove('flex');
       userInfo.classList.add('hidden');
-      
-      // Move Google Sign-In button back to login message area
-      const googleSignIn = document.querySelector('.g_id_signin');
-      if (googleSignIn) {
-        googleSignIn.style.display = 'block';
-        loginMessage.appendChild(googleSignIn);
-      }
       
       cardsContainer.innerHTML = '';
       
