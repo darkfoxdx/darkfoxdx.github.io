@@ -73,7 +73,7 @@
               <label class="flex items-center gap-2"><input type="checkbox" value="☆"> ☆</label>
               <label class="flex items-center gap-2"><input type="checkbox" value="☆☆"> ☆☆</label>
               <label class="flex items-center gap-2"><input type="checkbox" value="☆☆☆"> ☆☆☆</label>
-              <label class="flex items-center gap-2"><input type="checkbox" value=" "> No rarity</label>
+              <label class="flex items-center gap-2"><input type="checkbox" value=""> No rarity</label>
             </div>
           </details>
         
@@ -297,7 +297,7 @@
       const query = Object.entries(params)
         .filter(([key, value]) => {
           // Allow arrays and strings (skip empty values)
-          return Array.isArray(value) ? value.length > 0 : value !== undefined && value !== '';
+          return Array.isArray(value) ? value.length > 0 : value !== undefined;
         })
         .flatMap(([key, value]) => {
           // If the value is an array, build multiple key=value pairs
