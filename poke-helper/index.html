@@ -111,7 +111,7 @@
       cards: [],
       searchQuery: '',
       rarity: undefined,
-      packs: undefined,
+      set: undefined,
       viewUserId: null
     };
     state.viewUserId = getIdFromHash();
@@ -316,7 +316,7 @@
         const params = {
           keyword: state.searchQuery,
           rarity: state.rarity,
-          pack: state.packs
+          setDetail: state.set
         };
 
         let url = `${API_BASE_URL}/user/cards${buildQuery(params)}`;
@@ -553,7 +553,7 @@
         .map(cb => cb.value);
 
       // Get selected pack values
-      state.packs = Array.from(document.querySelectorAll('details:last-of-type input:checked'))
+      state.set = Array.from(document.querySelectorAll('details:last-of-type input:checked'))
         .map(cb => cb.value);
 
       loadCards();
