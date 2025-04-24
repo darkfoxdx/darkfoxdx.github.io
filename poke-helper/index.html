@@ -24,8 +24,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
   <header class="bg-primary text-white p-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 shadow-md">
-    <div class="text-xl font-bold flex items-center gap-2">
-      <!-- <img src="/api/placeholder/32/32" alt="Pokéball"> -->
+    <div class="text-xl font-bold flex items-center gap-2">      <!-- <img src="/api/placeholder/32/32" alt="Pokéball"> -->
       Pokémon TCG Pocket Helper
     </div>
     <div class="flex items-center gap-4">
@@ -45,8 +44,7 @@
       <div id="userInfo" class="hidden items-center gap-2">
         <img id="userPicture" src="" alt="User profile" class="w-8 h-8 rounded-full">
         <span id="userName" class="text-sm"></span>
-        <button id="logoutBtn" onclick="logout()" 
-          class="bg-white/20 text-white border border-white px-3 py-2 rounded hover:bg-white/30 transition duration-300 text-sm font-bold">Logout</button>
+        <button id="logoutBtn" onclick="logout()" class="bg-white/20 text-white border border-white px-3 py-2 rounded hover:bg-white/30 transition duration-300 text-sm font-bold">Logout</button>
       </div>
     </div>
   </header>
@@ -56,11 +54,11 @@
       <div class="bg-white p-6 rounded-lg shadow-md mb-8">
         <h3 class="text-lg font-medium text-primary mb-4">Search & Filter</h3>
         <div class="flex flex-col md:flex-row gap-4 mb-4">
-          <input type="text" id="searchInput" placeholder="Search by name, ID..." 
-            class="flex-1 min-w-[200px] p-3 border border-gray-300 rounded-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-accent">
-            <button id="searchButton" class="bg-primary hover:bg-secondary text-white px-5 py-3 rounded-md font-semibold transition duration-300">Search</button>
-            <button id="resetFilters" class="bg-gray-500 hover:bg-gray-600 text-white px-5 py-3 rounded-md font-semibold transition duration-300">Reset</button>
-          </div>
+          <input type="text" id="searchInput" placeholder="Search by name, ID..." class="flex-1 min-w-[200px] p-3 border border-gray-300 rounded-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-accent">
+          <button id="searchButton" class="bg-primary hover:bg-secondary text-white px-5 py-3 rounded-md font-semibold transition duration-300">Search</button>
+          <button id="resetFilters" class="bg-gray-500 hover:bg-gray-600 text-white px-5 py-3 rounded-md font-semibold transition duration-300">Reset</button>
+        </div>
+        
         <div class="flex flex-wrap gap-4 mt-4">
           <!-- Rarity Filter Dropdown -->
           <details class="relative">
@@ -90,16 +88,17 @@
               <label class="flex items-center gap-2"><input type="checkbox" value="Pack C"> Pack C</label>
             </div>
           </details>
-        </div>        
-      
-        <div id="loadingIndicator" class="text-center text-lg text-gray-600 my-12">
-          <div class="inline-block w-8 h-8 border-3 border-gray-200 border-t-primary rounded-full animate-spin mr-2"></div>
-          Loading your collection...
         </div>
+      </div>
       
-        <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <!-- Cards will be inserted here by JavaScript -->
-        </div>
+      <div id="loadingIndicator" class="text-center text-lg text-gray-600 my-12">
+        <div class="inline-block w-8 h-8 border-3 border-gray-200 border-t-primary rounded-full animate-spin mr-2"></div>
+        Loading your collection...
+      </div>
+      
+      <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Cards will be inserted here by JavaScript -->
+      </div>
     </div>
     
     <div id="loginMessage" class="text-center my-16 p-8 bg-white rounded-lg shadow-md">
@@ -113,7 +112,7 @@
     <p>Made by Eugene</p>
   </footer>
   
-  <div id="statusMessage" class="fixed top-5 right-5 p-4 bg-green-500 text-white rounded shadow-lg z-50 hidden transition-opacity duration-300"></div>
+  <div id="statusMessage" class="fixed top-5 right-5 p-4 bg-green-500 text-white rounded shadow-lg z-50 opacity-0 transition-opacity duration-300"></div>
 
   <script>
     // Global state
@@ -228,7 +227,7 @@
       // Show user info
       userInfo.classList.remove('hidden');
       userInfo.classList.add('flex');
-
+      
       const signInButton = document.querySelector('.g_id_signin');
       if (signInButton) {
         signInButton.style.display = 'none';
@@ -384,20 +383,16 @@
           <div class="grid gap-2 mt-4">
             <div class="flex items-center gap-1">
               <span class="text-sm text-gray-500 mr-2">Amount:</span>
-              <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" 
-                onclick="updateCardAmount('${card.unique_id}', false)">-</button>
+              <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" onclick="updateCardAmount('${card.unique_id}', false)">-</button>
               <span id="amount-${card.unique_id}" class="w-8 text-center font-bold text-lg">${amount}</span>
-              <button class="w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" 
-                onclick="updateCardAmount('${card.unique_id}', true)">+</button>
+              <button class="w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" onclick="updateCardAmount('${card.unique_id}', true)">+</button>
             </div>
             
             <div class="flex items-center gap-1">
               <span class="text-sm text-gray-500 mr-2">Wanted:</span>
-              <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" 
-                onclick="updateCardWant('${card.unique_id}', false)">-</button>
+              <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" onclick="updateCardWant('${card.unique_id}', false)">-</button>
               <span id="want-${card.unique_id}" class="w-8 text-center font-bold text-lg">${want}</span>
-              <button class="w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" 
-                onclick="updateCardWant('${card.unique_id}', true)">+</button>
+              <button class="w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" onclick="updateCardWant('${card.unique_id}', true)">+</button>
             </div>
           </div>
         </div>
@@ -430,11 +425,14 @@
     function showStatusMessage(message, isError = false) {
       statusMessage.textContent = message;
       statusMessage.className = `fixed top-5 right-5 p-4 ${isError ? 'bg-red-500' : 'bg-green-500'} text-white rounded shadow-lg z-50 transition-opacity duration-300`;
-      statusMessage.classList.remove('hidden');
+      statusMessage.classList.add('opacity-100');
       
       setTimeout(() => {
-        statusMessage.classList.add('hidden');
-        statusMessage.textContent = '';
+        statusMessage.classList.remove('opacity-100');
+        statusMessage.classList.add('opacity-0');
+        setTimeout(() => {
+          statusMessage.textContent = '';
+        }, 300);
       }, 3000);
     }
     
@@ -448,7 +446,7 @@
       authenticatedContent.style.display = 'none';
       userInfo.classList.remove('flex');
       userInfo.classList.add('hidden');
-
+      
       // Move Google Sign-In button back to login message area
       const googleSignIn = document.querySelector('.g_id_signin');
       if (googleSignIn) {
@@ -478,12 +476,13 @@
     // Handle search
     function handleSearch() {
       state.searchQuery = searchInput.value.trim();
-            // Get selected rarity values
-      state.rarity = Array.from(document.querySelectorAll('#rarityFilter input:checked'))
+      
+      // Get selected rarity values
+      state.rarity = Array.from(document.querySelectorAll('details:first-of-type input:checked'))
         .map(cb => cb.value);
 
       // Get selected pack values
-      state.packs = Array.from(document.querySelectorAll('#packFilter input:checked'))
+      state.packs = Array.from(document.querySelectorAll('details:last-of-type input:checked'))
         .map(cb => cb.value);
 
       loadCards();
