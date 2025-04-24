@@ -333,8 +333,10 @@
     }
 
     function updateOtherName(name) {
-      const nameField = document.getElementById('nameField');
-      nameField.innerText = `${name}'s card list`;
+      if (name) {
+        const nameField = document.getElementById('nameField');
+        nameField.innerText = `${name}'s card list`;
+      }
     }
 
     async function loadCardsById() {
