@@ -386,11 +386,13 @@
     // Create HTML for a single card
     function createFilters(filter) {
       const value = filter === "" ? " " : filter;
+      const text = filter === "" ? "N/A" : filter;
+
 
       const filterElement = document.createElement('label');
       filterElement.className = 'flex items-center gap-2';
       filterElement.innerHTML = `
-          <input type="checkbox" value="${filter}"> ${filter}
+          <input type="checkbox" value="${value}"> ${text}
       `;
       
       return filterElement;
