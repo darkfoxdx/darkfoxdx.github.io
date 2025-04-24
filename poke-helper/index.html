@@ -313,7 +313,7 @@
         });
 
         state.cards = response.data.data;
-        renderCards();
+        renderCards(state.authToken ? true : false);
         
         showLoading(false);
       } catch (error) {
@@ -459,7 +459,7 @@
     }
     
     // Render cards to the DOM
-    function renderCards() {
+    function renderCards(authorized) {
       cardsContainer.innerHTML = '';
       
       if (state.cards.length === 0) {
@@ -468,7 +468,7 @@
       }
       
       state.cards.forEach(card => {
-        const cardElement = createCardElement(card);
+        const cardElement = createCardElement(card, authorized);
         cardsContainer.appendChild(cardElement);
       });
     }
@@ -497,19 +497,16 @@
     function logout() {
       // Clear auth data
       clearAuthData();
-      
+
       // Reset UI
       userInfo.classList.remove('flex');
       userInfo.classList.add('hidden');
-      
-      cardsContainer.innerHTML = '';
-      
-      // Google Sign-Out
-      try {
-        google.accounts.id.disableAutoSelect();
-      } catch (error) {
-        console.error('Error during Google sign-out:', error);
+
+      const signInButton = document.querySelector('.g_id_signin');
+      if (signInButton) {
+        signInButton.style.display = 'block';
       }
+      cardsContainer.innerHTML = '';
     }
     
     function clearAuthData() {
