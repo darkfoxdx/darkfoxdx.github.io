@@ -58,7 +58,7 @@
   <main class="max-w-7xl mx-auto my-8 px-4">
     <div>
       <h2 id="nameField" class="text-lg font-medium text-primary mb-4"></h2>
-      <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <div id="filterContainer" class="bg-white p-6 rounded-lg shadow-md mb-8">
         <h3 class="text-lg font-medium text-primary mb-4">Search & Filter</h3>
         <div class="flex flex-col md:flex-row gap-4 mb-4">
           <input type="text" id="searchInput" placeholder="Search by name, ID..." class="flex-1 min-w-[200px] p-3 border border-gray-300 rounded-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-accent">
@@ -224,6 +224,24 @@
       
       return null; // Return null if ID not found
     }
+    
+    function hideFilter() {
+      // Get the filter container element
+      const filterContainer = document.getElementById('filterContainer');
+
+      // Add the hidden class
+      filterContainer.classList.add('hidden');
+    }
+
+    function showFilter() {
+      // Get the filter container element
+      const filterContainer = document.getElementById('filterContainer');
+
+      // Add the hidden class
+      filterContainer.classList.remove('hidden');
+    }
+
+
 
     // Check if user is already logged in (from session storage)
     function checkExistingAuth() {
@@ -246,10 +264,13 @@
       // Load cards
       if (state.viewUserId) {
         loadCardsById();
+        hideFilter();
       } else if (storedToken && storedUser) {
         createOrFetchUser(state.authToken);
+        showFilter();
       } else {
         loadCards();
+        showFilter();
       }
     }
     
