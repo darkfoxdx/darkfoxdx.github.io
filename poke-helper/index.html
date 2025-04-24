@@ -5,18 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokémon TCG Pocket Collection Tracker</title>
-  <link rel="stylesheet" href="styles.css">
   <script src="https://accounts.google.com/gsi/client" async></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e53935',
+            secondary: '#f44336',
+            accent: '#ffcdd2'
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-  <header>
-    <div class="app-title">
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-primary text-white p-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 shadow-md">
+    <div class="text-xl font-bold flex items-center gap-2">
       <!-- <img src="/api/placeholder/32/32" alt="Pokéball"> -->
       Pokémon TCG Pocket Helper
     </div>
-    <div class="auth-section">
+    <div class="flex items-center gap-4">
       <div id="g_id_onload"
           data-client_id="609187534221-ec3iub1l5dsb7hrp52gvpt45v2lpp9j4.apps.googleusercontent.com"
           data-callback="handleCredentialResponse"
@@ -30,23 +42,25 @@
           data-shape="rectangular"
           data-logo_alignment="left">
       </div>
-      <div class="user-info" id="userInfo">
-        <img id="userPicture" src="" alt="User profile">
-        <span id="userName"></span>
-        <button class="logout-btn" id="logoutBtn" onclick="logout()">Logout</button>
+      <div id="userInfo" class="hidden items-center gap-2">
+        <img id="userPicture" src="" alt="User profile" class="w-8 h-8 rounded-full">
+        <span id="userName" class="text-sm"></span>
+        <button id="logoutBtn" onclick="logout()" 
+          class="bg-white/20 text-white border border-white px-3 py-2 rounded hover:bg-white/30 transition duration-300 text-sm font-bold">Logout</button>
       </div>
     </div>
   </header>
   
-  <main>
-    <div id="authenticatedContent" style="display:none;">
-      <div class="filters">
-        <h3 class="filter-title">Search & Filter</h3>
-        <div class="filter-group">
-          <input type="text" class="filter-input" id="searchInput" placeholder="Search by name, ID...">
-          <button class="filter-button" id="searchButton">Search</button>
-          <button class="filter-button" id="resetFilters" style="background-color: #777;">Reset</button>
-        </div>
+  <main class="max-w-7xl mx-auto my-8 px-4">
+    <div id="authenticatedContent" class="hidden">
+      <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h3 class="text-lg font-medium text-primary mb-4">Search & Filter</h3>
+        <div class="flex flex-col md:flex-row gap-4 mb-4">
+          <input type="text" id="searchInput" placeholder="Search by name, ID..." 
+            class="flex-1 min-w-[200px] p-3 border border-gray-300 rounded-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-accent">
+            <button id="searchButton" class="bg-primary hover:bg-secondary text-white px-5 py-3 rounded-md font-semibold transition duration-300">Search</button>
+            <button id="resetFilters" class="bg-gray-500 hover:bg-gray-600 text-white px-5 py-3 rounded-md font-semibold transition duration-300">Reset</button>
+          </div>
         <div class="flex flex-wrap gap-4 mt-4">
           <!-- Rarity Filter Dropdown -->
           <details class="relative">
@@ -78,28 +92,28 @@
           </details>
         </div>        
       
-      <div id="loadingIndicator" class="loading">
-        <div class="loader"></div>
-        Loading your collection...
-      </div>
+        <div id="loadingIndicator" class="text-center text-lg text-gray-600 my-12">
+          <div class="inline-block w-8 h-8 border-3 border-gray-200 border-t-primary rounded-full animate-spin mr-2"></div>
+          Loading your collection...
+        </div>
       
-      <div class="cards-container" id="cardsContainer">
-        <!-- Cards will be inserted here by JavaScript -->
-      </div>
+        <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <!-- Cards will be inserted here by JavaScript -->
+        </div>
     </div>
     
-    <div id="loginMessage" class="login-message">
-      <h2>Welcome to Pokémon TCG Pocket Collection</h2>
-      <p>Track your card collection, manage what you have and what you need. Sign in with Google to get started.</p>
+    <div id="loginMessage" class="text-center my-16 p-8 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl text-primary mb-4">Welcome to Pokémon TCG Pocket Collection</h2>
+      <p class="mb-6 text-gray-600">Track your card collection, manage what you have and what you need. Sign in with Google to get started.</p>
       <!-- Google Sign-In button will appear here -->
     </div>
   </main>
   
-  <footer>
+  <footer class="text-center py-6 mt-12 text-gray-500 text-sm border-t border-gray-200">
     <p>Made by Eugene</p>
   </footer>
   
-  <div id="statusMessage" class="status-message"></div>
+  <div id="statusMessage" class="fixed top-5 right-5 p-4 bg-green-500 text-white rounded shadow-lg z-50 hidden transition-opacity duration-300"></div>
 
   <script>
     // Global state
@@ -212,7 +226,9 @@
       authenticatedContent.style.display = 'block';
       
       // Show user info
-      userInfo.style.display = 'flex';
+      userInfo.classList.remove('hidden');
+      userInfo.classList.add('flex');
+
       const signInButton = document.querySelector('.g_id_signin');
       if (signInButton) {
         signInButton.style.display = 'none';
@@ -354,30 +370,34 @@
       const want = card.want !== null ? card.want : 0;
       
       const cardElement = document.createElement('div');
-      cardElement.className = 'card';
+      cardElement.className = 'bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition duration-300';
       cardElement.innerHTML = `
-        <div class="card-image-container">
-          <img src="${card.image}" alt="${card.name}" class="card-image">
+        <div class="relative pt-[100%] bg-gray-100">
+          <img src="${card.image}" alt="${card.name}" class="absolute inset-0 w-full h-full object-contain p-2">
         </div>
-        <div class="card-details">
-          <div class="card-header">
-            <div class="card-name">${card.name}</div>
-            <div class="card-id">${card.unique_id}</div>
+        <div class="p-5">
+          <div class="flex justify-between items-start mb-3">
+            <div class="text-lg font-bold">${card.name}</div>
+            <div class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">${card.unique_id}</div>
           </div>
           
-          <div class="card-controls-row">
-            <div class="card-control">
-              <span class="control-label">Amount:</span>
-              <button class="control-btn remove" onclick="updateCardAmount('${card.unique_id}', false)">-</button>
-              <span class="quantity-display" id="amount-${card.unique_id}">${amount}</span>
-              <button class="control-btn add" onclick="updateCardAmount('${card.unique_id}', true)">+</button>
+          <div class="grid gap-2 mt-4">
+            <div class="flex items-center gap-1">
+              <span class="text-sm text-gray-500 mr-2">Amount:</span>
+              <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" 
+                onclick="updateCardAmount('${card.unique_id}', false)">-</button>
+              <span id="amount-${card.unique_id}" class="w-8 text-center font-bold text-lg">${amount}</span>
+              <button class="w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" 
+                onclick="updateCardAmount('${card.unique_id}', true)">+</button>
             </div>
             
-            <div class="card-control">
-              <span class="control-label">Wanted:</span>
-              <button class="control-btn remove" onclick="updateCardWant('${card.unique_id}', false)">-</button>
-              <span class="quantity-display" id="want-${card.unique_id}">${want}</span>
-              <button class="control-btn add" onclick="updateCardWant('${card.unique_id}', true)">+</button>
+            <div class="flex items-center gap-1">
+              <span class="text-sm text-gray-500 mr-2">Wanted:</span>
+              <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" 
+                onclick="updateCardWant('${card.unique_id}', false)">-</button>
+              <span id="want-${card.unique_id}" class="w-8 text-center font-bold text-lg">${want}</span>
+              <button class="w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" 
+                onclick="updateCardWant('${card.unique_id}', true)">+</button>
             </div>
           </div>
         </div>
@@ -391,7 +411,7 @@
       cardsContainer.innerHTML = '';
       
       if (state.cards.length === 0) {
-        cardsContainer.innerHTML = '<div class="no-results">No cards found matching your search.</div>';
+        cardsContainer.innerHTML = '<div class="col-span-full text-center py-12 bg-white rounded-lg shadow-md text-gray-500">No cards found matching your search.</div>';
         return;
       }
       
@@ -409,11 +429,11 @@
     // Show status message
     function showStatusMessage(message, isError = false) {
       statusMessage.textContent = message;
-      statusMessage.className = isError ? 'status-message error' : 'status-message';
-      statusMessage.classList.add('show');
+      statusMessage.className = `fixed top-5 right-5 p-4 ${isError ? 'bg-red-500' : 'bg-green-500'} text-white rounded shadow-lg z-50 transition-opacity duration-300`;
+      statusMessage.classList.remove('hidden');
       
       setTimeout(() => {
-        statusMessage.classList.remove('show');
+        statusMessage.classList.add('hidden');
         statusMessage.textContent = '';
       }, 3000);
     }
@@ -426,8 +446,9 @@
       // Reset UI
       loginMessage.style.display = 'block';
       authenticatedContent.style.display = 'none';
-      userInfo.style.display = 'none';
-      
+      userInfo.classList.remove('flex');
+      userInfo.classList.add('hidden');
+
       // Move Google Sign-In button back to login message area
       const googleSignIn = document.querySelector('.g_id_signin');
       if (googleSignIn) {
