@@ -109,6 +109,7 @@
       viewUserId: null
     };
     state.viewUserId = getIdFromHash();
+    console.log(`ID: ${state.viewUserId}`);
 
     // API Base URL
     const API_BASE_URL = 'https://eugenelow.com/poke_tcg_pocket';
@@ -330,6 +331,13 @@
         showLoading(true);
         cardsContainer.innerHTML = '';
         const id = state.viewUserId;
+
+        // Build the URL with query params if search is provided
+        const params = {
+          keyword: state.searchQuery,
+          rarity: state.rarity,
+          setDetail: state.set
+        };
 
         let url = `${API_BASE_URL}/user/${id}/cards${buildQuery(params)}`;
 
