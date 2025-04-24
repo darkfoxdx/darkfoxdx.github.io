@@ -110,8 +110,6 @@
     };
     state.viewUserId = getIdFromHash();
 
-    console.log('ID: ' + state.viewUserId);
-
     // API Base URL
     const API_BASE_URL = 'https://eugenelow.com/poke_tcg_pocket';
     
@@ -144,7 +142,9 @@
       const storedToken = sessionStorage.getItem('authToken');
       const storedUser = sessionStorage.getItem('userData');
       
-      if (storedToken && storedUser) {
+      if (state.viewUserId) {
+          loadCardsById();
+      } else if (storedToken && storedUser) {
         try {
           const userData = JSON.parse(storedUser);
           state.authToken = storedToken;
@@ -313,12 +313,41 @@
         });
 
         state.cards = response.data.data;
-        renderCards(state.authToken ? true : false);
+        const isAuthorized = state.authToken ? true : false;
+        const isUpdatable = true;
+        renderCards(state.cards, isAuthorized, isUpdatable);
         
         showLoading(false);
       } catch (error) {
         console.error('Error loading cards:', error);
         showStatusMessage('Error loading cards. Please try again.', true);
+        showLoading(false);
+      }
+    }
+
+    async function loadCardsById() {
+      try {
+        showLoading(true);
+        cardsContainer.innerHTML = '';
+        const id = state.viewUserId;
+
+        let url = `${API_BASE_URL}/user/${id}/cards${buildQuery(params)}`;
+
+        const response = await axios.get(url, {
+          headers: {
+            'X-Google-Token': state.authToken
+          }
+        });
+
+        state.cards = response.data.data;
+        const isAuthorized = true;
+        const isUpdatable = false;
+        renderCards(state.cards, isAuthorized, isUpdatable);
+        
+        showLoading(false);
+      } catch (error) {
+        console.error('Error loading user cards:', error);
+        showStatusMessage('Error loading user cards. Please try again.', true);
         showLoading(false);
       }
     }
@@ -419,11 +448,13 @@
     
 
     // Create HTML for a single card
-    function createCardElement(card, authenticated) {
+    function createCardElement(card, authenticated, updatable) {
       // If amount or want is null, default to 0
       const amount = card.amount !== null ? card.amount : 0;
       const want = card.want !== null ? card.want : 0;
       const hidden = authenticated === true ? "" : "hidden";
+      const control = updatable === true ? "" : "hidden";
+
       
       const cardElement = document.createElement('div');
       cardElement.className = 'bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition duration-300';
@@ -440,16 +471,16 @@
           <div class="grid gap-2 mt-4 ${hidden}">
             <div class="flex items-center gap-1">
               <span class="text-sm text-gray-500 mr-2">Amount:</span>
-              <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" onclick="updateCardAmount('${card.unique_id}', false)">-</button>
+              <button class="${control} w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" onclick="updateCardAmount('${card.unique_id}', false)">-</button>
               <span id="amount-${card.unique_id}" class="w-8 text-center font-bold text-lg">${amount}</span>
-              <button class="w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" onclick="updateCardAmount('${card.unique_id}', true)">+</button>
+              <button class="${control} w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" onclick="updateCardAmount('${card.unique_id}', true)">+</button>
             </div>
             
             <div class="flex items-center gap-1">
               <span class="text-sm text-gray-500 mr-2">Wanted:</span>
-              <button class="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" onclick="updateCardWant('${card.unique_id}', false)">-</button>
+              <button class="${control} w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded flex items-center justify-center transition" onclick="updateCardWant('${card.unique_id}', false)">-</button>
               <span id="want-${card.unique_id}" class="w-8 text-center font-bold text-lg">${want}</span>
-              <button class="w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" onclick="updateCardWant('${card.unique_id}', true)">+</button>
+              <button class="${control} w-7 h-7 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition" onclick="updateCardWant('${card.unique_id}', true)">+</button>
             </div>
           </div>
         </div>
@@ -459,16 +490,16 @@
     }
     
     // Render cards to the DOM
-    function renderCards(authorized) {
+    function renderCards(cards, authorized, updatable) {
       cardsContainer.innerHTML = '';
       
-      if (state.cards.length === 0) {
+      if (cards.length === 0) {
         cardsContainer.innerHTML = '<div class="col-span-full text-center py-12 bg-white rounded-lg shadow-md text-gray-500">No cards found matching your search.</div>';
         return;
       }
       
-      state.cards.forEach(card => {
-        const cardElement = createCardElement(card, authorized);
+      cards.forEach(card => {
+        const cardElement = createCardElement(card, authorized, updatable);
         cardsContainer.appendChild(cardElement);
       });
     }
