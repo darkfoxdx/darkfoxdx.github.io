@@ -45,25 +45,28 @@
           <input type="text" class="filter-input" id="searchInput" placeholder="Search by name, ID...">
           <button class="filter-button" id="searchButton">Search</button>
           <button class="filter-button" id="resetFilters" style="background-color: #777;">Reset</button>
+        </div>
+        <div class="filter-extra">
           <!-- Rarity Filter -->
-          <label for="rarityFilter">Rarity:</label>
-          <select id="rarityFilter" multiple>
-            <option value="◊">◊</option>
-            <option value="◊◊">◊◊</option>
-            <option value="◊◊◊">◊◊◊</option>
-            <option value="◊◊◊◊">◊◊◊◊</option>
-            <option value="☆">☆</option>
-            <option value="☆☆">☆☆</option>
-            <option value="☆☆☆">☆☆☆</option>
-          </select>
+          <fieldset id="rarityFilter">
+            <legend>Rarity</legend>
+            <label><input type="checkbox" value="◊"> ◊</label>
+            <label><input type="checkbox" value="◊◊"> ◊◊</label>
+            <label><input type="checkbox" value="◊◊◊"> ◊◊◊</label>
+            <label><input type="checkbox" value="◊◊◊◊"> ◊◊◊◊</label>
+            <label><input type="checkbox" value="☆"> ☆</label>
+            <label><input type="checkbox" value="☆☆"> ☆☆</label>
+            <label><input type="checkbox" value="☆☆☆"> ☆☆☆</label>
+            <label><input type="checkbox" value=""> No rarity</label>
+          </fieldset>
 
           <!-- Pack Filter -->
-          <label for="packFilter">Pack:</label>
-          <select id="packFilter" multiple>
-            <option value="Pack A">Pack A</option>
-            <option value="Pack B">Pack B</option>
-            <option value="Pack C">Pack C</option>
-          </select>
+          <fieldset id="packFilter">
+            <legend>Pack</legend>
+            <label><input type="checkbox" value="Pack A"> Pack A</label>
+            <label><input type="checkbox" value="Pack B"> Pack B</label>
+            <label><input type="checkbox" value="Pack C"> Pack C</label>
+          </fieldset>
         </div>
       </div>
       
@@ -242,12 +245,14 @@
         cardsContainer.innerHTML = '';
         
         // Build the URL with query params if search is provided
-        let url = `${API_BASE_URL}/user/cards`;
-        if (state.searchQuery) {
-          url += `?keyword=${encodeURIComponent(state.searchQuery)}`;
-          url += `?rarity=${encodeURIComponent(state.rarity)}`;
-        }
-        
+        const params = {
+          keyword: state.searchQuery,
+          rarity: state.rarity,
+          pack: state.packs
+        };
+
+        let url = `${API_BASE_URL}/user/cards${buildQuery(params)}`;
+
         const response = await axios.get(url, {
           headers: {
             'X-Google-Token': state.authToken
@@ -263,6 +268,24 @@
         showStatusMessage('Error loading cards. Please try again.', true);
         showLoading(false);
       }
+    }
+
+    function buildQuery(params) {
+      const query = Object.entries(params)
+        .filter(([key, value]) => {
+          // Allow arrays and strings (skip empty values)
+          return Array.isArray(value) ? value.length > 0 : value !== undefined && value !== '';
+        })
+        .flatMap(([key, value]) => {
+          // If the value is an array, build multiple key=value pairs
+          if (Array.isArray(value)) {
+            return value.map(v => `${encodeURIComponent(key)}=${encodeURIComponent(v)}`);
+          }
+          return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+        })
+        .join('&');
+
+      return query ? `?${query}` : '';
     }
     
     // Update card quantity
@@ -430,12 +453,13 @@
     function handleSearch() {
       state.searchQuery = searchInput.value.trim();
             // Get selected rarity values
-      state.rarity = Array.from(document.getElementById("rarityFilter").selectedOptions)
-        .map(option => option.value);
+      state.rarity = Array.from(document.querySelectorAll('#rarityFilter input:checked'))
+        .map(cb => cb.value);
 
       // Get selected pack values
-      state.packs = Array.from(document.getElementById("packFilter").selectedOptions)
-        .map(option => option.value);
+      state.packs = Array.from(document.querySelectorAll('#packFilter input:checked'))
+        .map(cb => cb.value);
+        
       loadCards();
     }
     
