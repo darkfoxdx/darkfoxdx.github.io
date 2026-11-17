@@ -1,0 +1,109 @@
+<!-- * Nothing to see here -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+          --bg-color: #ffffff;
+          --text-color: #1a1a1a;
+          --link-color: #0284c7;
+         --link-hover-color: #0369a1;  
+         --heading-color: #b45309;    
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+            --bg-color: #121212;
+            --text-color: #f0f0f0;
+            --link-color: #38bdf8;      
+            --link-hover-color: #7dd3fc; 
+            --heading-color: #fcd34d;
+            }
+        }
+        
+        body {
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          max-width: 680px;       
+          margin: 0 auto;          
+          padding: 3rem 1.5rem 5rem;
+          line-height: 1.6;       
+        }
+    
+        h1, h2, h3 {
+          margin-top: 2rem;
+          margin-bottom: 0.75rem;
+          line-height: 1.3;
+        }
+        
+        h1 {
+          font-size: 2.2rem;
+          border-bottom: 2px solid var(--link-color);
+          padding-bottom: 0.5rem;
+        }
+        
+        h2 {
+          font-size: 1.5rem;
+          color: var(--heading-color);
+        }
+        
+        p {
+          font-size: 1.4rem;
+          margin-bottom: 1.25rem;
+        }
+        
+        ol, ul {
+          padding-left: 1.2rem;
+          margin-bottom: 1.25rem;
+        }
+        
+        li {
+          font-size: 1.4rem;
+          margin-bottom: 0.75rem;
+        }
+        
+        footer {
+          width: 100%;
+          padding-top: 0.8rem;
+          background-color: var(--bg-color);
+          border-top: 2px solid var(--link-color);
+        }
+        
+        a {
+          color: var(--link-color);
+          text-decoration: underline;
+        }
+        
+        a:hover {
+          color: var(--link-hover-color);
+        }
+    </style>
+    <title>
+      TNG Phishing Warning
+    </title>
+  </head>
+  <body>
+    <h1>⚠️ You have scanned a fake TNG QR code ⚠️</h1>
+    <p>If you found this website through scanning my home made Touch 'n Go (TNG) QR code, it means that TNG QR scanner is still able to open websites. This is very dangerous because this could very well be a <a href="https://simple.wikipedia.org/wiki/Phishing">phishing website</a>.</p>
+    <h2>What is phishing?</h2>
+    <p>
+        Phishing is when someone designed a fake website that has a login form. This login form will ask for your username and password. When you submit the form, it will steal your information.
+    </p>
+    
+    <h2>Why is this dangerous?</h2>
+    <ol>
+        <li>TNG is a payment app and should only allowed to scan payment or TNG related products.</li>
+        <li>A lot of non-tech savvy people are transitioning to modern technologies, so there should be some simple guards to prevent them from falling for scams.</li>
+        <li>Why would TNG even need to be able to open links with their QR scanner? Are you going to use TNG to open restaurants menus? Almost every smart phone camera app can do that already.</li>
+    </ol>
+    <h2>How did I find this out?</h2>
+    <p>
+        My colleague was telling me that his friend saw one of those TNG Money Packets and when the friend scanned it, it opened into a fake Telegram website, trying to ask for username and password. So, we decided to test it out and this was our findings.
+    </p>
+  <footer>
+    This website is made without any AI assisted tools and only for purely educational purposes.
+  </footer>
+  </body>
+
+</html>
